@@ -1,248 +1,315 @@
-⁴<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Dental DentalArt | Sonrisas Saludables</title>
+    <title>DentalStudio Pro | Clínica Odontológica de Alta Especialidad</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --bg-main: #f8fafc;
-            --bg-card: #ffffff;
-            --primary: #0284c7;
-            --primary-hover: #0369a1;
-            --primary-light: #e0f2fe;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --border-light: #e2e8f0;
+            --bg-dark: #090d16;
+            --bg-card: #131a29;
+            --bg-surface: #1e293b;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.25);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1.6; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
 
-        /* Header / Nav */
-        header { background: #ffffff; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+        /* Top Bar */
+        .top-notice { background: rgba(56, 189, 248, 0.1); border-bottom: 1px solid var(--border); padding: 8px 24px; font-size: 0.85rem; text-align: center; color: var(--accent); font-weight: 600; }
+
+        /* Navbar (Navegación 4 Secciones) */
+        header { position: sticky; top: 0; z-index: 100; background: rgba(9, 13, 22, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.5px; }
-        .logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 28px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--primary); }
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { background: var(--gradient-accent); color: #090d16; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+        .logo span { color: var(--accent); }
 
-        .btn-header { background: var(--primary); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
-        .btn-header:hover { background: var(--primary-hover); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
 
-        /* Hero */
-        .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .badge { display: inline-block; background: var(--primary-light); color: var(--primary); font-weight: 700; font-size: 0.8rem; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; color: var(--text-dark); margin-bottom: 20px; letter-spacing: -1px; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; max-width: 500px; }
+        .btn-nav { background: var(--gradient-accent); color: #090d16; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.2s; }
+        .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(56, 189, 248, 0.5); }
 
-        /* Botón con Luz */
-        .btn-glow {
-            display: inline-flex; align-items: center; gap: 12px; background: var(--primary);
-            color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 28px;
-            border-radius: 10px; box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
-            transition: all 0.3s ease; font-size: 0.95rem;
-        }
-        .btn-glow:hover {
-            background: var(--primary-hover); box-shadow: 0 6px 28px rgba(2, 132, 199, 0.55); transform: translateY(-2px);
-        }
-        .btn-glow .arrow {
-            display: flex; align-items: center; justify-content: center; width: 24px; height: 24px;
-            background: rgba(255,255,255,0.25); border-radius: 50%; transition: transform 0.2s ease;
-            box-shadow: 0 0 10px rgba(255,255,255,0.8);
-        }
-        .btn-glow:hover .arrow { transform: translateX(4px); }
+        /* SECCIÓN 1: Inicio / Hero */
+        .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; }
+        .tag-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; color: var(--accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.3rem; font-weight: 800; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero h1 span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 32px; }
 
-        .hero-img img { width: 100%; border-radius: 16px; border: 1px solid var(--border-light); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+        .hero-actions { display: flex; gap: 16px; }
+        .btn-primary { background: var(--gradient-accent); color: #090d16; padding: 16px 32px; border-radius: 10px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 0 25px var(--accent-glow); transition: all 0.3s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(56, 189, 248, 0.6); }
+        .btn-outline { border: 1px solid var(--border); color: #fff; padding: 16px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: border-color 0.2s; }
+        .btn-outline:hover { border-color: rgba(255,255,255,0.3); }
 
-        /* Servicios / Tratamientos */
-        .services { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
-        .section-head { text-align: center; margin-bottom: 50px; }
-        .section-head h2 { font-size: 2.2rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.5px; }
-        .section-head p { color: var(--text-muted); font-size: 1rem; margin-top: 8px; }
+        .hero-img-box { position: relative; }
+        .hero-img-box img { width: 100%; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+        .floating-badge { position: absolute; bottom: -20px; left: -20px; background: var(--bg-card); border: 1px solid var(--border); padding: 18px; border-radius: 14px; backdrop-filter: blur(10px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        .floating-badge h4 { font-size: 1.5rem; color: var(--accent); font-weight: 800; line-height: 1; }
+        .floating-badge p { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
 
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-        .service-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px 24px; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
-        .service-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
-        .service-icon { font-size: 2rem; background: var(--primary-light); width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary); font-weight: 800; }
-        .service-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
-        .service-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; }
+        /* SECCIÓN 2: Nosostros / Métricas */
+        .about-bar { border-y: 1px solid var(--border); background: rgba(255,255,255,0.01); padding: 40px 24px; margin-bottom: 80px; }
+        .about-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 800; color: #fff; }
+        .stat-desc { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
 
-        /* Nosotros / Instalaciones */
-        .about { background: #ffffff; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 80px 24px; }
-        .about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-text h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
-        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1rem; }
-        .about-features { list-style: none; margin-top: 24px; }
-        .about-features li { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
-        .about-features li::before { content: "✓"; color: var(--primary); font-weight: 800; background: var(--primary-light); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
-        .about-img img { width: 100%; border-radius: 16px; border: 1px solid var(--border-light); }
+        /* SECCIÓN 3: Catálogo de Servicios / Trabajos */
+        .catalog { max-width: 1200px; margin: 0 auto; padding: 40px 24px 100px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.5px; }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; margin-top: 8px; }
 
-        /* Formulario / Contacto */
-        .contact { max-width: 1200px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .contact-info h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
-        .contact-info p { color: var(--text-muted); margin-bottom: 30px; }
-        .info-item { margin-bottom: 20px; }
-        .info-item h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-        .info-item p { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin: 0; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .catalog-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+        .catalog-card:hover { transform: translateY(-6px); border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .catalog-img { width: 100%; height: 200px; object-fit: cover; }
+        .catalog-content { padding: 28px; }
+        .catalog-tag { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+        .catalog-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+        .catalog-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
+        .catalog-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px; }
+        .catalog-price { font-weight: 800; color: #fff; font-size: 1.1rem; }
+        .catalog-btn { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.88rem; }
 
-        .booking-form { background: #ffffff; border: 1px solid var(--border-light); padding: 36px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-dark); }
-        .form-group input, .form-group select { width: 100%; padding: 12px 16px; border: 1px solid var(--border-light); border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
-        .btn-submit { width: 100%; background: var(--primary); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
-        .btn-submit:hover { background: var(--primary-hover); }
+        /* SECCIÓN 4: Contacto / Formulario Directo */
+        .contact-section { background: var(--bg-card); border-t: 1px solid var(--border); padding: 100px 24px; }
+        .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .contact-info h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .contact-info p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; }
+        
+        .contact-method { display: flex; align-items: center; gap: 16px; background: var(--bg-dark); border: 1px solid var(--border); padding: 18px 20px; border-radius: 12px; margin-bottom: 16px; }
+        .method-icon { font-size: 1.5rem; }
+        .method-text h5 { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+        .method-text p { font-size: 1rem; font-weight: 600; color: #fff; }
 
-        /* Footer */
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 24px; font-size: 0.9rem; }
+        /* Formulario Directo */
+        .form-card { background: var(--bg-dark); border: 1px solid rgba(56, 189, 248, 0.3); padding: 36px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .form-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+        .form-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+        .input-group { margin-bottom: 18px; }
+        .input-group label { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.5px; }
+        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+        .input-group input:focus, .input-group select:focus { border-color: var(--accent); }
+        
+        .btn-submit { width: 100%; background: var(--gradient-accent); color: #090d16; border: none; padding: 16px; border-radius: 10px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 0 20px var(--accent-glow); transition: all 0.2s; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
 
-        /* Responsive */
+        /* Integración de Redes Sociales y Footer */
+        footer { border-top: 1px solid var(--border); background: #06090f; padding: 60px 24px 30px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 40px; }
+        .social-links { display: flex; gap: 16px; }
+        .social-btn { width: 44px; height: 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
+        .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+        
+        .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
         @media (max-width: 968px) {
-            .hero, .about-container, .contact { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; }
+            .hero, .contact-container { grid-template-columns: 1fr; }
+            .catalog-grid, .about-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .hero h1 { font-size: 2.4rem; }
         }
     </style>
 </head>
 <body>
 
+    <div class="top-notice">
+        ⚡ Carga optimizada sin latencia — Agenda de valoración con scanner 3D disponible esta semana
+    </div>
+
+    <!-- Navegación por las 4 Secciones -->
     <header>
         <nav>
-            <div class="logo">Dental<span>Art</span></div>
+            <div class="logo">
+                <div class="logo-icon">+</div>
+                Dental<span>Studio</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#tratamientos">Tratamientos</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Citas</a></li>
+                <li><a href="#inicio">1. Inicio</a></li>
+                <li><a href="#nosotros">2. Clínica</a></li>
+                <li><a href="#catalogo">3. Catálogo</a></li>
+                <li><a href="#contacto">4. Citas</a></li>
             </ul>
-            <a href="#contacto" class="btn-header">Agendar Cita</a>
+            <a href="#contacto" class="btn-nav">Agendar Cita</a>
         </nav>
     </header>
 
+    <!-- SECCIÓN 1: INICIO (Hero) -->
     <section class="hero" id="inicio">
-        <div class="hero-text">
-            <span class="badge">Especialistas Certificados</span>
-            <h1>Diseñamos la <span>sonrisa perfecta</span> para tu salud y confianza</h1>
-            <p>Atención odontológica integral con tecnología de vanguardia, diagnósticos precisos y un trato cálido en un ambiente 100% cómodo y seguro.</p>
-            <a href="#contacto" class="btn-glow">
-                Solicitar Valoración <span class="arrow">→</span>
-            </a>
+        <div>
+            <div class="tag-badge">● Odontología Digital de Alta Eficiencia</div>
+            <h1>Diseño de sonrisa <span>sin dolor</span> y con tecnología 3D</h1>
+            <p>Atención odontológica especializada con diagnósticos digitales inmediatos y tratamientos estéticos garantizados.</p>
+            <div class="hero-actions">
+                <a href="#contacto" class="btn-primary">Agendar Valoración →</a>
+                <a href="#catalogo" class="btn-outline">Ver Catálogo</a>
+            </div>
         </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Consultorio Dental">
-        </div>
-    </section>
-
-    <section class="services" id="tratamientos">
-        <div class="section-head">
-            <h2>Nuestros Tratamientos Especializados</h2>
-            <p>Soluciones a la medida de tu salud bucal y estética facial.</p>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🦷</div>
-                <h3>Ortodoncia Invisible</h3>
-                <p>Alineación dental mediante alineadores transparentes y brackets de zafiro de rápida evolución.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3>Blanqueamiento Dental</h3>
-                <p>Aclaramiento en una sola sesión con tecnología LED sin causar sensibilidad molesta.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3>Implantes Dentales</h3>
-                <p>Recupera la funcionalidad y estética de tu dentadura con piezas de titanio biocompatible.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💎</div>
-                <h3>Diseño de Sonrisa</h3>
-                <p>Carillas de porcelana ultradelgadas para corregir forma, tamaño y color en tus dientes.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔍</div>
-                <h3>Limpieza Ultrasonido</h3>
-                <p>Eliminación profunda de sarro y placa bacteriana para la prevención de gingivitis.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🧸</div>
-                <h3>Odontopediatría</h3>
-                <p>Cuidado dental especializado para niños con enfoque preventivo y libre de estrés.</p>
+        <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80" alt="Instalaciones DentalStudio">
+            <div class="floating-badge">
+                <h4>4.9 ★★★★★</h4>
+                <p>+500 Pacientes Satisfechos</p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="nosotros">
-        <div class="about-container">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Instalaciones">
+    <!-- SECCIÓN 2: NOSOTROS / MÉTRICAS -->
+    <section class="about-bar" id="nosotros">
+        <div class="about-grid">
+            <div>
+                <div class="stat-num">100%</div>
+                <div class="stat-desc">Esterilización Quirúrgica</div>
             </div>
-            <div class="about-text">
-                <h2>Instalaciones de clase mundial y atención sin dolor</h2>
-                <p>En DentalArt nos enfocamos en romper el miedo al dentista. Contamos con equipos digitales de radiografía 3D y esterilización continua para brindarte la mejor experiencia.</p>
-                <ul class="about-features">
-                    <li>Más de 10 años de experiencia profesional</li>
-                    <li>Radiografías digitales de baja radiación</li>
-                    <li>Planes de pago a meses sin intereses</li>
-                    <li>Instalaciones sanitizadas y climatizadas</li>
-                </ul>
+            <div>
+                <div class="stat-num">&lt; 15 min</div>
+                <div class="stat-desc">Tiempo de Espera Promedio</div>
+            </div>
+            <div>
+                <div class="stat-num">3D HD</div>
+                <div class="stat-desc">Escaneo Intraoral Digital</div>
+            </div>
+            <div>
+                <div class="stat-num">0%</div>
+                <div class="stat-desc">Intereses con Tarjetas</div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contacto">
-        <div class="contact-info">
-            <h2>Agenda tu cita de primera valoración</h2>
-            <p>Déjanos tus datos y nos comunicaremos de inmediato para confirmar la hora de tu cita.</p>
-
-            <div class="info-item">
-                <h4>Ubicación</h4>
-                <p>Av. Principal #450, Centro Médico, Piso 3</p>
-            </div>
-            <div class="info-item">
-                <h4>Horario de Atención</h4>
-                <p>Lunes a Sábado: 9:00 AM – 7:00 PM</p>
-            </div>
-            <div class="info-item">
-                <h4>Atención Inmediata</h4>
-                <p>WhatsApp: +52 221 815 8630</p>
-            </div>
+    <!-- SECCIÓN 3: CATÁLOGO DE PRODUCTOS Y TRABAJOS -->
+    <section class="catalog" id="catalogo">
+        <div class="section-header">
+            <h2>Catálogo de Especialidades</h2>
+            <p>Tratamientos médicos diseñados con precisión y materiales de grado clínico internacional.</p>
         </div>
 
-        <div class="booking-form">
-            <form onsubmit="alert('Demostración: En la versión final este formulario envía la cita a tu WhatsApp o correo.'); return false;">
-                <div class="form-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" placeholder="Ej. Juan Pérez" required>
+        <div class="catalog-grid">
+            <div class="catalog-card">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" class="catalog-img" alt="Diseño de Sonrisa">
+                <div class="catalog-content">
+                    <span class="catalog-tag">Estética Avanzada</span>
+                    <h3 class="catalog-title">Diseño de Sonrisa 3D</h3>
+                    <p class="catalog-desc">Planificación computarizada mediante carillas ultra finas de porcelana para una sonrisa simétrica.</p>
+                    <div class="catalog-footer">
+                        <span class="catalog-price">Desde $3,500 MXN</span>
+                        <a href="#contacto" class="catalog-btn">Consultar →</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Teléfono o WhatsApp</label>
-                    <input type="tel" placeholder="221 000 0000" required>
+            </div>
+
+            <div class="catalog-card">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" class="catalog-img" alt="Ortodoncia Invisible">
+                <div class="catalog-content">
+                    <span class="catalog-tag">Ortodoncia</span>
+                    <h3 class="catalog-title">Alineadores Invisibles</h3>
+                    <p class="catalog-desc">Férulas transparentes invisibles y removibles. Corrección dental rápida sin el uso de brackets tradicionales.</p>
+                    <div class="catalog-footer">
+                        <span class="catalog-price">Valoración Gratis</span>
+                        <a href="#contacto" class="catalog-btn">Consultar →</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Tratamiento de Interés</label>
-                    <select required>
-                        <option value="">Selecciona una opción</option>
-                        <option>Valoración General</option>
-                        <option>Ortodoncia / Brackets</option>
-                        <option>Blanqueamiento Dental</option>
-                        <option>Implantes Dentales</option>
-                        <option>Limpieza / Prevención</option>
-                    </select>
+            </div>
+
+            <div class="catalog-card">
+                <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80" class="catalog-img" alt="Blanqueamiento Dental">
+                <div class="catalog-content">
+                    <span class="catalog-tag">Tratamiento Express</span>
+                    <h3 class="catalog-title">Blanqueamiento Láser</h3>
+                    <p class="catalog-desc">Aclaramiento de hasta 4 tonos en una sola sesión de 45 minutos sin causar sensibilidad en el esmalte.</p>
+                    <div class="catalog-footer">
+                        <span class="catalog-price">$1,800 MXN</span>
+                        <a href="#contacto" class="catalog-btn">Consultar →</a>
+                    </div>
                 </div>
-                <button type="submit" class="btn-submit">Confirmar Solicitud de Cita</button>
-            </form>
+            </div>
         </div>
     </section>
 
+    <!-- SECCIÓN 4: FORMULARIO DE CONTACTO DIRECTO -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Agenda tu cita de valoración directa</h2>
+                <p>Completa el formulario y nuestro equipo coordinará tu cita al instante vía WhatsApp.</p>
+
+                <div class="contact-method">
+                    <div class="method-icon">📍</div>
+                    <div class="method-text">
+                        <h5>Ubicación</h5>
+                        <p>Av. Principal Corporativa #402, Consultorio 3</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="method-icon">💬</div>
+                    <div class="method-text">
+                        <h5>WhatsApp Directo</h5>
+                        <p>+52 221 815 8630</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3>Formulario de Contacto Directo</h3>
+                <p>Ingresa tus datos para recibir atención prioritaria:</p>
+                <form onsubmit="alert('Demostración: Los datos se envían a tu WhatsApp en la versión final.'); return false;">
+                    <div class="input-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej. Roberto Martínez" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Teléfono de Contacto</label>
+                        <input type="tel" placeholder="221 000 0000" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Servicio de Interés</label>
+                        <select required>
+                            <option value="">Selecciona un tratamiento</option>
+                            <option>Diseño de Sonrisa 3D</option>
+                            <option>Alineadores Invisibles</option>
+                            <option>Blanqueamiento Láser</option>
+                            <option>Limpieza / Diagnóstico General</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Solicitud de Cita</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTEGRACIÓN DE REDES SOCIALES Y FOOTER -->
     <footer>
-        <p>© 2026 Clínica DentalArt — Sitio maquetado como demostración por DAMstudio</p>
+        <div class="footer-container">
+            <div>
+                <div class="logo">
+                    <div class="logo-icon">+</div>
+                    Dental<span>Studio</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px;">Tecnología Odontológica de Vanguardia</p>
+            </div>
+
+            <!-- Integración de Redes Sociales -->
+            <div class="social-links">
+                <a href="#" class="social-btn" title="Facebook">FB</a>
+                <a href="#" class="social-btn" title="Instagram">IG</a>
+                <a href="#" class="social-btn" title="WhatsApp">WA</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 DentalStudio — Demo Oficial maquetada para Paquete Negocio Pro ($2,500 MXN) por DAMstudio</p>
+        </div>
     </footer>
 
 </body>
