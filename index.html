@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAMstudio | Agencia de Desarrollo Web & Soluciones Digitales</title>
+    <title>DAMstudio | Agencia Digital & Desarrollo Web</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         :root {
             --bg-main: #05070c;
-            --bg-card: rgba(15, 23, 42, 0.6);
+            --bg-card: rgba(15, 23, 42, 0.65);
             --border-card: rgba(255, 255, 255, 0.08);
             --accent: #38bdf8;
             --accent-glow: rgba(56, 189, 248, 0.25);
@@ -18,24 +18,25 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        body { background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; position: relative; }
 
-        /* Luces de Fondo (Glow Effect) */
-        .glow-bg {
-            position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
-            width: 800px; height: 800px; background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.08) 40%, rgba(0,0,0,0) 70%);
-            pointer-events: none; z-index: 0;
+        /* Luz que sigue al cursor */
+        .cursor-glow {
+            position: fixed; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+            z-index: 0; transition: transform 0.05s ease;
         }
 
         /* Header / Nav */
-        header { border-bottom: 1px solid var(--border-card); background: rgba(5, 7, 12, 0.8); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(16px); }
+        header { border-bottom: 1px solid var(--border-card); background: rgba(5, 7, 12, 0.85); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(16px); }
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; }
         .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; display: flex; align-items: center; gap: 8px; }
         .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
         .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 32px; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
         .nav-links a:hover { color: #fff; }
 
-        /* Hero Section */
+        /* Hero */
         .hero { max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
         .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 20px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
         .hero-text h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
@@ -48,22 +49,15 @@
         .btn-secondary { color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 600; text-decoration: none; border: 1px solid var(--border-card); background: rgba(255,255,255,0.03); transition: background 0.2s; }
         .btn-secondary:hover { background: rgba(255,255,255,0.08); }
 
-        /* Mockup Interactivo */
-        .hero-preview { position: relative; }
+        /* Mockup */
         .window-mockup { background: #0f172a; border: 1px solid var(--border-card); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); }
         .window-header { background: #1e293b; padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-card); }
         .dot { width: 10px; height: 10px; border-radius: 50%; }
         .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #10b981; }
-        .window-body img { width: 100%; display: block; border-radius: 0 0 16px 16px; }
-
-        /* Métricas */
-        .stats-section { border-y: 1px solid var(--border-card); background: rgba(255,255,255,0.01); padding: 50px 24px; margin-bottom: 60px; }
-        .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 20px; }
-        .stat-val { font-size: 2.4rem; font-weight: 800; color: #fff; letter-spacing: -1px; }
-        .stat-desc { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 4px; }
+        .window-body img { width: 100%; display: block; }
 
         /* Servicios / Planes */
-        .services { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+        .services { max-width: 1200px; margin: 0 auto; padding: 100px 24px; position: relative; z-index: 1; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.6rem; font-weight: 800; letter-spacing: -1px; }
         .section-title p { color: var(--text-secondary); font-size: 1.1rem; margin-top: 10px; }
@@ -94,33 +88,34 @@
         .card.featured .card-action { background: var(--accent); color: #0b0f17; border: none; }
         .card.featured .card-action:hover { background: #7dd3fc; }
 
-        /* Proceso de Trabajo */
-        .process-section { max-width: 1200px; margin: 0 auto; padding: 80px 24px 120px; }
-        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
-        .process-step { background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); padding: 30px 24px; border-radius: 16px; position: relative; }
-        .step-num { font-size: 2rem; font-weight: 800; color: var(--accent); opacity: 0.6; margin-bottom: 12px; }
-        .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-        .step-desc { font-size: 0.88rem; color: var(--text-secondary); }
+        /* Preguntas Frecuentes */
+        .faq-section { max-width: 800px; margin: 0 auto; padding: 60px 24px 120px; position: relative; z-index: 1; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { width: 100%; text-align: left; padding: 20px; background: none; border: none; color: #fff; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 20px 20px; color: var(--text-secondary); font-size: 0.95rem; display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-icon { transition: transform 0.2s; font-size: 1.2rem; color: var(--accent); }
 
         /* Responsive */
         @media (max-width: 968px) {
             .hero { grid-template-columns: 1fr; text-align: center; padding-top: 60px; }
             .hero-text p { margin: 0 auto 36px; }
             .hero-cta { justify-content: center; }
-            .cards-grid, .stats-grid, .process-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-bg"></div>
+    <div class="cursor-glow" id="glow"></div>
 
     <header>
         <nav>
             <div class="logo"><div class="logo-dot"></div> DAMstudio</div>
             <div class="nav-links">
                 <a href="#servicios">Servicios</a>
-                <a href="#proceso">Metodología</a>
+                <a href="#faq">Preguntas Frecuentes</a>
                 <a href="https://wa.me/522218158630" target="_blank">Contacto</a>
             </div>
         </nav>
@@ -150,27 +145,6 @@
         </div>
     </section>
 
-    <div class="stats-section">
-        <div class="stats-grid">
-            <div>
-                <div class="stat-val">100%</div>
-                <div class="stat-desc">Diseño Personalizado</div>
-            </div>
-            <div>
-                <div class="stat-val">&lt; 1.2s</div>
-                <div class="stat-desc">Tiempo de Carga</div>
-            </div>
-            <div>
-                <div class="stat-val">SEO</div>
-                <div class="stat-desc">Optimizado para Google</div>
-            </div>
-            <div>
-                <div class="stat-val">24/7</div>
-                <div class="stat-desc">Disponibilidad en Servidor</div>
-            </div>
-        </div>
-    </div>
-
     <section class="services" id="servicios">
         <div class="section-title">
             <h2>Nuestros Servicios</h2>
@@ -178,26 +152,24 @@
         </div>
 
         <div class="cards-grid">
-            <!-- Esencial -->
             <div class="card">
                 <div class="card-name">Plan Esencial</div>
                 <div class="card-price">$999 <span>MXN</span></div>
                 <ul class="card-features">
                     <li>Landing Page de 1 sola sección</li>
-                    <li>Botón de conversión directa a WhatsApp</li>
-                    <li>Ubicación geolocalizada en Google Maps</li>
-                    <li>Diseño responsivo para teléfonos</li>
+                    <li>Botón directo a WhatsApp</li>
+                    <li>Ubicación en Google Maps</li>
+                    <li>Diseño responsivo para móviles</li>
                     <li>Despliegue rápido</li>
                 </ul>
                 <a href="demo-basica.html" class="card-action">Probar Demo Live</a>
             </div>
 
-            <!-- Negocio Pro -->
             <div class="card">
                 <div class="card-name">Negocio Pro</div>
                 <div class="card-price">$2,500 <span>MXN</span></div>
                 <ul class="card-features">
-                    <li>Sitio completo de hasta 4 secciones</li>
+                    <li>Sitio completo (Hasta 4 secciones)</li>
                     <li>Catálogo interactivo o Galería</li>
                     <li>Formulario de prospectos directo</li>
                     <li>Integración con redes sociales</li>
@@ -206,7 +178,6 @@
                 <a href="#" class="card-action">Próximamente</a>
             </div>
 
-            <!-- Premium Elite -->
             <div class="card featured">
                 <div class="featured-tag">Recomendado</div>
                 <div class="card-name">Premium Elite</div>
@@ -216,43 +187,65 @@
                     <li>Animaciones avanzadas de alto impacto</li>
                     <li>Sección de testimonios y reseñas</li>
                     <li>Menú / Catálogo interactivo dinámico</li>
-                    <li>Arquitectura enfocada en máxima conversión</li>
+                    <li>Arquitectura de máxima conversión</li>
                 </ul>
                 <a href="#" class="card-action">Próximamente</a>
             </div>
         </div>
     </section>
 
-    <!-- Proceso de Trabajo -->
-    <section class="process-section" id="proceso">
+    <section class="faq-section" id="faq">
         <div class="section-title">
-            <h2>Proceso de Trabajo</h2>
-            <p>Garantizamos transparencia y entregas puntuales en cada fase.</p>
+            <h2>Preguntas Frecuentes</h2>
+            <p>Todo lo que necesitas saber antes de iniciar tu proyecto.</p>
         </div>
 
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="step-num">01</div>
-                <div class="step-title">Estrategia</div>
-                <div class="step-desc">Analizamos la oferta de tu negocio y definimos la estructura ideal.</div>
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Qué necesito para empezar mi página web?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Solo necesitas definir la información básica de tu negocio (logotipo, servicios, datos de contacto y fotos si cuentas con ellas). Nosotros nos encargamos de la estructura, redacción y diseño.
             </div>
-            <div class="process-step">
-                <div class="step-num">02</div>
-                <div class="step-title">Diseño UI/UX</div>
-                <div class="step-desc">Creamos prototipos de alto nivel visual alineados a tu marca.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Cuánto tiempo tarda la entrega?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                El Plan Esencial ($999) se entrega en un plazo de 24 a 48 horas. Los planes complejos como Negocio Pro o Premium Elite toman entre 4 y 7 días hábiles.
             </div>
-            <div class="process-step">
-                <div class="step-num">03</div>
-                <div class="step-title">Desarrollo</div>
-                <div class="step-desc">Escribimos código limpio, rápido y seguro sin plantillas pesadas.</div>
-            </div>
-            <div class="process-step">
-                <div class="step-num">04</div>
-                <div class="step-title">Lanzamiento</div>
-                <div class="step-desc">Publicamos tu sitio en servidor y realizamos pruebas de rendimiento.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿La página funciona bien en teléfonos celulares?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Sí, el 100% de nuestros desarrollos están adaptados para cargar rápido y desplegarse correctamente en smartphones, tablets y computadoras.
             </div>
         </div>
     </section>
 
+    <script>
+        // Luz interactiva con el mouse
+        const glow = document.getElementById('glow');
+        window.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Acordeón Preguntas Frecuentes
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
