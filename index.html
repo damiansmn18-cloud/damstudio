@@ -3,134 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAMstudio | Desarrollo Web Profesional</title>
+    <title>DAMstudio | Agencia Digital Premium</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f4f1ea; color: #1e1e1e; }
-
-        /* Navegación Superior */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: #f4f1ea; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: #1e1e1e; text-transform: uppercase; letter-spacing: -0.5px; }
-        .nav-links a { color: #4a4a4a; text-decoration: none; margin-left: 30px; font-weight: 500; font-size: 0.95rem; }
-
-        /* Hero Section estilo Tarjeta Flotante sobre Imagen */
-        .hero-container { padding: 0 8% 60px; }
-        .hero-banner { 
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80') center/cover;
-            border-radius: 24px; min-height: 520px; padding: 50px; display: flex; align-items: center; position: relative;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { 
+            background-color: #07090e; 
+            color: #ffffff; 
+            overflow-x: hidden;
         }
-        .hero-card { 
-            background: #f4f1ea; border-radius: 20px; padding: 50px 40px; max-width: 580px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+
+        /* Luces de Fondo (Glow Effects) */
+        .glow-1 {
+            position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none; z-index: 0;
         }
-        .hero-card h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; color: #1a1a1a; margin-bottom: 25px; letter-spacing: -1px; }
-        .hero-card p { font-size: 1rem; color: #555; margin-bottom: 30px; line-height: 1.5; }
-        .btn-orange { 
-            background: #f05a28; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 30px; font-weight: 600; font-size: 1rem; display: inline-block; transition: background 0.2s;
+
+        /* Navegación */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; position: relative; z-index: 10; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 30px; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #ffffff; }
+
+        /* Hero Elite */
+        .hero { position: relative; z-index: 1; text-align: center; padding: 100px 8% 80px; max-width: 1000px; margin: 0 auto; }
+        .badge { display: inline-block; padding: 8px 18px; border-radius: 30px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; }
+        .hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 25px; }
+        .hero h1 span { background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; line-height: 1.6; max-width: 650px; margin: 0 auto 40px; }
+
+        /* Botón Principal */
+        .btn-elite { 
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #ffffff; text-decoration: none; 
+            padding: 16px 36px; border-radius: 30px; font-weight: 600; font-size: 1rem; display: inline-block; 
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3); transition: transform 0.2s, box-shadow 0.2s;
         }
-        .btn-orange:hover { background: #d94b1c; }
+        .btn-elite:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(99, 102, 241, 0.45); }
 
-        /* Sección Acerca de */
-        .about-section { padding: 80px 8%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; border-top: 1px solid #e2ded5; }
-        .about-title { font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
-        .about-text { font-size: 1.15rem; color: #333; line-height: 1.7; }
+        /* Sección de Planes / Servicios */
+        .plans-section { padding: 80px 8% 120px; position: relative; z-index: 1; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+        .section-header p { color: #94a3b8; font-size: 1.05rem; }
 
-        /* Sección de Servicios - Fondo Azul Oscuro */
-        .services-section { background: #0c1222; color: #ffffff; padding: 10px 8%; border-radius: 32px 32px 0 0; margin-top: 40px; }
-        .services-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 60px; }
-        .services-header h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
-        .services-header p { max-width: 450px; color: #a0aec0; font-size: 1rem; line-height: 1.6; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: #f4f1ea; color: #1e1e1e; padding: 40px 30px; border-radius: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 380px; }
-        .icon-star { color: #f05a28; font-size: 2rem; margin-bottom: 20px; }
-        .service-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
-        .service-price { font-size: 1.8rem; font-weight: 800; color: #f05a28; margin-bottom: 15px; }
-        .service-card p { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+        .grid-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; align-items: center; }
         
-        .btn-service { background: #0c1222; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 25px; text-align: center; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s; }
-        .btn-service:hover { opacity: 0.9; }
+        /* Tarjeta Estilo Glassmorphism */
+        .plan-card { 
+            background: rgba(15, 23, 42, 0.6); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(12px); 
+            border-radius: 24px; padding: 40px 30px; position: relative; transition: border-color 0.3s, transform 0.3s;
+        }
+        .plan-card:hover { border-color: rgba(129, 140, 248, 0.4); transform: translateY(-5px); }
 
-        @media (max-width: 900px) {
-            .hero-banner { padding: 20px; }
-            .hero-card h1 { font-size: 2rem; }
-            .about-section { grid-template-columns: 1fr; }
-            .services-header { flex-direction: column; gap: 20px; }
-            .services-header h2 { font-size: 2.2rem; }
+        /* Tarjeta Destacada */
+        .plan-card.featured { 
+            background: rgba(30, 27, 75, 0.5); 
+            border: 2px solid #6366f1; 
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15); 
+        }
+        .tag-featured { 
+            position: absolute; top: -14px; right: 25px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); 
+            color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .plan-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+        .plan-price { font-size: 2.2rem; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
+        .plan-price span { font-size: 1rem; color: #94a3b8; font-weight: 400; }
+        .plan-features { list-style: none; margin-bottom: 30px; }
+        .plan-features li { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .plan-features li::before { content: "✓"; color: #818cf8; font-weight: 800; }
+
+        .btn-card { display: block; text-align: center; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s; }
+        .btn-card:hover { background: rgba(255,255,255,0.15); }
+        .plan-card.featured .btn-card { background: #6366f1; border: none; }
+        .plan-card.featured .btn-card:hover { background: #4f46e5; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .grid-plans { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navegación -->
+    <div class="glow-1"></div>
+
     <nav>
         <div class="logo">DAMstudio</div>
         <div class="nav-links">
-            <a href="#acerca">Acerca de</a>
-            <a href="#servicios">Servicios</a>
+            <a href="#planes">Planes</a>
             <a href="https://wa.me/522218158630" target="_blank">Contacto</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <div class="hero-container">
-        <div class="hero-banner">
-            <div class="hero-card">
-                <h1>Transforma tu negocio hoy</h1>
-                <p>Diseño web profesional de alto impacto visual adaptado a las necesidades específicas de tu empresa.</p>
-                <a href="#servicios" class="btn-orange">Ver Planes</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Acerca de -->
-    <section class="about-section" id="acerca">
-        <div class="about-title">ACERCA DE</div>
-        <div class="about-text">
-            DAMstudio es un estudio de desarrollo y diseño web enfocado en potenciar la presencia digital de pequeños y medianos negocios mediante soluciones a medida, optimización técnica y alto impacto visual.
-        </div>
+    <section class="hero">
+        <div class="badge">ESTUDIO DE DESARROLLO WEB</div>
+        <h1>Páginas web de alto impacto que <span>atraen clientes</span></h1>
+        <p>Creamos experiencias digitales exclusivas, rápidas y totalmente adaptadas a la identidad de tu negocio.</p>
+        <a href="#planes" class="btn-elite">Explorar Soluciones</a>
     </section>
 
-    <!-- Nuestros Servicios (Planes de la Agencia) -->
-    <section class="services-section" id="servicios">
-        <div class="services-header">
-            <h2>Nuestros<br>servicios</h2>
-            <p>Explora nuestra gama de soluciones web diseñadas para atender las necesidades de tu negocio e impulsar un crecimiento sostenible.</p>
+    <section class="plans-section" id="planes">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Selecciona la opción ideal para llevar tu negocio al siguiente nivel visual y comercial.</p>
         </div>
 
-        <div class="services-grid">
-            <!-- Plan Esencial -->
-            <div class="service-card">
-                <div>
-                    <div class="icon-star">✦</div>
-                    <h3>Plan Esencial</h3>
-                    <div class="service-price">$999 MXN</div>
-                    <p>Landing page directa y optimizada de una sola sección. Ideal para negocios que buscan presencia rápida y contacto directo por WhatsApp.</p>
-                </div>
-                <a href="demo-basica.html" class="btn-service">Probar Demo</a>
+        <div class="grid-plans">
+            <!-- Esencial -->
+            <div class="plan-card">
+                <div class="plan-name">Esencial</div>
+                <div class="plan-price">$999 <span>MXN</span></div>
+                <ul class="plan-features">
+                    <li>Landing Page (1 sola sección)</li>
+                    <li>Botón directo a WhatsApp</li>
+                    <li>Ubicación en Google Maps</li>
+                    <li>Diseño adaptado a celulares</li>
+                    <li>Entrega rápida</li>
+                </ul>
+                <a href="demo-basica.html" class="btn-card">Probar Demo</a>
             </div>
 
-            <!-- Plan Negocio Pro -->
-            <div class="service-card">
-                <div>
-                    <div class="icon-star">✦</div>
-                    <h3>Negocio Pro</h3>
-                    <div class="service-price">$2,500 MXN</div>
-                    <p>Sitio web completo de hasta 4 secciones, catálogo o galería de trabajos, formulario de contacto directo y optimización para móviles.</p>
-                </div>
-                <a href="#" class="btn-service">Próximamente</a>
+            <!-- Negocio Pro -->
+            <div class="plan-card">
+                <div class="plan-name">Negocio Pro</div>
+                <div class="plan-price">$2,500 <span>MXN</span></div>
+                <ul class="plan-features">
+                    <li>Sitio Completo (Hasta 4 secciones)</li>
+                    <li>Catálogo / Galería de Trabajos</li>
+                    <li>Formulario de Contacto Directo</li>
+                    <li>Carga optimizada en móviles</li>
+                    <li>Enlaces a Redes Sociales</li>
+                </ul>
+                <a href="#" class="btn-card">Próximamente</a>
             </div>
 
             <!-- Premium Plan Elite -->
-            <div class="service-card">
-                <div>
-                    <div class="icon-star">✦</div>
-                    <h3>Premium Elite</h3>
-                    <div class="service-price">$3,800 MXN</div>
-                    <p>Diseño exclusivo e inmersivo con animaciones modernas, sección de reseñas/testimonios y menú interactivo de alto impacto.</p>
-                </div>
-                <a href="#" class="btn-service">Próximamente</a>
+            <div class="plan-card featured">
+                <div class="tag-featured">Recomendado</div>
+                <div class="plan-name">Premium Elite</div>
+                <div class="plan-price">$3,800 <span>MXN</span></div>
+                <ul class="plan-features">
+                    <li>Diseño Exclusivo e Inmersivo</li>
+                    <li>Animaciones e Interacciones Modernas</li>
+                    <li>Sección de Reseñas / Testimonios</li>
+                    <li>Menú o Catálogo Interactivo</li>
+                    <li>Estructura de Alto Impacto Visual</li>
+                </ul>
+                <a href="#" class="btn-card">Próximamente</a>
             </div>
         </div>
     </section>
