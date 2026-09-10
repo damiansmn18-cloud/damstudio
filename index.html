@@ -3,116 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAMstudio | Agencia Digital & Desarrollo Web</title>
+    <title>DAMstudio | Agencia de Desarrollo Web y Diseño Digital</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-        :root {
-            --bg-main: #05070c;
-            --bg-card: rgba(15, 23, 42, 0.65);
-            --border-card: rgba(255, 255, 255, 0.08);
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.25);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; position: relative; }
-
-        /* Luz que sigue al cursor */
-        .cursor-glow {
-            position: fixed; width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
-            z-index: 0; transition: transform 0.05s ease;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #0b0f17; color: #f1f5f9; line-height: 1.6; }
 
         /* Header / Nav */
-        header { border-bottom: 1px solid var(--border-card); background: rgba(5, 7, 12, 0.85); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(16px); }
+        header { border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(11, 15, 23, 0.9); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; }
-        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; display: flex; align-items: center; gap: 8px; }
-        .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 32px; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+        .logo span { color: #38bdf8; }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 32px; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
         .nav-links a:hover { color: #fff; }
 
-        /* Hero */
-        .hero { max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-        .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 20px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
-        .hero-text h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
-        .hero-text h1 span { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-text p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 36px; max-width: 520px; }
-        
+        /* Hero Section */
+        .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-text h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 20px; }
+        .hero-text h1 span { color: #38bdf8; }
+        .hero-text p { font-size: 1.1rem; color: #94a3b8; margin-bottom: 36px; max-width: 500px; }
         .hero-cta { display: flex; gap: 16px; align-items: center; }
-        .btn-primary { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); color: #0b0f17; padding: 14px 32px; border-radius: 30px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 25px var(--accent-glow); transition: transform 0.2s, box-shadow 0.2s; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4); }
-        .btn-secondary { color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 600; text-decoration: none; border: 1px solid var(--border-card); background: rgba(255,255,255,0.03); transition: background 0.2s; }
-        .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+        .btn-primary { background: #38bdf8; color: #0b0f17; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+        .btn-primary:hover { background: #7dd3fc; }
+        .btn-secondary { color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: border-color 0.2s; }
+        .btn-secondary:hover { border-color: #fff; }
 
-        /* Mockup */
-        .window-mockup { background: #0f172a; border: 1px solid var(--border-card); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); }
-        .window-header { background: #1e293b; padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-card); }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #10b981; }
-        .window-body img { width: 100%; display: block; }
+        .hero-image { position: relative; }
+        .hero-image img { width: 100%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
 
-        /* Servicios / Planes */
-        .services { max-width: 1200px; margin: 0 auto; padding: 100px 24px; position: relative; z-index: 1; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.6rem; font-weight: 800; letter-spacing: -1px; }
-        .section-title p { color: var(--text-secondary); font-size: 1.1rem; margin-top: 10px; }
+        /* Métricas corporativas */
+        .stats-bar { border-y: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); padding: 40px 24px; }
+        .stats-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; }
+        .stat-number { font-size: 2.2rem; font-weight: 800; color: #fff; }
+        .stat-label { font-size: 0.9rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 4px; }
 
-        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: flex-start; }
-        .card { 
-            background: var(--bg-card); border: 1px solid var(--border-card); 
-            backdrop-filter: blur(12px); border-radius: 20px; padding: 36px 28px; position: relative; transition: all 0.3s ease; 
-        }
-        .card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        /* Sección de Servicios / Planes */
+        .services { max-width: 1200px; margin: 0 auto; padding: 100px 24px 60px; }
+        .section-head { text-align: center; margin-bottom: 60px; }
+        .section-head h2 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; }
+        .section-head p { color: #94a3b8; font-size: 1.05rem; margin-top: 10px; }
 
-        .card.featured { 
-            background: rgba(15, 23, 42, 0.85); border: 2px solid var(--accent); 
-            box-shadow: 0 20px 40px var(--accent-glow); 
-        }
-        .featured-tag { position: absolute; top: -14px; right: 24px; background: var(--accent); color: #0b0f17; font-size: 0.75rem; font-weight: 800; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; }
-
-        .card-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
-        .card-price { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 20px; }
-        .card-price span { font-size: 0.9rem; color: var(--text-secondary); font-weight: 400; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .card { background: #131924; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+        .card:hover { transform: translateY(-4px); border-color: rgba(56, 189, 248, 0.4); }
+        .card-img { width: 100%; height: 180px; object-fit: cover; }
+        .card-body { padding: 32px 28px; flex-grow: 1; display: flex; flex-direction: column; }
         
-        .card-features { list-style: none; margin-bottom: 32px; }
-        .card-features li { color: #cbd5e1; font-size: 0.92rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .card-features li::before { content: "✓"; color: var(--accent); font-weight: 800; }
+        .card-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #38bdf8; margin-bottom: 12px; }
+        .card-title { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .card-price { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 20px; }
+        .card-price span { font-size: 0.9rem; color: #64748b; font-weight: 400; }
+        
+        .card-list { list-style: none; margin-bottom: 32px; flex-grow: 1; }
+        .card-list li { color: #94a3b8; font-size: 0.9rem; margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .card-list li::before { content: "✓"; position: absolute; left: 0; color: #38bdf8; font-weight: 700; }
 
-        .card-action { display: block; text-align: center; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-card); transition: background 0.2s; }
-        .card-action:hover { background: rgba(255,255,255,0.15); }
-        .card.featured .card-action { background: var(--accent); color: #0b0f17; border: none; }
-        .card.featured .card-action:hover { background: #7dd3fc; }
+        .card-btn { display: block; text-align: center; background: rgba(255,255,255,0.05); color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s; }
+        .card-btn:hover { background: rgba(255,255,255,0.12); }
+
+        .card.featured { border: 2px solid #38bdf8; background: #162032; position: relative; }
+        .card-tag { position: absolute; top: 16px; right: 16px; background: #38bdf8; color: #0b0f17; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+        .card.featured .card-btn { background: #38bdf8; color: #0b0f17; border: none; }
+        .card.featured .card-btn:hover { background: #7dd3fc; }
 
         /* Preguntas Frecuentes */
-        .faq-section { max-width: 800px; margin: 0 auto; padding: 60px 24px 120px; position: relative; z-index: 1; }
-        .faq-item { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
-        .faq-question { width: 100%; text-align: left; padding: 20px; background: none; border: none; color: #fff; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 20px 20px; color: var(--text-secondary); font-size: 0.95rem; display: none; }
+        .faq { max-width: 800px; margin: 0 auto; padding: 40px 24px 100px; }
+        .faq-item { background: #131924; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { width: 100%; text-align: left; padding: 20px 24px; background: none; border: none; color: #fff; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 24px 20px; color: #94a3b8; font-size: 0.95rem; display: none; line-height: 1.6; }
         .faq-item.active .faq-answer { display: block; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-        .faq-icon { transition: transform 0.2s; font-size: 1.2rem; color: var(--accent); }
+        .faq-item.active .faq-icon { transform: rotate(45deg); color: #38bdf8; }
+        .faq-icon { transition: transform 0.2s; font-size: 1.3rem; color: #64748b; }
 
         /* Responsive */
         @media (max-width: 968px) {
-            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 60px; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 60px 24px; }
             .hero-text p { margin: 0 auto 36px; }
             .hero-cta { justify-content: center; }
-            .cards-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats-container { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cursor-glow" id="glow"></div>
-
     <header>
         <nav>
-            <div class="logo"><div class="logo-dot"></div> DAMstudio</div>
+            <div class="logo">DAM<span>studio</span></div>
             <div class="nav-links">
                 <a href="#servicios">Servicios</a>
                 <a href="#faq">Preguntas Frecuentes</a>
@@ -123,129 +101,156 @@
 
     <section class="hero">
         <div class="hero-text">
-            <div class="badge">ESTUDIO DE INGENIERÍA & DISEÑO WEB</div>
-            <h1>Infraestructura web que <span>convierte visitas en clientes</span></h1>
-            <p>Diseñamos plataformas digitales con velocidad ultrarrápida, arquitectura moderna y diseño exclusivo orientado a maximizar ventas.</p>
+            <h1>Desarrollo web corporativo de <span>alto rendimiento</span></h1>
+            <p>Diseñamos e implementamos infraestructura digital profesional para empresas que buscan proyectar autoridad, captar clientes y escalar su presencia digital.</p>
             <div class="hero-cta">
                 <a href="#servicios" class="btn-primary">Ver Soluciones</a>
-                <a href="https://wa.me/522218158630" target="_blank" class="btn-secondary">Consulta Directa</a>
+                <a href="https://wa.me/522218158630" target="_blank" class="btn-secondary">Agendar Consulta</a>
             </div>
         </div>
-        <div class="hero-preview">
-            <div class="window-mockup">
-                <div class="window-header">
-                    <div class="dot dot-red"></div>
-                    <div class="dot dot-yellow"></div>
-                    <div class="dot dot-green"></div>
-                </div>
-                <div class="window-body">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Demo Plataforma">
-                </div>
-            </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Consultoría Web Profesional">
         </div>
     </section>
+
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Diseño Personalizado</div>
+            </div>
+            <div>
+                <div class="stat-number">&lt; 1.5s</div>
+                <div class="stat-label">Tiempo de Carga Cero Latencia</div>
+            </div>
+            <div>
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Disponibilidad de Servidor</div>
+            </div>
+        </div>
+    </div>
 
     <section class="services" id="servicios">
-        <div class="section-title">
-            <h2>Nuestros Servicios</h2>
-            <p>Selecciona el nivel de infraestructura digital que tu empresa necesita.</p>
+        <div class="section-head">
+            <h2>Nuestros Servicios de Desarrollo</h2>
+            <p>Arquitectura digital escalable adaptada al nivel de madurez de tu empresa.</p>
         </div>
 
-        <div class="cards-grid">
+        <div class="services-grid">
+            <!-- Plan Esencial -->
             <div class="card">
-                <div class="card-name">Plan Esencial</div>
-                <div class="card-price">$999 <span>MXN</span></div>
-                <ul class="card-features">
-                    <li>Landing Page de 1 sola sección</li>
-                    <li>Botón directo a WhatsApp</li>
-                    <li>Ubicación en Google Maps</li>
-                    <li>Diseño responsivo para móviles</li>
-                    <li>Despliegue rápido</li>
-                </ul>
-                <a href="demo-basica.html" class="card-action">Probar Demo Live</a>
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Landing Page">
+                <div class="card-body">
+                    <span class="card-badge">Presencia Rápida</span>
+                    <h3 class="card-title">Plan Esencial</h3>
+                    <div class="card-price">$999 <span>MXN</span></div>
+                    <ul class="card-list">
+                        <li>Landing Page (1 sola sección)</li>
+                        <li>Integración directa a WhatsApp</li>
+                        <li>Geo-ubicación Google Maps</li>
+                        <li>Optimización móvil básica</li>
+                        <li>Entrega exprés</li>
+                    </ul>
+                    <a href="demo-basica.html" class="card-btn">Probar Demo</a>
+                </div>
             </div>
 
+            <!-- Plan Negocio Pro -->
             <div class="card">
-                <div class="card-name">Negocio Pro</div>
-                <div class="card-price">$2,500 <span>MXN</span></div>
-                <ul class="card-features">
-                    <li>Sitio completo (Hasta 4 secciones)</li>
-                    <li>Catálogo interactivo o Galería</li>
-                    <li>Formulario de prospectos directo</li>
-                    <li>Integración con redes sociales</li>
-                    <li>Optimización técnica de velocidad</li>
-                </ul>
-                <a href="#" class="card-action">Próximamente</a>
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Sitio Pyme">
+                <div class="card-body">
+                    <span class="card-badge">Crecimiento PYME</span>
+                    <h3 class="card-title">Negocio Pro</h3>
+                    <div class="card-price">$2,500 <span>MXN</span></div>
+                    <ul class="card-list">
+                        <li>Sitio Corporativo (Hasta 4 Secciones)</li>
+                        <li>Catálogo de Productos / Trabajos</li>
+                        <li>Formulario de Contacto directo</li>
+                        <li>Integración de Redes Sociales</li>
+                        <li>Carga rápida optimizada</li>
+                    </ul>
+                    <a href="#" class="card-btn">Próximamente</a>
+                </div>
             </div>
 
+            <!-- Premium Plan Elite -->
             <div class="card featured">
-                <div class="featured-tag">Recomendado</div>
-                <div class="card-name">Premium Elite</div>
-                <div class="card-price">$3,800 <span>MXN</span></div>
-                <ul class="card-features">
-                    <li>Diseño inmersivo y exclusivo</li>
-                    <li>Animaciones avanzadas de alto impacto</li>
-                    <li>Sección de testimonios y reseñas</li>
-                    <li>Menú / Catálogo interactivo dinámico</li>
-                    <li>Arquitectura de máxima conversión</li>
-                </ul>
-                <a href="#" class="card-action">Próximamente</a>
+                <span class="card-tag">Recomendado</span>
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Desarrollo Elite">
+                <div class="card-body">
+                    <span class="card-badge">Corporativo de Alto Nivel</span>
+                    <h3 class="card-title">Premium Elite</h3>
+                    <div class="card-price">$3,800 <span>MXN</span></div>
+                    <ul class="card-list">
+                        <li>Diseño exclusivo de alto impacto</li>
+                        <li>Animaciones e interacciones avanzadas</li>
+                        <li>Módulo de Reseñas / Testimonios</li>
+                        <li>Catálogo interactivo dinámico</li>
+                        <li>Arquitectura de conversión acelerada</li>
+                    </ul>
+                    <a href="#" class="card-btn">Próximamente</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="faq-section" id="faq">
-        <div class="section-title">
+    <!-- Preguntas Frecuentes -->
+    <section class="faq" id="faq">
+        <div class="section-head">
             <h2>Preguntas Frecuentes</h2>
-            <p>Todo lo que necesitas saber antes de iniciar tu proyecto.</p>
+            <p>Resolvemos tus dudas antes de comenzar el desarrollo de tu proyecto.</p>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">
-                ¿Qué necesito para empezar mi página web?
+                ¿Qué información necesito entregar para iniciar mi sitio?
                 <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-                Solo necesitas definir la información básica de tu negocio (logotipo, servicios, datos de contacto y fotos si cuentas con ellas). Nosotros nos encargamos de la estructura, redacción y diseño.
+                Únicamente necesitamos los datos básicos de tu empresa: logotipo, información de tus servicios o productos, redes sociales y contacto. Si no cuentas con textos redactados, nosotros redactamos la estructura básica orientada a ventas.
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">
-                ¿Cuánto tiempo tarda la entrega?
+                ¿Cuánto tiempo toma la entrega de la página?
                 <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-                El Plan Esencial ($999) se entrega en un plazo de 24 a 48 horas. Los planes complejos como Negocio Pro o Premium Elite toman entre 4 y 7 días hábiles.
+                El Plan Esencial ($999) se entrega en un plazo de 24 a 48 horas tras recibir la información. Los sitios como Negocio Pro o Premium Elite toman entre 4 y 7 días hábiles según la complejidad de los módulos.
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">
-                ¿La página funciona bien en teléfonos celulares?
+                ¿La página funcionará correctamente en teléfonos móviles?
                 <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-                Sí, el 100% de nuestros desarrollos están adaptados para cargar rápido y desplegarse correctamente en smartphones, tablets y computadoras.
+                Totalmente. Desarrollamos bajo el estándar Responsive Web Design, garantizando que tu sitio cargue rápido, se adapte y funcione sin errores en cualquier dispositivo (Smartphones, Tablets y Laptops).
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Hay algún costo oculto o mensualidad obligatoria?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                No existen costos ocultos. El precio marcado en cada plan cubre el desarrollo completo y la puesta en marcha de tu proyecto.
             </div>
         </div>
     </section>
 
     <script>
-        // Luz interactiva con el mouse
-        const glow = document.getElementById('glow');
-        window.addEventListener('mousemove', (e) => {
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-        });
-
-        // Acordeón Preguntas Frecuentes
+        // Acordeón de Preguntas Frecuentes
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
+                const item = button.parentElement;
+                item.classList.toggle('active');
             });
         });
     </script>
+
 </body>
 </html>
