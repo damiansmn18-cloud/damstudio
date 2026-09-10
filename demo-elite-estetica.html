@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Medicina Estética & Cirugía de Alta Manejo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap');
+
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --border-glass: rgba(212, 175, 55, 0.2);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* Tipografía Serif Especial */
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Top Bar */
+        .top-bar { background: var(--gold-gradient); color: #000; padding: 8px 24px; font-size: 0.8rem; font-weight: 800; text-align: center; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Header Glassmorphism */
+        header { position: sticky; top: 0; z-index: 1000; background: rgba(9, 13, 22, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
+        nav { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; color: #fff; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--gold-primary); }
+        
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        .btn-gold { background: var(--gold-gradient); color: #000; padding: 12px 28px; border-radius: 50px; font-weight: 800; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: var(--shadow-gold); border: none; cursor: pointer; }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3); }
+
+        /* Hero Section */
+        .hero { max-width: 1280px; margin: 0 auto; padding: 90px 24px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-glass); background: rgba(212, 175, 55, 0.05); padding: 8px 18px; border-radius: 30px; color: var(--gold-primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+        .hero h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 24px; font-weight: 700; }
+        .hero h1 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 40px; max-width: 540px; }
+
+        .hero-cta-group { display: flex; gap: 20px; align-items: center; }
+        .btn-outline-gold { border: 1px solid var(--border-glass); color: #fff; padding: 16px 32px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: all 0.3s; background: rgba(255,255,255,0.02); }
+        .btn-outline-gold:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold-primary); }
+
+        .hero-frame { position: relative; }
+        .hero-frame img { width: 100%; border-radius: 30px; border: 1px solid var(--border-glass); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+        .glass-card-floating { position: absolute; bottom: -25px; left: -30px; background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-glass); backdrop-filter: blur(12px); padding: 20px 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; }
+
+        /* Categorías / Catálogo Interactivo */
+        .catalog-section { max-width: 1280px; margin: 100px auto; padding: 0 24px; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; }
+        .section-title p { color: var(--text-muted); font-size: 1.05rem; }
+
+        .filter-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn { background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 12px 28px; border-radius: 30px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: var(--gold-gradient); color: #000; border-color: transparent; }
+
+        .grid-treatments { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .treatment-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.4s; }
+        .treatment-card:hover { transform: translateY(-8px); border-color: var(--border-glass); box-shadow: var(--shadow-gold); }
+        .treatment-img { width: 100%; height: 240px; object-fit: cover; }
+        .treatment-body { padding: 30px; }
+        .treatment-tag { color: var(--gold-primary); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: block; }
+        .treatment-body h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .treatment-body p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px; }
+        .treatment-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 16px; }
+        .price-tag { font-size: 1.1rem; font-weight: 800; color: #fff; }
+
+        /* Módulo Antes / Después Interactivo */
+        .before-after-section { background: rgba(255, 255, 255, 0.01); border-y: 1px solid var(--border-subtle); padding: 100px 24px; margin: 100px 0; }
+        .ba-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        
+        .comparison-slider { position: relative; width: 100%; height: 380px; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-glass); }
+        .ba-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        .ba-after { background-image: url('https://images.unsplash.com/photo-1512290900676-26c2a48f4134?auto=format&fit=crop&w=800&q=80'); }
+        .ba-before { background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80'); width: 50%; border-r: 2px solid var(--gold-primary); }
+        
+        /* Calculadora Estimadora */
+        .calculator-section { max-width: 900px; margin: 0 auto 120px; background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 800; color: var(--gold-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .form-group input, .form-group select { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); padding: 16px; border-radius: 12px; color: #fff; outline: none; font-size: 0.95rem; }
+        .form-group select option { background: #090d16; color: #fff; }
+
+        /* Testimonios VIP */
+        .reviews-grid { max-width: 1280px; margin: 0 auto 100px; padding: 0 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .review-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 32px; position: relative; }
+        .stars { color: var(--gold-primary); margin-bottom: 16px; letter-spacing: 2px; }
+
+        footer { border-top: 1px solid var(--border-subtle); padding: 80px 24px 40px; background: rgba(0,0,0,0.4); }
+        .footer-content { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+
+        @media (max-width: 968px) {
+            .hero, .ba-container, .grid-treatments, .reviews-grid, .form-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">❖ Experiencia Médica Élite — Valoraciones Quirúrgicas Privadas en Puebla</div>
+
+    <header>
+        <nav>
+            <div class="logo font-serif">AURA <span>ESTHETIC</span></div>
+            <ul class="nav-links">
+                <li><a href="#tratamientos">Tratamientos</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#cotizador">Presupuesto</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+            </ul>
+            <a href="#cotizador" class="btn-gold">Agendar Cita VIP</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <div class="hero-badge">◆ Certificación por la AMCPER & CMCPER</div>
+            <h1 class="font-serif">La ciencia de la <span>perfección facial</span> y corporal</h1>
+            <p>Protocolos de alta precisión estética, rejuvenecimiento avanzado y cirugía plástica de autor bajo normas internacionales de seguridad.</p>
+            <div class="hero-cta-group">
+                <a href="#cotizador" class="btn-gold" style="padding: 18px 36px; font-size: 0.95rem;">Solicitar Diagnóstico 3D</a>
+                <a href="#resultados" class="btn-outline-gold">Ver Galería Clínica</a>
+            </div>
+        </div>
+        <div class="hero-frame">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80" alt="Clínica Aura">
+            <div class="glass-card-floating">
+                <div style="font-size:1.8rem; color:var(--gold-primary);">★ 4.98</div>
+                <div>
+                    <strong style="display:block; font-size:0.9rem;">Excelencia Garantizada</strong>
+                    <span style="font-size:0.78rem; color:var(--text-muted);">+1,200 Pacientes Satisfechos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DINÁMICO CON FILTROS EN JS -->
+    <section class="catalog-section" id="tratamientos">
+        <div class="section-title">
+            <h2 class="font-serif">Catálogo de Alta Especialidad</h2>
+            <p>Selecciona la categoría clínica para explorar los procedimientos disponibles</p>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterCatalog('todos', this)">Todos los Tratamientos</button>
+            <button class="tab-btn" onclick="filterCatalog('facial', this)">Rejuvenecimiento Facial</button>
+            <button class="tab-btn" onclick="filterCatalog('corporal', this)">Escultura Corporal</button>
+            <button class="tab-btn" onclick="filterCatalog('inyectables', this)">Inyectables & Armonización</button>
+        </div>
+
+        <div class="grid-treatments" id="catalog-grid">
+            <!-- Card 1 -->
+            <div class="treatment-card" data-category="facial">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" class="treatment-img" alt="Facial">
+                <div class="treatment-body">
+                    <span class="treatment-tag">Facial Quirúrgico</span>
+                    <h3 class="font-serif">Rinomodelación HD</h3>
+                    <p>Perfilamiento nasal mediante bioestructuración sin cirugía con ácido hialurónico reticulado.</p>
+                    <div class="treatment-footer">
+                        <span class="price-tag">Desde $8,500 MXN</span>
+                        <a href="#cotizador" style="color:var(--gold-primary); font-weight:700; text-decoration:none;">Agendar →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="treatment-card" data-category="inyectables">
+                <img src="https://images.unsplash.com/photo-1512290900676-26c2a48f4134?auto=format&fit=crop&w=600&q=80" class="treatment-img" alt="Inyectable">
+                <div class="treatment-body">
+                    <span class="treatment-tag">Neuromoduladores</span>
+                    <h3 class="font-serif">Botox® Full Face VIP</h3>
+                    <p>Atenuación de líneas de expresión en frente, entrecejo y patas de gallo conservando naturalidad.</p>
+                    <div class="treatment-footer">
+                        <span class="price-tag">Desde $5,900 MXN</span>
+                        <a href="#cotizador" style="color:var(--gold-primary); font-weight:700; text-decoration:none;">Agendar →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="treatment-card" data-category="corporal">
+                <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" class="treatment-img" alt="Corporal">
+                <div class="treatment-body">
+                    <span class="treatment-tag">Alta Definición</span>
+                    <h3 class="font-serif">Marcaje Abdominal HD</h3>
+                    <p>Lipoescultura ultrasónica avanzada para acentuar la musculatura natural con rápida recuperación.</p>
+                    <div class="treatment-footer">
+                        <span class="price-tag">Valoración Previa</span>
+                        <a href="#cotizador" style="color:var(--gold-primary); font-weight:700; text-decoration:none;">Agendar →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULO ANTES Y DESPUÉS INTERACTIVO -->
+    <section class="before-after-section" id="resultados">
+        <div class="ba-container">
+            <div>
+                <span class="hero-badge">◆ Evidencia Clínica</span>
+                <h2 class="font-serif" style="font-size:2.5rem; margin-bottom:20px;">Resultados reales, armonía visible</h2>
+                <p style="color:var(--text-muted); margin-bottom:24px;">Mueve el control deslizante en la imagen para evaluar los cambios clínicos tras 14 días de procedimiento en Armonización Facial Completa.</p>
+                <ul style="list-style:none; display:grid; gap:12px; color:var(--text-muted); font-size:0.95rem;">
+                    <li>✓ Sin tiempo de incapacidad prolongado</li>
+                    <li>✓ Materiales absorbibles de grado médico FDA</li>
+                    <li>✓ Seguimiento fotográfico digitalizado</li>
+                </ul>
+            </div>
+            
+            <div class="comparison-slider" id="slider-box" onmousemove="moveSlider(event)">
+                <div class="ba-image ba-after"></div>
+                <div class="ba-image ba-before" id="before-img"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA / COTIZADOR INTERACTIVO -->
+    <section class="calculator-section" id="cotizador">
+        <div style="text-align:center;">
+            <span class="hero-badge">◆ Cotizador Digital Inmediato</span>
+            <h2 class="font-serif" style="font-size:2.2rem; margin-bottom:10px;">Calcula tu Plan Quirúrgico o Estético</h2>
+            <p style="color:var(--text-muted);">Selecciona tus preferencias para recibir una estimación confidencial por WhatsApp</p>
+        </div>
+
+        <form class="form-grid" onsubmit="calculateBudget(event)">
+            <div class="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" placeholder="Ej. Lic. Valeria Morales" required>
+            </div>
+            <div class="form-group">
+                <label>Teléfono (WhatsApp)</label>
+                <input type="tel" placeholder="221 000 0000" required>
+            </div>
+            <div class="form-group">
+                <label>Área de Interés</label>
+                <select id="proc-select" required>
+                    <option value="">Selecciona el procedimiento</option>
+                    <option value="Armonización Facial ($8,500 MXN aprox)">Armonización Facial / Rinomodelación</option>
+                    <option value="Botox Full Face ($5,900 MXN aprox)">Botox® Preventivo / Correctivo</option>
+                    <option value="Cirugía Corporal (Valoración Personalizada)">Lipoescultura / Marcaje HD</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha Estimada de Cita</label>
+                <input type="date" required>
+            </div>
+            <div style="grid-column: 1 / -1; margin-top:10px;">
+                <button type="submit" class="btn-gold" style="width:100%; padding:18px; font-size:1rem;">Generar Cotización Confidencial →</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- TESTIMONIOS VIP -->
+    <section class="reviews-grid" id="testimonios">
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:20px;">"La atención de la clínica Aura es de otro nivel. La rinomodelación fue rápida, indolora y los resultados se ven increíblemente naturales."</p>
+            <strong style="display:block;">Dra. Elena Cantú</strong>
+            <span style="font-size:0.8rem; color:var(--gold-primary);">Paciente Rinomodelación HD</span>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:20px;">"Pagar la valoración valió cada peso. El diagnóstico 3D te permite ver exactamente cómo quedará tu rostro antes de cualquier inyección."</p>
+            <strong style="display:block;">Mtro. Rodrigo Garza</strong>
+            <span style="font-size:0.8rem; color:var(--gold-primary);">Paciente Botox VIP</span>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:20px;">"Instalaciones impecables y privacidad absoluta en el consultorio. Recomendados al 100% si buscas cirujanos plásticos certificados."</p>
+            <strong style="display:block;">Sofia Alarcón</strong>
+            <span style="font-size:0.8rem; color:var(--gold-primary);">Paciente Marcaje Corporal</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo font-serif">AURA <span>ESTHETIC</span></div>
+            <p style="color:var(--text-muted); font-size:0.85rem;">© 2026 Aura Esthetic Clinic — Plantilla Exclusiva Élite ($3,800 MXN) desarrollada por DAMstudio.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACCIONES EN JAVASCRIPT -->
+    <script>
+        // 1. Filtrado de Catálogo en Tiempo Real
+        function filterCatalog(category, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.treatment-card');
+            cards.forEach(card => {
+                if (category === 'todos' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 2. Control interactivo del Slider Antes/Después
+        function moveSlider(e) {
+            const box = document.getElementById('slider-box');
+            const rect = box.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            document.getElementById('before-img').style.width = percentage + '%';
+        }
+
+        // 3. Simulación de cotización por WhatsApp
+        function calculateBudget(e) {
+            e.preventDefault();
+            const proc = document.getElementById('proc-select').value;
+            alert(`Demostración Élite:\n\nTu solicitud para [${proc}] ha sido calculada. En un sitio real, esto envía automáticamente los datos al WhatsApp del cirujano.`);
+        }
+    </script>
+</body>
+</html>
