@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental DentalArt | Sonrisas Saludables</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1.6; }
+
+        /* Header / Nav */
+        header { background: #ffffff; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.5px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-header { background: var(--primary); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+        .btn-header:hover { background: var(--primary-hover); }
+
+        /* Hero */
+        .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .badge { display: inline-block; background: var(--primary-light); color: var(--primary); font-weight: 700; font-size: 0.8rem; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; color: var(--text-dark); margin-bottom: 20px; letter-spacing: -1px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; max-width: 500px; }
+
+        /* Botón con Luz en la Flechita */
+        .btn-glow {
+            display: inline-flex; align-items: center; gap: 12px; background: var(--primary);
+            color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 28px;
+            border-radius: 10px; box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
+            transition: all 0.3s ease; font-size: 0.95rem;
+        }
+        .btn-glow:hover {
+            background: var(--primary-hover); box-shadow: 0 6px 28px rgba(2, 132, 199, 0.55); transform: translateY(-2px);
+        }
+        .btn-glow .arrow {
+            display: flex; align-items: center; justify-content: center; width: 24px; height: 24px;
+            background: rgba(255,255,255,0.25); border-radius: 50%; transition: transform 0.2s ease;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+        .btn-glow:hover .arrow { transform: translateX(4px); }
+
+        .hero-img img { width: 100%; border-radius: 16px; border: 1px solid var(--border-light); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+
+        /* Servicios / Tratamientos */
+        .services { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+        .section-head { text-align: center; margin-bottom: 50px; }
+        .section-head h2 { font-size: 2.2rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.5px; }
+        .section-head p { color: var(--text-muted); font-size: 1rem; margin-top: 8px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .service-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px 24px; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
+        .service-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+        .service-icon { font-size: 2rem; background: var(--primary-light); width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary); font-weight: 800; }
+        .service-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+        .service-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; }
+
+        /* Nosotros / Instalaciones */
+        .about { background: #ffffff; border-y: 1px solid var(--border-light); padding: 80px 24px; }
+        .about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-text h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1rem; }
+        .about-features { list-style: none; margin-top: 24px; }
+        .about-features li { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
+        .about-features li::before { content: "✓"; color: var(--primary); font-weight: 800; background: var(--primary-light); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .about-img img { width: 100%; border-radius: 16px; border: 1px solid var(--border-light); }
+
+        /* Formulario / Contacto */
+        .contact { max-width: 1200px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 30px; }
+        .info-item { margin-bottom: 20px; }
+        .info-item h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .info-item p { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin: 0; }
+
+        .booking-form { background: #ffffff; border: 1px solid var(--border-light); padding: 36px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-dark); }
+        .form-group input, .form-group select { width: 100%; padding: 12px 16px; border: 1px solid var(--border-light); border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+        .btn-submit { width: 100%; background: var(--primary); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+        .btn-submit:hover { background: var(--primary-hover); }
+
+        /* Footer */
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 24px; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero, .about-container, .contact { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Dental<span>Art</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#tratamientos">Tratamientos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Citas</a></li>
+            </ul>
+            <a href="#contacto" class="btn-header">Agendar Cita</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-text">
+            <span class="badge">Especialistas Certificados</span>
+            <h1>Diseñamos la <span>sonrisa perfecta</span> para tu salud y confianza</h1>
+            <p>Atención odontológica integral con tecnología de vanguardia, diagnósticos precisos y un trato cálido en un ambiente 100% cómodo y seguro.</p>
+            <a href="#contacto" class="btn-glow">
+                Solicitar Valoración <span class="arrow">→</span>
+            </a>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Consultorio Dental">
+        </div>
+    </section>
+
+    <section class="services" id="tratamientos">
+        <div class="section-head">
+            <h2>Nuestros Tratamientos Especializados</h2>
+            <p>Soluciones a la medida de tu salud bucal y estética facial.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🦷</div>
+                <h3>Ortodoncia Invisible</h3>
+                <p>Alineación dental mediante alineadores transparentes y brackets de zafiro de rápida evolución.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Blanqueamiento Dental</h3>
+                <p>Aclaramiento en una sola sesión con tecnología LED sin causar sensibilidad molesta.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Implantes Dentales</h3>
+                <p>Recupera la funcionalidad y estética de tu dentadura con piezas de titanio biocompatible.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💎</div>
+                <h3>Diseño de Sonrisa</h3>
+                <p>Carillas de porcelana ultradelgadas para corregir forma, tamaño y color en tus dientes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Limpieza Ultrasonido</h3>
+                <p>Eliminación profunda de sarro y placa bacteriana para la prevención de gingivitis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧸</div>
+                <h3>Odontopediatría</h3>
+                <p>Cuidado dental especializado para niños con enfoque preventivo y libre de estrés.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="nosotros">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Instalaciones">
+            </div>
+            <div class="about-text">
+                <h2>Instalaciones de clase mundial y atención sin dolor</h2>
+                <p>En DentalArt nos enfocamos en romper el miedo al dentista. Contamos con equipos digitales de radiografía 3D y esterilización continua para brindarte la mejor experiencia.</p>
+                <ul class="about-features">
+                    <li>Más de 10 años de experiencia profesional</li>
+                    <li>Radiografías digitales de baja radiación</li>
+                    <li>Planes de pago a meses sin intereses</li>
+                    <li>Instalaciones sanitizadas y climatizadas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="contact-info">
+            <h2>Agenda tu cita de primera valoración</h2>
+            <p>Déjanos tus datos y nos comunicaremos de inmediato para confirmar la hora de tu cita.</p>
+
+            <div class="info-item">
+                <h4>Ubicación</h4>
+                <p>Av. Principal #450, Centro Médico, Piso 3</p>
+            </div>
+            <div class="info-item">
+                <h4>Horario de Atención</h4>
+                <p>Lunes a Sábado: 9:00 AM – 7:00 PM</p>
+            </div>
+            <div class="info-item">
+                <h4>Atención Inmediata</h4>
+                <p>WhatsApp: +52 221 815 8630</p>
+            </div>
+        </div>
+
+        <div class="booking-form">
+            <form onsubmit="alert('Demostración: En la versión final este formulario envía la cita a tu WhatsApp o correo.'); return false;">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono o WhatsApp</label>
+                    <input type="tel" placeholder="221 000 0000" required>
+                </div>
+                <div class="form-group">
+                    <label>Tratamiento de Interés</label>
+                    <select required>
+                        <option value="">Selecciona una opción</option>
+                        <option>Valoración General</option>
+                        <option>Ortodoncia / Brackets</option>
+                        <option>Blanqueamiento Dental</option>
+                        <option>Implantes Dentales</option>
+                        <option>Limpieza / Prevención</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Confirmar Solicitud de Cita</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Clínica DentalArt — Sitio maquetado como demostración por DAMstudio</p>
+    </footer>
+
+</body>
+</html>
