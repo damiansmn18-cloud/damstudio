@@ -3,48 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Plan Esencial | DAMstudio</title>
+    <title>Cerrajería Guzmán | Servicio 24 Horas</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background-color: #0b0f19; color: #f1f5f9; text-align: center; padding: 20px 15px; display: flex; flex-direction: column; min-height: 100vh; justify-content: center; align-items: center; }
+        body { background-color: #0b0f19; color: #f1f5f9; padding-bottom: 80px; }
         
-        .card-container { max-width: 500px; width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 35px 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-        .badge { background: rgba(56, 189, 248, 0.12); color: #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(56, 189, 248, 0.2); }
-        
-        h1 { font-size: 1.8rem; margin-bottom: 12px; color: #ffffff; font-weight: 800; }
-        p { color: #94a3b8; font-size: 1rem; line-height: 1.5; margin-bottom: 25px; }
-        
-        .services-list { text-align: left; background: #0f172a; padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #1e293b; }
-        .services-list li { list-style: none; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .services-list li:last-child { margin-bottom: 0; }
-        
-        .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; background: #25d366; color: white; text-decoration: none; padding: 15px; border-radius: 10px; font-weight: 700; font-size: 1rem; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
-        .btn-wa:hover { background: #20ba5a; }
-        
-        .back-link { display: inline-block; margin-top: 25px; color: #38bdf8; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
-        .back-link:hover { text-decoration: underline; }
+        /* Encabezado */
+        header { background: #1e293b; padding: 15px 20px; text-align: center; border-bottom: 2px solid #38bdf8; }
+        .brand { font-size: 1.4rem; font-weight: 800; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; }
+        .brand span { color: #38bdf8; }
+        .tagline { color: #94a3b8; font-size: 0.85rem; margin-top: 4px; }
+
+        /* Banner Hero */
+        .hero { text-align: center; padding: 40px 20px 30px; background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 100%); }
+        .status-badge { background: rgba(37, 211, 102, 0.15); color: #25d366; border: 1px solid rgba(37, 211, 102, 0.3); font-size: 0.8rem; font-weight: 700; padding: 6px 14px; border-radius: 20px; display: inline-block; margin-bottom: 15px; }
+        .hero h1 { font-size: 2rem; color: #ffffff; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+        .hero p { color: #cbd5e1; max-width: 500px; margin: 0 auto 25px; font-size: 1rem; }
+
+        /* Lista de Servicios Reales */
+        .services-card { max-width: 500px; margin: 0 auto 30px; background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 25px 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .services-card h2 { font-size: 1.1rem; color: #38bdf8; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+        .service-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #334155; color: #e2e8f0; font-size: 0.95rem; }
+        .service-item:last-child { border-bottom: none; }
+        .price { color: #38bdf8; font-weight: 700; }
+
+        /* Garantías */
+        .trust-grid { max-width: 500px; margin: 0 auto 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; }
+        .trust-box { background: #0f172a; border: 1px solid #1e293b; padding: 12px; border-radius: 10px; font-size: 0.85rem; color: #94a3b8; }
+        .trust-box strong { display: block; color: #ffffff; font-size: 0.95rem; margin-bottom: 3px; }
+
+        /* Botón Flotante de WhatsApp */
+        .btn-wa { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: #25d366; color: #ffffff; text-decoration: none; padding: 16px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; text-align: center; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px; z-index: 1000; }
+
+        /* Banner de DEMO DAMstudio */
+        .demo-bar { background: #38bdf8; color: #0f172a; text-align: center; padding: 8px; font-size: 0.85rem; font-weight: 800; }
+        .demo-bar a { color: #0f172a; text-decoration: underline; margin-left: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="card-container">
-        <span class="badge">Demo Plan Esencial</span>
-        <h1>Servicios Técnicos Múltiples</h1>
-        <p>Soluciones rápidas y garantizadas directamente a tu domicilio o negocio. Atención inmediata con presupuesto transparente.</p>
-        
-        <ul class="services-list">
-            <li>⚡ Diagnóstico y atención el mismo día</li>
-            <li>📍 Cobertura en toda la ciudad</li>
-            <li>🛡️ Garantía por escrito en cada trabajo</li>
-            <li>📱 Atención directa y rápida por WhatsApp</li>
-        </ul>
-
-        <a href="https://wa.me/522218158630?text=Hola%20DAMstudio,%20me%20interesa%20el%20Plan%20Esencial" class="btn-wa" target="_blank">
-            Contactar por WhatsApp
-        </a>
+    <!-- Barrita avisando que es Demo de tu agencia -->
+    <div class="demo-bar">
+        ⚡ DEMO DE PLAN ESENCIAL ($999 MXN) — <a href="index.html">Volver a DAMstudio</a>
     </div>
 
-    <a href="index.html" class="back-link">← Volver al portal principal de DAMstudio</a>
+    <header>
+        <div class="brand">Cerrajería <span>Guzmán</span></div>
+        <div class="tagline">Servicio Residencial, Automotriz y Comercial</div>
+    </header>
+
+    <section class="hero">
+        <span class="status-badge">🟢 Taller Abierto - Servicio Urgente</span>
+        <h1>¿Perdiste tus llaves o se trabó tu chapa?</h1>
+        <p>Llegamos a tu ubicación en menos de 30 minutos. Servicio profesional, rápido y sin dañar tus puertas.</p>
+    </section>
+
+    <!-- Catálogo de Trabajos -->
+    <div class="services-card">
+        <h2>Servicios Frecuentes</h2>
+        <div class="service-item">
+            <span>Apertura de Casa / Depto</span>
+            <span class="price">Desde $350</span>
+        </div>
+        <div class="service-item">
+            <span>Apertura Auto (Sin daño)</span>
+            <span class="price">Desde $400</span>
+        </div>
+        <div class="service-item">
+            <span>Cambio de Combinación</span>
+            <span class="price">Desde $300</span>
+        </div>
+        <div class="service-item">
+            <span>Instalación de Cerrojos</span>
+            <span class="price">Desde $450</span>
+        </div>
+    </div>
+
+    <!-- Puntos de Confianza -->
+    <div class="trust-grid">
+        <div class="trust-box">
+            <strong>🚀 20-30 min</strong>
+            Tiempo de llegada
+        </div>
+        <div class="trust-box">
+            <strong>🛡️ 100% Garantizado</strong>
+            Trabajo seguro
+        </div>
+    </div>
+
+    <!-- Botón directo de acción -->
+    <a href="https://wa.me/522218158630?text=Hola,%20necesito%20un%20servicio%20de%20cerrajería" class="btn-wa" target="_blank">
+        📲 Pedir Cerrajero por WhatsApp
+    </a>
 
 </body>
 </html>
