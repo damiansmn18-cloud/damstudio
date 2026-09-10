@@ -24,8 +24,37 @@
         .hero-text h1 span { color: #38bdf8; }
         .hero-text p { font-size: 1.1rem; color: #94a3b8; margin-bottom: 36px; max-width: 500px; }
         .hero-cta { display: flex; gap: 16px; align-items: center; }
-        .btn-primary { background: #38bdf8; color: #0b0f17; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
-        .btn-primary:hover { background: #7dd3fc; }
+
+        /* Botón con Luz / Glow */
+        .btn-glow {
+            position: relative;
+            background: #38bdf8;
+            color: #0b0f17;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .btn-glow:hover {
+            background: #7dd3fc;
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.65);
+            transform: translateY(-2px);
+        }
+        .btn-glow .arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+            font-size: 1.1rem;
+        }
+        .btn-glow:hover .arrow {
+            transform: translateX(4px);
+        }
+
         .btn-secondary { color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: border-color 0.2s; }
         .btn-secondary:hover { border-color: #fff; }
 
@@ -64,8 +93,16 @@
 
         .card.featured { border: 2px solid #38bdf8; background: #162032; position: relative; }
         .card-tag { position: absolute; top: 16px; right: 16px; background: #38bdf8; color: #0b0f17; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
-        .card.featured .card-btn { background: #38bdf8; color: #0b0f17; border: none; }
-        .card.featured .card-btn:hover { background: #7dd3fc; }
+        .card.featured .card-btn { background: #38bdf8; color: #0b0f17; border: none; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+        .card.featured .card-btn:hover { background: #7dd3fc; box-shadow: 0 0 25px rgba(56, 189, 248, 0.5); }
+
+        /* Proceso de Trabajo */
+        .process { max-width: 1200px; margin: 0 auto; padding: 60px 24px 100px; }
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+        .process-card { background: #131924; border: 1px solid rgba(255,255,255,0.08); padding: 28px 24px; border-radius: 12px; position: relative; }
+        .process-number { font-size: 1.2rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(56, 189, 248, 0.2); }
+        .process-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .process-desc { font-size: 0.88rem; color: #94a3b8; line-height: 1.5; }
 
         /* Preguntas Frecuentes */
         .faq { max-width: 800px; margin: 0 auto; padding: 40px 24px 100px; }
@@ -82,6 +119,7 @@
             .hero-text p { margin: 0 auto 36px; }
             .hero-cta { justify-content: center; }
             .services-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
             .stats-container { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
@@ -93,6 +131,7 @@
             <div class="logo">DAM<span>studio</span></div>
             <div class="nav-links">
                 <a href="#servicios">Servicios</a>
+                <a href="#proceso">Proceso</a>
                 <a href="#faq">Preguntas Frecuentes</a>
                 <a href="https://wa.me/522218158630" target="_blank">Contacto</a>
             </div>
@@ -104,7 +143,9 @@
             <h1>Desarrollo web corporativo de <span>alto rendimiento</span></h1>
             <p>Diseñamos e implementamos infraestructura digital profesional para empresas que buscan proyectar autoridad, captar clientes y escalar su presencia digital.</p>
             <div class="hero-cta">
-                <a href="#servicios" class="btn-primary">Ver Soluciones</a>
+                <a href="#servicios" class="btn-glow">
+                    Ver Soluciones <span class="arrow">→</span>
+                </a>
                 <a href="https://wa.me/522218158630" target="_blank" class="btn-secondary">Agendar Consulta</a>
             </div>
         </div>
@@ -190,6 +231,37 @@
                     </ul>
                     <a href="#" class="card-btn">Próximamente</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de Trabajo -->
+    <section class="process" id="proceso">
+        <div class="section-head">
+            <h2>Proceso de Trabajo</h2>
+            <p>Metodología ágil y transparente desde la idea hasta el lanzamiento de tu plataforma.</p>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <h3 class="process-title">Consulta e Información</h3>
+                <p class="process-desc">Definimos los objetivos de tu negocio, seleccionas el paquete ideal y nos envías la información técnica básica.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <h3 class="process-title">Diseño y Estructura</h3>
+                <p class="process-desc">Maquetamos la interfaz enfocada en la experiencia de usuario y la identidad visual de tu empresa.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <h3 class="process-title">Desarrollo y Pruebas</h3>
+                <p class="process-desc">Programamos la infraestructura web optimizando velocidad, adaptabilidad móvil y llamadas a la acción.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">04</div>
+                <h3 class="process-title">Despliegue y Entrega</h3>
+                <p class="process-desc">Publicamos tu página web en vivo y realizamos la entrega formal de accesos y manuales de uso.</p>
             </div>
         </div>
     </section>
