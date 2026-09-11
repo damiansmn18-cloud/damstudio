@@ -32,15 +32,27 @@
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.2s; }
         .nav-links a:hover { color: var(--gold); }
 
-        /* HERO SECTION */
-        .sec-hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, rgba(10,15,29,0.4) 0%, rgba(10,15,29,0.95) 100%), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; text-align: center; padding: 60px 20px; }
-        .hero-content { max-width: 850px; margin: 0 auto; }
-        .hero-tag { display: inline-block; background: rgba(212, 175, 55, 0.15); color: var(--gold-light); padding: 8px 20px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; border: 1px solid var(--border-gold); }
+        /* HERO CON VIDEO SHOWCASE */
+        .sec-hero { position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; padding: 60px 20px; }
+        .hero-video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: 1; object-fit: cover; filter: brightness(0.35); pointer-events: none; }
+        .hero-overlay { position: relative; z-index: 2; max-width: 850px; margin: 0 auto; }
+        .hero-tag { display: inline-block; background: rgba(212, 175, 55, 0.2); color: var(--gold-light); padding: 8px 20px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; border: 1px solid var(--border-gold); backdrop-filter: blur(5px); }
         .sec-hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
         .sec-hero h1 span { color: var(--gold); }
         .sec-hero p { color: #CBD5E1; font-size: 1.15rem; line-height: 1.6; margin-bottom: 35px; max-width: 700px; margin-left: auto; margin-right: auto; }
         .btn-primary { background: linear-gradient(135deg, var(--gold), #AA7C11); color: #0A0F1D; font-weight: 800; padding: 16px 36px; border-radius: 8px; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4); }
+
+        /* SECCIÓN SOBRE NOSOTROS & METRICAS */
+        .sec-about { max-width: 1200px; margin: 0 auto; padding: 90px 24px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-text h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; line-height: 1.2; }
+        .about-text p { color: #CBD5E1; line-height: 1.7; margin-bottom: 20px; font-size: 0.98rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--border-gold); padding: 20px; border-radius: 12px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--gold); }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: 5px; }
+        .about-img { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .about-img img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
         /* FILTROS Y CATÁLOGO INTERACTIVO */
         .sec-catalog { max-width: 1200px; margin: 0 auto; padding: 90px 24px; }
@@ -71,8 +83,29 @@
         .btn-details { width: 100%; background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; transition: all 0.2s; }
         .btn-details:hover { background: var(--gold); color: #0A0F1D; }
 
-        /* MÓDULO DE TESTIMONIOS (RESEÑAS) */
-        .sec-testimonials { background: #070B16; padding: 90px 20px; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        /* SECCIÓN DE ASESORES */
+        .sec-agents { max-width: 1200px; margin: 0 auto; padding: 60px 24px 90px; }
+        .agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .agent-card { background: var(--bg-card); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); text-align: center; padding-bottom: 25px; transition: border-color 0.3s; }
+        .agent-card:hover { border-color: var(--border-gold); }
+        .agent-img { height: 260px; width: 100%; overflow: hidden; margin-bottom: 20px; }
+        .agent-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .agent-name { font-size: 1.2rem; font-weight: 800; color: #FFF; margin-bottom: 4px; }
+        .agent-role { font-size: 0.8rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .btn-agent-contact { background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 1px solid var(--border-gold); padding: 8px 20px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: all 0.2s; }
+        .btn-agent-contact:hover { background: var(--gold); color: #0A0F1D; }
+
+        /* HERRAMIENTA ÚNICA: CALCULADORA HIPOTECARIA */
+        .sec-calc { background: #070B16; padding: 80px 24px; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .calc-box { max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-gold); padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
+        .calc-input label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+        .calc-input input, .calc-input select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: #0A0F1D; color: #FFF; font-size: 1rem; outline: none; }
+        .calc-result { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .calc-price { font-size: 2.2rem; font-weight: 800; color: var(--gold); margin-top: 5px; }
+
+        /* TESTIMONIOS */
+        .sec-testimonials { padding: 90px 20px; background: var(--bg-primary); }
         .testimonials-container { max-width: 1200px; margin: 0 auto; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
         .testimonial-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); padding: 30px; border-radius: 16px; position: relative; }
@@ -81,7 +114,7 @@
         .client-info h4 { font-size: 0.95rem; font-weight: 700; }
         .client-info span { font-size: 0.78rem; color: var(--text-muted); }
 
-        /* SECCIÓN CONTACTO / ASESORÍA */
+        /* CONTACTO */
         .sec-contact { max-width: 1100px; margin: 90px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .contact-info h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; }
         .contact-info p { color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; }
@@ -100,7 +133,7 @@
         footer { text-align: center; padding: 25px; background: #050812; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
         @media (max-width: 900px) {
-            .properties-grid, .testimonials-grid, .sec-contact { grid-template-columns: 1fr; }
+            .properties-grid, .testimonials-grid, .agents-grid, .sec-contact, .sec-about, .calc-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .sec-hero h1 { font-size: 2.3rem; }
         }
@@ -112,21 +145,52 @@
         <div class="nav-container">
             <a href="#" class="brand">AURELIA <span>RESIDENCES</span></a>
             <nav class="nav-links">
-                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
                 <a href="#catalogo">Propiedades</a>
-                <a href="#testimonios">Testimonios</a>
+                <a href="#asesores">Asesores</a>
+                <a href="#calculadora">Calculadora</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO CON VIDEO INTEGRADO -->
     <section class="sec-hero" id="inicio">
-        <div class="hero-content">
+        <!-- Video HD de fondo en Loop -->
+        <iframe class="hero-video-bg" src="https://player.vimeo.com/video/354020689?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen"></iframe>
+        
+        <div class="hero-overlay">
             <span class="hero-tag">💎 Exclusividad & Plusvalía</span>
             <h1>Encuentra Tu Nueva <span>Residencia de Lujo</span></h1>
             <p>Desarrollos inmobiliarios y propiedades de alta gama ubicadas en las zonas de mayor exclusividad y crecimiento.</p>
             <a href="#catalogo" class="btn-primary">Explorar Catálogo</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section class="sec-about" id="nosotros">
+        <div class="about-text">
+            <div class="section-subtitle">Trayectoria & Filosofía</div>
+            <h2>Más de una década liderando el mercado inmobiliario VIP</h2>
+            <p>En Aurelia Residences nos especializamos en la comercialización de activos inmobiliarios de alto valor. Nuestro compromiso trasciende la simple transacción: diseñamos estrategias patrimoniales personalizadas para inversores y familias exigentes.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">+12</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$450M+</div>
+                    <div class="stat-label">MXN Comercializados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfacción Legal</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="Sobre Nosotros Aurelia">
         </div>
     </section>
 
@@ -202,64 +266,85 @@
                 </div>
             </div>
 
-            <div class="property-card" data-category="terreno">
-                <div class="property-img">
-                    <span class="property-tag">Inversión</span>
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Lote Residencial">
-                </div>
-                <div class="property-body">
-                    <div class="property-price">$2,800,000 MXN</div>
-                    <div class="property-title">Lote Residencial El Mirador</div>
-                    <div class="property-loc">📍 Privada con Acceso Controlado</div>
-                    <div class="property-features">
-                        <div>Superficie: <strong>650 m²</strong></div>
-                        <div>Uso: <strong>Habitacional</strong></div>
-                        <div>Vista: <strong>Panorámica</strong></div>
-                    </div>
-                    <button class="btn-details" onclick="selectProperty('Lote Residencial El Mirador - $2.8M')">Agendar Visita / Info</button>
-                </div>
-            </div>
-
-            <div class="property-card" data-category="depto">
-                <div class="property-img">
-                    <span class="property-tag">Preventa VIP</span>
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Loft Ejecutivo">
-                </div>
-                <div class="property-body">
-                    <div class="property-price">$3,950,000 MXN</div>
-                    <div class="property-title">Loft Ejecutivo Park View</div>
-                    <div class="property-loc">📍 Zona Comercial & Corporativa</div>
-                    <div class="property-features">
-                        <div>Recámaras: <strong>2</strong></div>
-                        <div>Baños: <strong>2</strong></div>
-                        <div>Superficie: <strong>155 m²</strong></div>
-                    </div>
-                    <button class="btn-details" onclick="selectProperty('Loft Ejecutivo Park View - $3.95M')">Agendar Visita / Info</button>
-                </div>
-            </div>
-
-            <div class="property-card" data-category="casa">
-                <div class="property-img">
-                    <span class="property-tag">Exclusivo</span>
-                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80" alt="Residencia Campestre">
-                </div>
-                <div class="property-body">
-                    <div class="property-price">$14,500,000 MXN</div>
-                    <div class="property-title">Residencia Campestre Bosques</div>
-                    <div class="property-loc">📍 Zona Boscosa Privada</div>
-                    <div class="property-features">
-                        <div>Recámaras: <strong>4</strong></div>
-                        <div>Baños: <strong>5.5</strong></div>
-                        <div>Construcción: <strong>600 m²</strong></div>
-                    </div>
-                    <button class="btn-details" onclick="selectProperty('Residencia Campestre Bosques - $14.5M')">Agendar Visita / Info</button>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- MÓDULO DE TESTIMONIOS -->
+    <!-- SECCIÓN DE ASESORES SENIOR -->
+    <section class="sec-agents" id="asesores">
+        <div class="section-title-box">
+            <div class="section-subtitle">Atención Personalizada</div>
+            <h2 class="section-title">Nuestros Asesores Patrimoniales</h2>
+        </div>
+
+        <div class="agents-grid">
+            <div class="agent-card">
+                <div class="agent-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Asesor Inmobiliario">
+                </div>
+                <div class="agent-name">Lic. Roberto Alarcón</div>
+                <div class="agent-role">Director de Ventas VIP</div>
+                <button class="btn-agent-contact" onclick="contactAgent('Roberto Alarcón')">Contactar Asesor</button>
+            </div>
+
+            <div class="agent-card">
+                <div class="agent-img">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Asesora Inmobiliaria">
+                </div>
+                <div class="agent-name">Dra. Valeria Sotomayor</div>
+                <div class="agent-role">Consultora de Inversiones</div>
+                <button class="btn-agent-contact" onclick="contactAgent('Valeria Sotomayor')">Contactar Asesor</button>
+            </div>
+
+            <div class="agent-card">
+                <div class="agent-img">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Asesor Inmobiliario">
+                </div>
+                <div class="agent-name">Ing. Fernando Sada</div>
+                <div class="agent-role">Especialista en Desarrollos</div>
+                <button class="btn-agent-contact" onclick="contactAgent('Fernando Sada')">Contactar Asesor</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ELEMENTO ÚNICO PROFESIONAL: CALCULADORA HIPOTECARIA -->
+    <section class="sec-calc" id="calculadora">
+        <div class="calc-box">
+            <div class="section-title-box" style="margin-bottom: 20px;">
+                <div class="section-subtitle">Herramienta Financiera</div>
+                <h2 class="section-title" style="font-size: 1.8rem;">Calculadora Hipotecaria Express</h2>
+            </div>
+            
+            <div class="calc-grid">
+                <div class="calc-input">
+                    <label>Valor de la Propiedad (MXN)</label>
+                    <input type="number" id="calcPropertyVal" value="5000000" oninput="calculateMortgage()">
+                </div>
+                <div class="calc-input">
+                    <label>Enganche Mínimo (20%)</label>
+                    <input type="number" id="calcDownPayment" value="1000000" readonly style="opacity: 0.7;">
+                </div>
+                <div class="calc-input">
+                    <label>Plazo del Crédito</label>
+                    <select id="calcTerm" onchange="calculateMortgage()">
+                        <option value="10">10 Años</option>
+                        <option value="15">15 Años</option>
+                        <option value="20" selected>20 Años</option>
+                    </select>
+                </div>
+                <div class="calc-input">
+                    <label>Tasa Estimada Anual</label>
+                    <input type="text" value="10.5% (Tasa Preferencial)" readonly style="opacity: 0.7;">
+                </div>
+            </div>
+
+            <div class="calc-result">
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Mensualidad Estimada Aproximada:</span>
+                <div class="calc-price" id="calcMonthlyResult">$38,600 MXN / mes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
     <section class="sec-testimonials" id="testimonios">
         <div class="testimonials-container">
             <div class="section-title-box">
@@ -298,7 +383,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO -->
+    <!-- CONTACTO -->
     <section class="sec-contact" id="contacto">
         <div class="contact-info">
             <div class="section-subtitle">Asesoría Patrimonial</div>
@@ -342,7 +427,6 @@
     <script>
         let selectedItem = "";
 
-        // FILTRADO DINÁMICO DE PROPIEDADES
         function filterProperties(category) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -364,6 +448,10 @@
             alert(`Has seleccionado: ${propName}. Haz clic en "Contactar Asesor" para continuar.`);
         }
 
+        function contactAgent(agentName) {
+            alert(`Conectando directamente por WhatsApp con el asesor ${agentName}...`);
+        }
+
         function sendWhatsApp() {
             if (!selectedItem) {
                 alert('Por favor selecciona una propiedad primero en el catálogo.');
@@ -379,6 +467,25 @@
                 return;
             }
             alert(`¡Gracias ${name}! Tu solicitud de cita ha sido recibida con éxito. Un asesor experto se pondrá en contacto contigo.`);
+        }
+
+        // LÓGICA CALCULADORA HIPOTECARIA EXPRESS
+        function calculateMortgage() {
+            const val = parseFloat(document.getElementById('calcPropertyVal').value) || 0;
+            const down = val * 0.20;
+            document.getElementById('calcDownPayment').value = Math.round(down);
+
+            const loan = val - down;
+            const termYears = parseInt(document.getElementById('calcTerm').value);
+            const monthlyRate = (0.105) / 12; // 10.5% anual
+            const totalMonths = termYears * 12;
+
+            if (loan > 0) {
+                const monthlyPayment = (loan * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+                document.getElementById('calcMonthlyResult').innerText = `$${Math.round(monthlyPayment).toLocaleString()} MXN / mes`;
+            } else {
+                document.getElementById('calcMonthlyResult').innerText = "$0 MXN / mes";
+            }
         }
     </script>
 </body>
