@@ -8,15 +8,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
 
         :root {
-            /* Colores de fondo por sección */
-            --bg-sec1: #0A0D14;       /* Pitch Dark Slate */
-            --bg-sec2: #FFFFFF;       /* Pure White */
-            --bg-sec3: #F1F5F9;       /* Light Slate Gray */
-            --bg-sec4: #0F172A;       /* Deep Slate */
+            --bg-sec1: #0A0D14;
+            --bg-sec2: #FFFFFF;
+            --bg-sec3: #F1F5F9;
+            --bg-sec4: #0F172A;
 
-            /* Colores de acento */
-            --accent-red: #E11D48;    /* Crimson Red */
-            --accent-orange: #F97316; /* Energetic Orange */
+            --accent-red: #E11D48;
+            --accent-orange: #F97316;
             --text-dark: #0F172A;
             --text-muted: #64748B;
             --border-light: #E2E8F0;
@@ -25,8 +23,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         body { color: var(--text-dark); padding-bottom: 80px; }
 
-        /* HEADER FIXING */
-        header { position: sticky; top: 0; background: rgba(10, 13, 20, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 1000; }
+        header { position: sticky; top: 0; background: rgba(10, 13, 20, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 1000; }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; }
         .brand { font-size: 1.4rem; font-weight: 900; color: #FFFFFF; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
         .brand span { color: var(--accent-red); }
@@ -34,47 +31,50 @@
         .nav-links a { color: #94A3B8; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
         .nav-links a:hover { color: #FFFFFF; }
 
-        /* SECCIÓN 1: HERO CON VIDEO DE FONDO (#0A0D14) */
-        .sec-hero { position: relative; min-height: 88vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: var(--bg-sec1); color: #FFFFFF; text-align: center; padding: 60px 20px; }
-        .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translate(-50%, -50%); object-fit: cover; opacity: 0.4; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(10,13,20,0.3) 0%, rgba(10,13,20,0.95) 100%); z-index: 2; }
-        
-        .hero-content { position: relative; z-index: 3; max-width: 800px; margin: 0 auto; }
+        /* SECCIÓN 1: HERO SIN VIDEO (IMAGEN FIJA DE ALTO IMPACTO) */
+        .sec-hero { position: relative; min-height: 75vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, rgba(10,13,20,0.75) 0%, rgba(10,13,20,0.98) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #FFFFFF; text-align: center; padding: 60px 20px; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
         .hero-tag { display: inline-block; background: rgba(225, 29, 72, 0.2); color: #FB7185; padding: 6px 18px; border-radius: 30px; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; border: 1px solid rgba(225, 29, 72, 0.4); }
         .sec-hero h1 { font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
         .sec-hero p { color: #CBD5E1; font-size: 1.1rem; line-height: 1.6; margin-bottom: 32px; max-width: 650px; margin-left: auto; margin-right: auto; }
         .btn-primary { background: linear-gradient(135deg, var(--accent-red), #BE123C); color: #FFFFFF; font-weight: 800; padding: 16px 36px; border-radius: 10px; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(225, 29, 72, 0.6); }
 
-        /* SECCIÓN 2: INSTALACIONES & EXPERIENCIA (#FFFFFF) */
-        .sec-about { background-color: var(--bg-sec2); padding: 90px 20px; }
-        .about-container { max-width: 1100px; margin: 0 auto; text-align: center; }
-        .section-subtitle { color: var(--accent-red); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        .section-title { font-size: 2.3rem; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -0.5px; }
-        .about-text { max-width: 720px; margin: 0 auto 50px; color: var(--text-muted); line-height: 1.7; font-size: 1rem; }
+        /* SECCIÓN 2: HERRAMIENTA INTERACTIVA (CREA TU RUTINA & NUTRICIÓN) */
+        .sec-interactive { background-color: var(--bg-sec2); padding: 80px 20px; }
+        .interactive-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .feature-card { background: #FFFFFF; border: 1px solid var(--border-light); padding: 32px 24px; border-radius: 16px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.2s; }
-        .feature-card:hover { transform: translateY(-4px); }
-        .feature-icon { font-size: 2rem; margin-bottom: 16px; display: inline-block; }
-        .feature-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; }
-        .feature-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+        .tool-card { background: #FFFFFF; border: 1px solid var(--border-light); padding: 32px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+        .tool-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .tool-subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+        
+        .form-select-group { margin-bottom: 16px; }
+        .form-select-group label { display: block; font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 6px; text-transform: uppercase; }
+        .form-select-group select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: #F8FAFC; outline: none; font-weight: 600; color: var(--text-dark); }
+        
+        .routine-result { margin-top: 20px; padding: 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid var(--accent-red); font-size: 0.9rem; display: none; }
+        .routine-result h4 { font-weight: 800; margin-bottom: 6px; color: var(--text-dark); }
+        
+        .nutrition-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #F1F5F9; }
+        .nutrition-icon { background: rgba(225, 29, 72, 0.1); color: var(--accent-red); font-size: 1.2rem; padding: 8px; border-radius: 8px; font-weight: 800; }
+        .nutrition-text h4 { font-size: 0.95rem; font-weight: 800; }
+        .nutrition-text p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
 
-        /* SECCIÓN 3: CARRUSEL DE MEMBRESÍAS & PASES (#F1F5F9) */
-        .sec-catalog { background-color: var(--bg-sec3); padding: 90px 20px; }
+        /* SECCIÓN 3: CARRUSEL DE MEMBRESÍAS */
+        .sec-catalog { background-color: var(--bg-sec3); padding: 80px 20px; }
         .catalog-container { max-width: 1100px; margin: 0 auto; }
+        .section-subtitle { color: var(--accent-red); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; text-align: center; }
+        .section-title { font-size: 2.3rem; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -0.5px; text-align: center; }
         
-        .slider-wrapper { position: relative; margin-top: 40px; }
+        .slider-wrapper { position: relative; margin-top: 30px; }
         .slider-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 15px; }
         .slider-track::-webkit-scrollbar { display: none; }
         
         .plan-card { min-width: 290px; flex: 0 0 calc(33.333% - 16px); background: #FFFFFF; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-light); scroll-snap-align: start; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; }
         .plan-header { background: #0F172A; color: #FFF; padding: 24px; position: relative; }
-        .plan-badge { position: absolute; top: 16px; right: 16px; background: var(--accent-red); color: #FFF; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; }
         .plan-header h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; }
         .plan-price { font-size: 1.8rem; font-weight: 900; color: #FFF; }
         .plan-price span { font-size: 0.85rem; font-weight: 500; color: #94A3B8; }
-        
         .plan-body { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .plan-features { list-style: none; margin-bottom: 24px; }
         .plan-features li { font-size: 0.88rem; color: #475569; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
@@ -83,34 +83,29 @@
         .btn-select { width: 100%; background: #0F172A; color: #FFFFFF; border: none; font-weight: 800; padding: 12px; border-radius: 10px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; font-size: 0.82rem; }
         .btn-select:hover { background: var(--accent-red); }
 
-        /* SECCIÓN 4: CONTACTO, REDES SOCIALES & MAPA (#0F172A) */
-        .sec-contact { background-color: var(--bg-sec4); color: #FFFFFF; padding: 90px 20px; }
+        /* SECCIÓN 4: CONTACTO, REDES SOCIALES & MAPA */
+        .sec-contact { background-color: var(--bg-sec4); color: #FFFFFF; padding: 80px 20px; }
         .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
         .contact-form { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); padding: 36px; border-radius: 20px; }
         .contact-form h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
         .form-group { margin-bottom: 18px; }
         .form-group label { display: block; font-size: 0.82rem; color: #94A3B8; margin-bottom: 8px; font-weight: 600; }
         .form-group input, .form-group textarea { width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: #FFF; outline: none; font-size: 0.9rem; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-red); }
-        .btn-submit { width: 100%; background: var(--accent-red); color: #FFF; border: none; font-weight: 800; padding: 14px; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s; }
-        .btn-submit:hover { background: #BE123C; }
+        .btn-submit { width: 100%; background: var(--accent-red); color: #FFF; border: none; font-weight: 800; padding: 14px; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
 
         .social-box { display: flex; flex-direction: column; justify-content: space-between; }
         .social-links { display: flex; gap: 12px; margin-top: 14px; margin-bottom: 28px; }
-        .social-btn { background: rgba(255,255,255,0.08); color: #FFF; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: background 0.2s; border: 1px solid rgba(255,255,255,0.05); }
-        .social-btn:hover { background: var(--accent-red); }
+        .social-btn { background: rgba(255,255,255,0.08); color: #FFF; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.05); }
 
-        /* BARRA FLOTANTE DE REGISTRO */
         .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10, 13, 20, 0.96); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 20px; z-index: 1000; backdrop-filter: blur(12px); }
         .cart-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #FFF; }
-        .btn-whatsapp { background: #25D366; color: #FFF; border: none; font-weight: 800; padding: 12px 28px; border-radius: 50px; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .btn-whatsapp { background: #25D366; color: #FFF; border: none; font-weight: 800; padding: 12px 28px; border-radius: 50px; font-size: 0.88rem; cursor: pointer; }
 
         footer { text-align: center; padding: 24px; background: #06090E; color: #64748B; font-size: 0.82rem; }
 
         @media (max-width: 900px) {
+            .interactive-container, .contact-container { grid-template-columns: 1fr; }
             .plan-card { flex: 0 0 85%; }
-            .features-grid, .contact-container { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .sec-hero h1 { font-size: 2.2rem; }
         }
@@ -118,74 +113,105 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="nav-container">
             <a href="#" class="brand">IRON <span>FORGE</span></a>
             <nav class="nav-links">
                 <a href="#inicio">Inicio</a>
-                <a href="#instalaciones">Instalaciones</a>
+                <a href="#herramientas">Planificador</a>
                 <a href="#membresias">Membresías</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <!-- SECCIÓN 1: HERO CON VIDEO DE FONDO -->
+    <!-- SECCIÓN 1: HERO -->
     <section class="sec-hero" id="inicio">
-        <video class="video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-man-holding-barbell-weights-in-a-gym-42838-large.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        
         <div class="hero-content">
-            <span class="hero-tag">🔥 Supera tus límites</span>
+            <span class="hero-tag">🔥 Centro de Alto Rendimiento</span>
             <h1>Construye tu mejor versión hoy</h1>
-            <p>Equipamiento de nivel profesional, áreas especializadas de musculación, funcional y entrenamiento personalizado para todos los niveles.</p>
-            <a href="#membresias" class="btn-primary">Ver Planes & Clase Muestra</a>
+            <p>Maquinaria biomecánica de vanguardia, nutrición aplicada y programas diseñados para hipertrofia y fuerza real.</p>
+            <a href="#herramientas" class="btn-primary">Diseñar Mi Rutina Gratis</a>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: SOBRE EL CENTRO / INSTALACIONES (#FFFFFF) -->
-    <section class="sec-about" id="instalaciones">
-        <div class="about-container">
-            <div class="section-subtitle">Instalaciones de Primer Nivel</div>
-            <h2 class="section-title">¿Por qué entrenar en Iron Forge?</h2>
-            <p class="about-text">Diseñamos un espacio optimizado para el rendimiento físico real. Olvídate de los gimnasios saturados sin equipo adecuado.</p>
+    <!-- SECCIÓN 2: MÓDULO INTERACTIVO DE RUTINA Y NUTRICIÓN -->
+    <section class="sec-interactive" id="herramientas">
+        <div class="interactive-container">
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🏋️‍♂️</span>
-                    <h3>Zona Hammer Strength</h3>
-                    <p>Maquinaria biomecánica de alta gama para trabajo analítico y fuerza máxima con total seguridad.</p>
+            <!-- CREADOR DE RUTINAS -->
+            <div class="tool-card">
+                <div class="tool-title">⚡ Creador de Rutinas Expres</div>
+                <p class="tool-subtitle">Selecciona tus parámetros y genera un esquema de entrenamiento básico instantáneo.</p>
+
+                <div class="form-select-group">
+                    <label>Objetivo Principal</label>
+                    <select id="userGoal">
+                        <option value="hipertrofia">Aumento de Masa Muscular (Hipertrofia)</option>
+                        <option value="fuerza">Fuerza Máxima (Powerlifting)</option>
+                        <option value="definicion">Quema de Grasa / Definición</option>
+                    </select>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⏱️</span>
-                    <h3>Área Funcional & HIIT</h3>
-                    <p>Pista de césped sintético, trineos de empuje, kettebells y zonas abiertas para acondicionamiento.</p>
+
+                <div class="form-select-group">
+                    <label>Días Disponibles por Semana</label>
+                    <select id="userDays">
+                        <option value="3">3 Días (Full Body / Rutina A-B)</option>
+                        <option value="4">4 Días (Torso / Pierna Split)</option>
+                        <option value="5">5 Días (Push / Pull / Legs)</option>
+                    </select>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📋</span>
-                    <h3>Coach de Pista Continuo</h3>
-                    <p>Entrenadores capacitados siempre presentes para corregir tu postura y estructurar tu rutina.</p>
+
+                <button class="btn-select" style="background: var(--accent-red);" onclick="generateRoutine()">Generar Mi Esquema</button>
+
+                <div class="routine-result" id="routineResult">
+                    <h4 id="routineTitle">Esquema Sugerido:</h4>
+                    <p id="routineDesc" style="color: #64748B; font-size: 0.85rem; line-height: 1.5;"></p>
                 </div>
             </div>
+
+            <!-- MÓDULO DE NUTRICIÓN Y MASA MUSCULAR -->
+            <div class="tool-card">
+                <div class="tool-title">🥩 Nutrición para Masa Muscular</div>
+                <p class="tool-subtitle">Claves de alimentación esenciales para optimizar la síntesis proteica.</p>
+
+                <div class="nutrition-item">
+                    <div class="nutrition-icon">🍳</div>
+                    <div class="nutrition-text">
+                        <h4>Proteínas de Alto Valor Biológico</h4>
+                        <p>Huevos, pechuga de pollo y carne magra. Apunta a 1.8g - 2.2g de proteína por kilo de peso corporal.</p>
+                    </div>
+                </div>
+
+                <div class="nutrition-item">
+                    <div class="nutrition-icon">🍚</div>
+                    <div class="nutrition-text">
+                        <h4>Carbohidratos de Carga Glucémica Media</h4>
+                        <p>Arroz blanco/integral, avena y camote. Fundamentales para reponer glucógeno y dar energía en series pesadas.</p>
+                    </div>
+                </div>
+
+                <div class="nutrition-item">
+                    <div class="nutrition-icon">🥑</div>
+                    <div class="nutrition-text">
+                        <h4>Grasas Saludables para Soporte Hormonal</h4>
+                        <p>Aguacate, frutos secos y aceite de oliva. Esenciales para mantener niveles óptimos de testosterona.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- SECCIÓN 3: CARRUSEL DE MEMBRESÍAS & PASES (#F1F5F9) -->
+    <!-- SECCIÓN 3: MEMBRESÍAS -->
     <section class="sec-catalog" id="membresias">
         <div class="catalog-container">
-            <div style="text-align: center;">
-                <div class="section-subtitle">Elige tu modalidad</div>
-                <h2 class="section-title">Planes & Membresías</h2>
-            </div>
+            <div class="section-subtitle">Elige tu modalidad</div>
+            <h2 class="section-title">Planes & Membresías</h2>
 
-            <!-- CARRUSEL SLIDER -->
             <div class="slider-wrapper">
-                <div class="slider-track" id="sliderTrack">
+                <div class="slider-track">
                     
-                    <!-- PLAN 1 -->
                     <div class="plan-card">
                         <div class="plan-header">
                             <h3>Pase Diario</h3>
@@ -201,10 +227,8 @@
                         </div>
                     </div>
 
-                    <!-- PLAN 2 -->
                     <div class="plan-card">
                         <div class="plan-header">
-                            <span class="plan-badge">Popular</span>
                             <h3>Mensualidad PRO</h3>
                             <div class="plan-price">$750 <span>MXN / mes</span></div>
                         </div>
@@ -213,44 +237,23 @@
                                 <li>Acceso ilimitado 7 días a la semana</li>
                                 <li>Evaluación física inicial gratis</li>
                                 <li>Rutina personalizada de inicio</li>
-                                <li>Acceso a lockers y vestidores</li>
                             </ul>
                             <button class="btn-select" onclick="selectPlan('Mensualidad PRO - $750 MXN')">Seleccionar Plan</button>
                         </div>
                     </div>
 
-                    <!-- PLAN 3 -->
                     <div class="plan-card">
                         <div class="plan-header">
-                            <span class="plan-badge" style="background:#F97316;">VIP</span>
                             <h3>Plan Trimestral</h3>
                             <div class="plan-price">$1,950 <span>MXN / 3 meses</span></div>
                         </div>
                         <div class="plan-body">
                             <ul class="plan-features">
-                                <li>Ahorro significativo mensual</li>
+                                <li>Ahorro mensual significativo</li>
                                 <li>Inscripción 100% gratis</li>
-                                <li>Plan de nutrición deportiva incluido</li>
-                                <li>Pase de invitado mensual gratis</li>
+                                <li>Plan nutricional incluido</li>
                             </ul>
                             <button class="btn-select" onclick="selectPlan('Plan Trimestral - $1,950 MXN')">Seleccionar Plan</button>
-                        </div>
-                    </div>
-
-                    <!-- PLAN 4 -->
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h3>Personal Trainer</h3>
-                            <div class="plan-price">$1,400 <span>MXN / mes</span></div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li>Entrenador dedicado 1 a 1</li>
-                                <li>Plan mensual nutricional</li>
-                                <li>Seguimiento porcentual de grasa</li>
-                                <li>Ajuste continuo de cargas</li>
-                            </ul>
-                            <button class="btn-select" onclick="selectPlan('Personal Trainer - $1,400 MXN')">Seleccionar Plan</button>
                         </div>
                     </div>
 
@@ -259,11 +262,9 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 4: CONTACTO, REDES SOCIALES & MAPA (#0F172A) -->
+    <!-- SECCIÓN 4: CONTACTO, REDES Y MAPA -->
     <section class="sec-contact" id="contacto">
         <div class="contact-container">
-            
-            <!-- FORMULARIO DIRECTO -->
             <div class="contact-form">
                 <h3>Solicita tu Clase Muestra</h3>
                 <div class="form-group">
@@ -275,66 +276,73 @@
                     <input type="email" id="contactEmail" placeholder="correo@ejemplo.com">
                 </div>
                 <div class="form-group">
-                    <label>¿Cuál es tu objetivo principal?</label>
-                    <textarea id="contactMessage" rows="3" placeholder="Ej. Aumento de masa muscular, bajar de peso, acondicionamiento..."></textarea>
+                    <label>Mensaje u Objetivo</label>
+                    <textarea id="contactMessage" rows="3" placeholder="Ej. Quiero iniciar el lunes y aumentar masa..."></textarea>
                 </div>
                 <button class="btn-submit" onclick="submitForm()">Agendar Clase Muestra</button>
             </div>
 
-            <!-- REDES SOCIALES & MAPA -->
             <div class="social-box">
                 <div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase;">Visítanos en el Gimnasio</h3>
-                    <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5;">Conoce nuestras instalaciones en persona y agenda tu prueba gratuita.</p>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase;">Visítanos en la Sede</h3>
+                    <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 20px;">Conoce el equipo en persona antes de iniciar.</p>
 
                     <div class="social-links">
-                        <a href="https://instagram.com" target="_blank" class="social-btn">📸 Instagram</a>
-                        <a href="https://facebook.com" target="_blank" class="social-btn">📘 Facebook</a>
-                        <a href="https://tiktok.com" target="_blank" class="social-btn">🎵 TikTok</a>
+                        <a href="#" class="social-btn">📸 Instagram</a>
+                        <a href="#" class="social-btn">📘 Facebook</a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 style="font-size: 0.88rem; margin-bottom: 10px; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Ubicación de la Sede:</h4>
+                    <h4 style="font-size: 0.88rem; margin-bottom: 10px; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Ubicación:</h4>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="160" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2026 Iron Forge Gymnasium — Sitio Desarrollado por DAMstudio (Plan Negocio Pro $2,500 MXN)</p>
     </footer>
 
-    <!-- BARRA FLOTANTE -->
     <div class="cart-bar">
         <div class="cart-inner">
             <div>
                 <span style="font-size:0.78rem; color:#94A3B8; text-transform: uppercase; font-weight:700;">Plan Seleccionado:</span>
                 <div style="font-weight:800; font-size:0.95rem; color:#FFF;" id="selectedPlanDisplay">Ningún plan elegido</div>
             </div>
-            <button class="btn-whatsapp" onclick="sendWhatsApp()">
-                💬 Agendar por WhatsApp
-            </button>
+            <button class="btn-whatsapp" onclick="sendWhatsApp()">💬 Agendar por WhatsApp</button>
         </div>
     </div>
 
-    <!-- SCRIPT INTERACTIVO Y CADUCIDAD -->
     <script>
-        // Lógica de caducidad automática
         const fechaLimite = new Date('2026-10-15T23:59:59'); 
         if (new Date() > fechaLimite) {
-            document.body.innerHTML = `
-                <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; font-family:sans-serif; background:#0A0D14; color:#fff; padding:20px;">
-                    <h1 style="font-size:2rem; margin-bottom:10px; color:#E11D48;">Vista Previa Finalizada</h1>
-                    <p style="color:#94A3B8; max-width:400px;">La demo del Plan Negocio Pro ($2,500 MXN) ha concluido. Contacte a DAMstudio para activar su sitio permanente.</p>
-                </div>
-            `;
+            document.body.innerHTML = `<div style="height:100vh; display:flex; justify-content:center; align-items:center; background:#0A0D14; color:#fff;"><h1>Vista Previa Finalizada</h1></div>`;
         }
 
         let selectedPlan = "";
+
+        function generateRoutine() {
+            const goal = document.getElementById('userGoal').value;
+            const days = document.getElementById('userDays').value;
+            const resultBox = document.getElementById('routineResult');
+            const title = document.getElementById('routineTitle');
+            const desc = document.getElementById('routineDesc');
+
+            let scheme = "";
+            if (goal === "hipertrofia") {
+                scheme = `Rutina recomendada de ${days} días enfocada en rango de 8-12 repeticiones, priorizando ejercicios multiarticulares (Sentadilla, Press de Banca, Peso Muerto) seguidos de trabajo analítico.`;
+            } else if (goal === "fuerza") {
+                scheme = `Enfoque en series de 3-5 repeticiones con descansos de 3 minutos. Distribución de volumen enfocada en progresión de cargas semanales.`;
+            } else {
+                scheme = `Circuito híbrido de musculación + intervalos de alta intensidad (HIIT). Mantiene volumen muscular mientras incrementa el gasto calórico diario.`;
+            }
+
+            title.innerText = `Esquema de ${days} Días (${goal.toUpperCase()})`;
+            desc.innerText = scheme;
+            resultBox.style.display = 'block';
+        }
 
         function selectPlan(planName) {
             selectedPlan = planName;
@@ -343,28 +351,14 @@
 
         function sendWhatsApp() {
             if (!selectedPlan) {
-                alert('Por favor haz clic en "Seleccionar Plan" en alguna de las membresías primero.');
+                alert('Selecciona un plan primero.');
                 return;
             }
-
-            const msg = `Hola Iron Forge, me interesa inscribirme o solicitar informes sobre el plan: ${selectedPlan}.\n\n¿Me pueden compartir los horarios disponibles?`;
-            alert('Ejemplo de solicitud hacia el WhatsApp del Gimnasio:\n\n' + msg);
+            alert('Enviando solicitud para: ' + selectedPlan);
         }
 
         function submitForm() {
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const msg = document.getElementById('contactMessage').value.trim();
-
-            if (!name || !email || !msg) {
-                alert('Por favor llena todos los campos para agendar tu clase muestra.');
-                return;
-            }
-
-            alert(`¡Gracias ${name}! Tu solicitud de Clase Muestra ha sido recibida (Simulación).`);
-            document.getElementById('contactName').value = '';
-            document.getElementById('contactEmail').value = '';
-            document.getElementById('contactMessage').value = '';
+            alert('Solicitud enviada correctamente.');
         }
     </script>
 </body>
