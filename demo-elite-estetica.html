@@ -3,328 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA ÉLITE | Haute Esthétique & Medicina de Autor</title>
+    <title>Clínica de Fisioterapia & Rehabilitación | PhysioKinetix</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
         :root {
-            --bg-base: #ffffff;
-            --bg-surface: #fcfbf9;
-            --bg-card: #f5f3ef;
-            --gold-primary: #c59b27;
-            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-            --text-main: #1a1a1a;
-            --text-muted: #666666;
-            --border-subtle: #e8e4dc;
-            --border-gold: rgba(212, 175, 55, 0.4);
+            --primary: #0284C7;
+            --primary-dark: #0369A1;
+            --accent: #0D9488;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-base); color: var(--text-main); line-height: 1.7; }
+        body { background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 90px; }
 
-        /* HEADER / NAVEGACIÓN */
-        header { position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-subtle); }
-        nav { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; }
-        .brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; letter-spacing: 2px; color: var(--text-main); text-transform: uppercase; }
-        .brand-logo span { color: var(--gold-primary); font-style: italic; }
+        /* TOP BANNER ANUNCIO */
+        .top-bar { background: var(--accent); color: #fff; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; }
 
-        .nav-links { display: flex; gap: 36px; list-style: none; }
-        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.88rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--gold-primary); }
+        /* HEADER */
+        header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; }
+        .brand { font-size: 1.25rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
 
-        .btn-gold { background: var(--gold-gradient); color: #fff; font-weight: 700; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25); }
-        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); }
+        /* SECCIÓN 1: HERO & BANNERS DESTACADOS */
+        .hero { max-width: 1000px; margin: 0 auto; padding: 40px 20px 20px; }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #E0F2FE; color: var(--primary-dark); padding: 6px 14px; border-radius: 30px; font-size: 0.82rem; font-weight: 700; margin-bottom: 14px; }
+        .hero h1 { font-size: 2.3rem; font-weight: 800; line-height: 1.25; color: var(--text-dark); margin-bottom: 14px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-muted); font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px; }
 
-        /* HERO SECTION */
-        .hero { max-width: 1300px; margin: 0 auto; padding: 100px 24px 80px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
-        .badge-luxury { display: inline-block; padding: 6px 16px; background: #f7f4ed; border: 1px solid var(--border-gold); color: var(--gold-primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero-img img { width: 100%; border-radius: 16px; object-fit: cover; height: 260px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+        /* BANNERS DE BENEFICIOS */
+        .features-banner { max-width: 1000px; margin: 20px auto 40px; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .feature-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px; display: flex; align-items: center; gap: 14px; }
+        .feature-icon { font-size: 1.6rem; background: #F0FDFA; padding: 10px; border-radius: 12px; }
+        .feature-info h4 { font-size: 0.9rem; font-weight: 700; }
+        .feature-info p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* SECCIÓN 2: TRATAMIENTOS & AGENDAMIENTO + MAPA */
+        .main-section { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .section-title { font-size: 1.5rem; font-weight: 800; border-left: 4px solid var(--primary); padding-left: 12px; margin-bottom: 20px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
+        .service-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: all 0.2s ease; cursor: pointer; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(2, 132, 199, 0.06); }
+        .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+        .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; }
+        .btn-select { background: #F1F5F9; border: 1px solid var(--border); color: var(--text-dark); font-weight: 700; padding: 8px 14px; border-radius: 8px; font-size: 0.82rem; width: 100%; cursor: pointer; transition: all 0.2s; }
+        .btn-select:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* BLOQUE AGENDAR Y MAPA */
+        .booking-location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        .box-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 24px; }
         
-        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.2rem; line-height: 1.05; font-weight: 600; margin-bottom: 24px; color: #111; }
-        .hero h1 i { font-weight: 400; color: var(--gold-primary); }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 36px; max-width: 540px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 4px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
 
-        .hero-image-container { position: relative; }
-        .hero-image-container img { width: 100%; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 8px solid #fff; }
-        .hero-experience-badge { position: absolute; bottom: -20px; left: -20px; background: #fff; border: 1px solid var(--border-gold); padding: 24px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* FOOTER Y BARRA FLOTANTE */
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); border-top: 1px solid var(--border); padding: 14px 20px; z-index: 1000; backdrop-filter: blur(8px); }
+        .cart-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 
-        /* SECCIÓN: LA HISTORIA DE LA BELLEZA */
-        .story-section { background: var(--bg-surface); border-y: 1px solid var(--border-subtle); padding: 100px 24px; }
-        .story-container { max-width: 1000px; margin: 0 auto; text-align: center; }
-        .story-container h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 24px; color: #111; }
-        .story-container p { font-size: 1.15rem; color: var(--text-muted); font-style: italic; font-family: 'Cormorant Garamond', serif; line-height: 1.9; margin-bottom: 20px; }
+        .btn-whatsapp { background: #25D366; color: #fff; border: none; font-weight: 700; padding: 12px 24px; border-radius: 50px; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25); }
+        .btn-whatsapp:hover { opacity: 0.95; }
 
-        /* SECCIÓN: QUIÉNES SOMOS */
-        .about-section { max-width: 1300px; margin: 100px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-card { background: var(--bg-card); padding: 50px; border-radius: 8px; border: 1px solid var(--border-subtle); }
-        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; margin-bottom: 20px; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
-        .metric-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-primary); line-height: 1; }
-        .metric-item p { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 6px; }
+        footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
 
-        /* HERRAMIENTA INTERACTIVA: TEST GLOW SCORE */
-        .interactive-tool { max-width: 1100px; margin: 100px auto; background: #fff; border: 1px solid var(--border-gold); padding: 60px 40px; border-radius: 12px; box-shadow: 0 15px 40px rgba(212, 175, 55, 0.08); text-align: center; }
-        .range-slider { width: 100%; margin: 30px 0; accent-color: var(--gold-primary); }
-
-        /* CATÁLOGO INTERACTIVO DINÁMICO */
-        .catalog-section { max-width: 1300px; margin: 100px auto; padding: 0 24px; }
-        .filter-bar { display: flex; justify-content: center; gap: 16px; margin-bottom: 50px; }
-        .filter-btn { background: none; border: 1px solid var(--border-subtle); color: var(--text-main); padding: 10px 28px; border-radius: 30px; cursor: pointer; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: var(--text-main); color: #fff; border-color: var(--text-main); }
-
-        .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
-        .card-luxury { background: #fff; border: 1px solid var(--border-subtle); border-radius: 8px; overflow: hidden; transition: all 0.4s; }
-        .card-luxury:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--border-gold); }
-        .card-img { width: 100%; height: 280px; object-fit: cover; }
-        .card-body { padding: 32px; }
-        .card-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin: 10px 0; }
-
-        /* COTIZADOR POR PASOS (SaaS) */
-        .cotizador-box { max-width: 1000px; margin: 100px auto; background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 60px; border-radius: 12px; }
-        .step-pill { display: inline-block; padding: 4px 12px; background: var(--gold-primary); color: #fff; font-size: 0.75rem; font-weight: 700; border-radius: 20px; margin-bottom: 12px; }
-
-        /* RESEÑAS VERIFICADAS */
-        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .review-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 36px; border-radius: 8px; }
-
-        footer { border-top: 1px solid var(--border-subtle); padding: 60px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 100px; background: var(--bg-surface); }
-
-        @media (max-width: 968px) {
-            .hero, .about-section, .catalog-grid, .reviews-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3rem; }
-            .nav-links { display: none; }
+        @media (max-width: 768px) {
+            .hero-grid, .features-banner, .booking-location-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <div class="top-bar">⚡ Valoración Inicial con 20% de Descuento para Nuevos Pacientes</div>
+
     <header>
-        <nav>
-            <div class="brand-logo">AURA <span>Élite</span></div>
-            <ul class="nav-links">
-                <li><a href="#historia">Filosofía</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#catalogo">Tratamientos</a></li>
-                <li><a href="#cotizador">Cotizador VIP</a></li>
-            </ul>
-            <button class="btn-gold" onclick="document.getElementById('cotizador').scrollIntoView();">Cita de Valoración</button>
-        </nav>
+        <div class="nav-container">
+            <a href="#" class="brand">🦴 PhysioKinetix | Fisioterapia</a>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--primary-dark);">📍 Consulta Previa Cita</span>
+        </div>
     </header>
 
-    <!-- Hero / Portada -->
+    <!-- SECCIÓN 1: PRESENTACIÓN & BANNERS -->
     <section class="hero">
-        <div>
-            <span class="badge-luxury">✦ Medicina Estética de Autor</span>
-            <h1>La ciencia de la <i>armonía</i> y la belleza atemporal</h1>
-            <p>Especialistas en preservación facial y rejuvenecimiento avanzado. Protocolos de alta precisión diseñados para realzar tu estructura natural con discreción absoluta.</p>
-            <button class="btn-gold" onclick="document.getElementById('cotizador').scrollIntoView();">Diseñar Mi Protocolo →</button>
-        </div>
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80" alt="Aura Élite Medicina Estética">
-            <div class="hero-experience-badge">
-                <div style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:var(--gold-primary); font-weight:700; line-height:1;">12+ Años</div>
-                <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; font-weight:700; margin-top:4px;">En Alta Estética Médica</div>
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge">🩺 Rehabilitación Física Especializada</div>
+                <h1>Recupera tu movilidad y vive <span>sin dolor</span></h1>
+                <p>Tratamientos personalizados de fisioterapia deportiva, ortopédica y neurológica. Volver a moverte con libertad es posible.</p>
+            </div>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Fisioterapia y Rehabilitación">
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 1: NUESTRA HISTORIA SOBRE LA BELLEZA -->
-    <section class="story-section" id="historia">
-        <div class="story-container">
-            <span class="badge-luxury">✦ Nuestra Filosofía</span>
-            <h2>"La verdadera belleza no transforma, perfecciona lo que ya existe."</h2>
-            <p>"A lo largo de la historia, la belleza ha sido concebida como la simetría exacta entre la salud, la luz y la proporción. En Aura Élite comprendemos que cada rostro cuenta una historia única. Nuestra misión no es alterar tus rasgos, sino devolver la frescura, el tono y la estructura que el tiempo atenúa."</p>
-            <p style="font-style:normal; font-weight:600; font-size:0.95rem; color:var(--gold-primary); text-transform:uppercase; letter-spacing:2px;">— Dirección Médica Aura Élite</p>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 2: QUIÉNES SOMOS -->
-    <section class="about-section" id="nosotros">
-        <div class="about-card">
-            <span class="badge-luxury">✦ Autoridad Clínica</span>
-            <h3>Excelencia Médica con Estándares Internacionales</h3>
-            <p style="color:var(--text-muted); margin-bottom:16px;">Somos un centro médico especializado en procedimientos estéticos no invasivos y cirugía plástica de alta definición. Nuestra práctica se rige estricta y éticamente por los más altos estándares de bioseguridad internacional.</p>
-            <p style="color:var(--text-muted);">Utilizamos únicamente insumos aprobados de grado médico superior, respaldados por la FDA y cofepris, garantizando resultados naturales y períodos de recuperación mínimos.</p>
-        </div>
-        <div class="metrics-grid">
-            <div class="metric-item">
-                <h4>+4,800</h4>
-                <p>Pacientes Satisfechos</p>
-            </div>
-            <div class="metric-item">
-                <h4>100%</h4>
-                <p>Productos Médicos Certificados</p>
-            </div>
-            <div class="metric-item">
-                <h4>24/7</h4>
-                <p>Seguimiento Post-Tratamiento</p>
-            </div>
-            <div class="metric-item">
-                <h4>0%</h4>
-                <p>Dolor con Anestesia Selectiva</p>
+    <div class="features-banner">
+        <div class="feature-card">
+            <div class="feature-icon">💆‍♂️</div>
+            <div class="feature-info">
+                <h4>Atención 1 a 1</h4>
+                <p>Sesiones 100% personalizadas</p>
             </div>
         </div>
-    </section>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-info">
+                <h4>Alivio Rápido</h4>
+                <p>Técnicas avanzadas sin dolor</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <div class="feature-info">
+                <h4>Citas por WhatsApp</h4>
+                <p>Reserva fácil y sin esperas</p>
+            </div>
+        </div>
+    </div>
 
-    <!-- MÓDULO INTERACTIVO NUEVO: CALCULADORA GLOW SCORE -->
-    <section class="interactive-tool">
-        <span class="badge-luxury">✦ Herramienta Interactiva de Diagnóstico</span>
-        <h2 style="font-family:'Cormorant Garamond', serif; font-size:2.4rem; margin-bottom:10px;">Calculadora de Necesidad Cutánea</h2>
-        <p style="color:var(--text-muted);">Desliza tu rango de edad para conocer la recomendación preventiva o correctiva recomendada para ti:</p>
-        
-        <input type="range" min="20" max="60" value="30" class="range-slider" id="ageSlider" oninput="updateGlowTool(this.value)">
-        
-        <div style="font-family:'Cormorant Garamond', serif; font-size:2rem; color:var(--gold-primary);" id="ageDisplay">Edad: 30 Años</div>
-        <div style="font-size:1.1rem; font-weight:600; margin-top:10px;" id="recommendationDisplay">Recomendación: Bioestimulación de Colágeno + Prevención de Líneas de Expresión.</div>
-    </section>
+    <!-- SECCIÓN 2: TRATAMIENTOS, FORMULARIO Y MAPA -->
+    <main class="main-section">
+        <h2 class="section-title">Nuestros Tratamientos</h2>
+        <div class="services-grid">
+            <div class="service-card" onclick="selectService('Fisioterapia Deportiva')">
+                <h3>Fisioterapia Deportiva</h3>
+                <p>Rehabilitación de esguinces, desgarros, tendinitis y preparación física para alto rendimiento.</p>
+                <button class="btn-select">Solicitar Cita</button>
+            </div>
 
-    <!-- MÓDULO INTERACTIVO: CATÁLOGO DINÁMICO CON FILTROS -->
-    <section class="catalog-section" id="catalogo">
-        <div style="text-align:center; margin-bottom:40px;">
-            <span class="badge-luxury">✦ Catálogo de Procedimientos</span>
-            <h2 style="font-family:'Cormorant Garamond', serif; font-size:3rem;">Tratamientos de Firma</h2>
+            <div class="service-card" onclick="selectService('Rehabilitación de Espalda y Cuello')">
+                <h3>Espalda y Lumbalgias</h3>
+                <p>Tratamiento especializado para hernia discal, ciática, dolor lumbar y corrección postural.</p>
+                <button class="btn-select">Solicitar Cita</button>
+            </div>
+
+            <div class="service-card" onclick="selectService('Terapia Manual y Masaje Terapéutico')">
+                <h3>Terapia Manual</h3>
+                <p>Liberación miofascial y masajes descontracturantes para eliminar tensión muscular y estrés.</p>
+                <button class="btn-select">Solicitar Cita</button>
+            </div>
         </div>
 
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterCatalog('todos', this)">Todos</button>
-            <button class="filter-btn" onclick="filterCatalog('facial', this)">Facial & Rostro</button>
-            <button class="filter-btn" onclick="filterCatalog('corporal', this)">Corporal HD</button>
-        </div>
-
-        <div class="catalog-grid">
-            <div class="card-luxury catalog-item facial">
-                <img src="https://images.unsplash.com/photo-1512290900676-26c2a48f4134?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Harmonización">
-                <div class="card-body">
-                    <span style="font-size:0.75rem; color:var(--gold-primary); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Facial</span>
-                    <h3>Rinomodelación Estructural 3D</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Corrección de la simetría nasal en 30 minutos sin tiempo de inactividad.</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-weight:700; font-size:1.1rem;">$9,500 MXN</span>
-                        <span style="color:var(--gold-primary); font-weight:700; font-size:0.85rem; cursor:pointer;" onclick="alert('Mostrando ficha técnica del procedimiento')">Detalles →</span>
-                    </div>
+        <h2 class="section-title">Agendar Consulta y Ubicación</h2>
+        <div class="booking-location-grid">
+            
+            <!-- FORMULARIO -->
+            <div class="box-card">
+                <h3 style="margin-bottom: 12px; font-size: 1.1rem;">Agendar por WhatsApp</h3>
+                <div class="form-group">
+                    <label>Nombre del Paciente</label>
+                    <input type="text" id="patientName" placeholder="Ej. Carlos Mendoza">
+                </div>
+                <div class="form-group">
+                    <label>Tratamiento de Interés</label>
+                    <select id="selectedService">
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="Fisioterapia Deportiva">Fisioterapia Deportiva</option>
+                        <option value="Rehabilitación de Espalda y Cuello">Rehabilitación de Espalda / Lumbalgia</option>
+                        <option value="Terapia Manual y Masaje Terapéutico">Terapia Manual y Masaje Terapéutico</option>
+                        <option value="Valoración Inicial General">Valoración Inicial General</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Horario Preferido</label>
+                    <select id="bookingTime">
+                        <option value="Mañana (9:00 AM - 1:00 PM)">Mañana (9:00 AM - 1:00 PM)</option>
+                        <option value="Tarde (3:00 PM - 7:00 PM)">Tarde (3:00 PM - 7:00 PM)</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="card-luxury catalog-item facial">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Botox">
-                <div class="card-body">
-                    <span style="font-size:0.75rem; color:var(--gold-primary); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Facial</span>
-                    <h3>Perfilado & Volumen de Labios HD</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Hidratación profunda y definición del arco de cupido con acabado natural.</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-weight:700; font-size:1.1rem;">$6,800 MXN</span>
-                        <span style="color:var(--gold-primary); font-weight:700; font-size:0.85rem; cursor:pointer;" onclick="alert('Mostrando ficha técnica del procedimiento')">Detalles →</span>
-                    </div>
+            <!-- GOOGLE MAPS EMBEDDED -->
+            <div class="box-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="margin-bottom: 6px; font-size: 1.1rem;">Ubicación de la Clínica</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Atención con estacionamiento disponible.</p>
                 </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="160" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-            <div class="card-luxury catalog-item corporal">
-                <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Lipoescultura">
-                <div class="card-body">
-                    <span style="font-size:0.75rem; color:var(--gold-primary); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Corporal</span>
-                    <h3>Marcaje Abdominal VASER HD</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">Escultura ultrasónica para definir la musculatura abdominal con precisión quirúrgica.</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="font-weight:700; font-size:1.1rem;">Valoración VIP</span>
-                        <span style="color:var(--gold-primary); font-weight:700; font-size:0.85rem; cursor:pointer;" onclick="alert('Mostrando ficha técnica del procedimiento')">Detalles →</span>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
+    </main>
 
-    <!-- MÓDULO INTERACTIVO: COTIZADOR PASO A PASO -->
-    <section class="cotizador-box" id="cotizador">
-        <div style="text-align:center; margin-bottom:30px;">
-            <span class="badge-luxury">✦ Planificador Digital</span>
-            <h2 style="font-family:'Cormorant Garamond', serif; font-size:2.5rem;">Simulador de Presupuesto Personalizado</h2>
-        </div>
-
-        <div id="step-1">
-            <span class="step-pill">Paso 1 de 2</span>
-            <h4 style="font-size:1.2rem; margin-bottom:16px;">¿Qué zona te gustaría priorizar?</h4>
-            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
-                <button class="filter-btn" onclick="nextStep('Rostro Completo')">Rostro & Expresión</button>
-                <button class="filter-btn" onclick="nextStep('Contorno Corporal')">Contorno Corporal</button>
-                <button class="filter-btn" onclick="nextStep('Calidad de Piel')">Calidad de Piel / Glow</button>
-            </div>
-        </div>
-
-        <div id="step-2" style="display:none; text-align:center;">
-            <span class="step-pill">Paso 2 de 2</span>
-            <h3 style="font-family:'Cormorant Garamond', serif; font-size:2rem; color:var(--gold-primary); margin-bottom:10px;">¡Diagnóstico Preliminar Listo!</h3>
-            <p style="color:var(--text-muted); margin-bottom:24px;" id="cotizacion-text"></p>
-            <button class="btn-gold" onclick="alert('En el sitio final, esto envía la solicitud con los datos seleccionados al WhatsApp de la clínica.')">Enviar Solicitud Prioritaria por WhatsApp →</button>
-        </div>
-    </section>
-
-    <!-- RESEÑAS / TESTIMONIOS -->
-    <section style="max-width:1300px; margin:100px auto; padding:0 24px;">
-        <div style="text-align:center;">
-            <span class="badge-luxury">✦ Experiencias VIP</span>
-            <h2 style="font-family:'Cormorant Garamond', serif; font-size:3rem;">Opiniones de Nuestros Pacientes</h2>
-        </div>
-
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div style="color:var(--gold-primary); margin-bottom:10px;">★★★★★</div>
-                <p style="color:var(--text-muted); font-size:0.95rem; font-style:italic;">"El ambiente de la clínica y la sutileza de los resultados me fascinaron. Nadie nota qué me hice, solo que luzco descansada y radiante."</p>
-                <div style="font-weight:700; margin-top:16px;">— Sra. Elena V.</div>
-            </div>
-            <div class="review-card">
-                <div style="color:var(--gold-primary); margin-bottom:10px;">★★★★★</div>
-                <p style="color:var(--text-muted); font-size:0.95rem; font-style:italic;">"Atención 100% médica y profesional. El cotizador interactivo me ayudó a agendar exactamente lo que necesitaba."</p>
-                <div style="font-weight:700; margin-top:16px;">— Arq. Roberto M.</div>
-            </div>
-            <div class="review-card">
-                <div style="color:var(--gold-primary); margin-bottom:10px;">★★★★★</div>
-                <p style="color:var(--text-muted); font-size:0.95rem; font-style:italic;">"La rinomodelación quedó impecable. La recuperación fue inmediata y sin ningún tipo de moratón."</p>
-                <div style="font-weight:700; margin-top:16px;">— Dra. Patricia S.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <p>© 2026 Aura Élite — Plantilla Médica Exclusiva High-Ticket ($3,800 MXN) desarrollada para DAMstudio.</p>
+        <p>© 2026 PhysioKinetix — Sitio Web Desarrollado por DAMstudio</p>
     </footer>
 
+    <!-- BARRA INFERIOR FLOTANTE -->
+    <div class="cart-bar">
+        <div class="cart-inner">
+            <span style="font-size:0.88rem; font-weight:600; color:var(--text-dark);" id="statusText">Plan Esencial ($1,200 MXN) — Demostración</span>
+            <button class="btn-whatsapp" onclick="sendAppointment()">
+                📲 Agendar por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPT LOGICA Y EXPIRACION -->
     <script>
-        // Lógica de la Calculadora Glow Tool
-        function updateGlowTool(val) {
-            document.getElementById('ageDisplay').innerText = `Edad: ${val} Años`;
-            const rec = document.getElementById('recommendationDisplay');
-            if(val < 30) {
-                rec.innerText = "Recomendación: Prevención con Toxina Botulínica preventiva y Glow Hydrafacial.";
-            } else if(val < 45) {
-                rec.innerText = "Recomendación: Bioestimulación de Colágeno + Ácido Hialurónico en Puntos de Soporte.";
-            } else {
-                rec.innerText = "Recomendación: Harmonización Neofacial Integral con Efecto Lifting Tensa-Piel.";
+        const fechaLimite = new Date('2026-09-25T23:59:59'); 
+        const hoy = new Date();
+
+        if (hoy > fechaLimite) {
+            document.body.innerHTML = `
+                <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; font-family:sans-serif; background:#fff; color:#333; padding:20px;">
+                    <h1 style="font-size:2rem; margin-bottom:10px;">Vista Previa Finalizada</h1>
+                    <p style="color:#666; max-width:400px;">La demo del Plan Esencial ha concluido. Contacte a DAMstudio para adquirir o activar su sitio permanente.</p>
+                </div>
+            `;
+        }
+
+        function selectService(serviceName) {
+            document.getElementById('selectedService').value = serviceName;
+            document.getElementById('statusText').innerText = `Seleccionado: ${serviceName}`;
+        }
+
+        function sendAppointment() {
+            const name = document.getElementById('patientName').value.trim();
+            const service = document.getElementById('selectedService').value;
+            const time = document.getElementById('bookingTime').value;
+
+            if (!name || !service) {
+                alert('Por favor ingresa el nombre del paciente y selecciona un tratamiento.');
+                return;
             }
-        }
 
-        // Lógica de Filtros de Catálogo
-        function filterCatalog(category, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            let msg = `Hola PhysioKinetix, me gustaría agendar una cita:\n\n`;
+            msg += `👤 *Paciente:* ${name}\n`;
+            msg += `🩺 *Tratamiento:* ${service}\n`;
+            msg += `⏰ *Horario sugerido:* ${time}\n`;
 
-            const items = document.querySelectorAll('.catalog-item');
-            items.forEach(item => {
-                if (category === 'todos' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Lógica del Cotizador
-        function nextStep(zona) {
-            document.getElementById('step-1').style.display = 'none';
-            document.getElementById('step-2').style.display = 'block';
-            document.getElementById('cotizacion-text').innerText = `Has seleccionado el protocolo para: ${zona}. Tu perfil fue asignado a valoración médica prioritaria.`;
+            alert('Ejemplo del mensaje que llegará al WhatsApp del consultorio:\n\n' + msg);
         }
     </script>
-
 </body>
 </html>
