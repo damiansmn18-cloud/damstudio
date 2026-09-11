@@ -8,13 +8,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --bg-sec1: #111827;       /* Dark Navy / Charcoal */
-            --bg-sec2: #FFFFFF;       /* Pure White */
-            --bg-sec3: #F3F4F6;       /* Soft Light Gray */
-            --bg-sec4: #0F172A;       /* Slate Dark */
+            --bg-sec1: #0B0F19;
+            --bg-sec2: #FFFFFF;
+            --bg-sec3: #F3F4F6;
+            --bg-sec4: #0F172A;
             
-            --accent-gold: #D97706;   /* Muted Gold */
-            --accent-pink: #EC4899;   /* Subtle Rose */
+            --accent-gold: #D97706;
             --text-dark: #1F2937;
             --text-muted: #6B7280;
             --border-light: #E5E7EB;
@@ -23,193 +22,180 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         body { color: var(--text-dark); padding-bottom: 80px; }
 
-        /* HEADER sticky */
-        header { position: sticky; top: 0; background: rgba(17, 24, 39, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 1000; }
+        /* HEADER */
+        header { position: sticky; top: 0; background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 1000; }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; }
         .brand { font-size: 1.3rem; font-weight: 800; color: #FFFFFF; text-decoration: none; letter-spacing: 1px; }
         .brand span { color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: #D1D5DB; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--accent-gold); }
 
-        /* SECCIÓN 1: HERO & PROPUESTA DE VALOR (Fondo Oscuro Elegante) */
-        .sec-hero { background-color: var(--bg-sec1); color: #FFFFFF; padding: 60px 20px; }
-        .hero-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-        .hero-tag { display: inline-block; background: rgba(217, 119, 6, 0.2); color: var(--accent-gold); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-bottom: 16px; border: 1px solid rgba(217, 119, 6, 0.4); }
-        .sec-hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 18px; }
-        .sec-hero p { color: #9CA3AF; font-size: 1.05rem; line-height: 1.6; margin-bottom: 26px; }
-        .btn-primary { display: inline-block; background: var(--accent-gold); color: #FFFFFF; font-weight: 700; padding: 12px 28px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
-        .btn-primary:hover { background: #B45309; }
-        .hero-img img { width: 100%; border-radius: 16px; object-fit: cover; height: 340px; box-shadow: 0 20px 30px rgba(0,0,0,0.3); }
+        /* SECCIÓN 1: HERO CON VIDEO DE FONDO */
+        .sec-hero { position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: var(--bg-sec1); color: #FFFFFF; text-align: center; padding: 40px 20px; }
+        
+        .video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translate(-50%, -50%); object-fit: cover; opacity: 0.35; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(11,15,25,0.4) 0%, rgba(11,15,25,0.95) 100%); z-index: 2; }
+        
+        .hero-content { position: relative; z-index: 3; max-width: 750px; margin: 0 auto; }
+        .hero-tag { display: inline-block; background: rgba(217, 119, 6, 0.25); color: #FBBF24; padding: 6px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-bottom: 18px; border: 1px solid rgba(217, 119, 6, 0.5); backdrop-filter: blur(4px); }
+        .sec-hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 18px; letter-spacing: -0.5px; }
+        .sec-hero p { color: #D1D5DB; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+        .btn-primary { background: var(--accent-gold); color: #FFFFFF; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; display: inline-block; transition: all 0.2s; box-shadow: 0 10px 25px rgba(217, 119, 6, 0.3); }
+        .btn-primary:hover { background: #B45309; transform: translateY(-2px); }
 
-        /* SECCIÓN 2: SOBRE LA MARCA (Fondo Blanco) */
-        .sec-about { background-color: var(--bg-sec2); color: var(--text-dark); padding: 70px 20px; }
+        /* SECCIÓN 2: NOSOTROS (FONDO BLANCO) */
+        .sec-about { background-color: var(--bg-sec2); padding: 80px 20px; }
         .about-container { max-width: 1100px; margin: 0 auto; text-align: center; }
         .section-subtitle { color: var(--accent-gold); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
-        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
-        .about-text { max-width: 750px; margin: 0 auto 40px; color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; }
+        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 20px; }
+        .about-text { max-width: 700px; margin: 0 auto 50px; color: var(--text-muted); line-height: 1.7; }
         .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .feature-card { background: #FFFFFF; border: 1px solid var(--border-light); padding: 26px; border-radius: 14px; text-align: left; }
-        .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-        .feature-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+        .feature-card { background: #FFFFFF; border: 1px solid var(--border-light); padding: 30px; border-radius: 16px; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
 
-        /* SECCIÓN 3: CATÁLOGO DE PRODUCTOS (Fondo Gris Claro) */
-        .sec-catalog { background-color: var(--bg-sec3); color: var(--text-dark); padding: 70px 20px; }
+        /* SECCIÓN 3: CATÁLOGO / BANNER SLIDER (FONDO GRIS) */
+        .sec-catalog { background-color: var(--bg-sec3); padding: 80px 20px; }
         .catalog-container { max-width: 1100px; margin: 0 auto; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; margin-top: 30px; }
-        .product-card { background: #FFFFFF; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-light); transition: transform 0.2s, box-shadow 0.2s; }
-        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
-        .product-img { width: 100%; height: 200px; object-fit: cover; }
-        .product-info { padding: 18px; }
-        .product-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-        .product-price { color: var(--accent-gold); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; }
+        
+        /* CONTENEDOR DEL CARROUSEL / SLIDER */
+        .slider-wrapper { position: relative; margin-top: 35px; overflow: hidden; border-radius: 16px; }
+        .slider-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 10px; }
+        .slider-track::-webkit-scrollbar { display: none; }
+        
+        .product-card { min-width: 280px; flex: 0 0 calc(33.333% - 14px); background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-light); scroll-snap-align: start; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-4px); }
+        .product-img { width: 100%; height: 240px; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .product-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+        .product-price { color: var(--accent-gold); font-weight: 800; font-size: 1.15rem; margin-bottom: 14px; }
         .btn-add { width: 100%; background: #F3F4F6; border: 1px solid var(--border-light); font-weight: 700; padding: 10px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
         .btn-add:hover { background: var(--bg-sec1); color: #FFFFFF; }
 
-        /* SECCIÓN 4: CONTACTO, REDES SOCIALES & MAPA (Fondo Oscuro Slate) */
-        .sec-contact { background-color: var(--bg-sec4); color: #FFFFFF; padding: 70px 20px; }
+        /* SECCIÓN 4: CONTACTO, REDES & MAPA (FONDO OSCURO SLATE) */
+        .sec-contact { background-color: var(--bg-sec4); color: #FFFFFF; padding: 80px 20px; }
         .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
-        .contact-form { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); padding: 28px; border-radius: 16px; }
-        .contact-form h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; }
-        .form-group { margin-bottom: 14px; }
-        .form-group label { display: block; font-size: 0.82rem; color: #D1D5DB; margin-bottom: 6px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #FFF; outline: none; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-gold); }
+        .contact-form { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); padding: 32px; border-radius: 20px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.82rem; color: #9CA3AF; margin-bottom: 6px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: #FFF; outline: none; }
         .btn-submit { width: 100%; background: var(--accent-gold); color: #FFF; border: none; font-weight: 700; padding: 12px; border-radius: 8px; cursor: pointer; }
 
-        .social-box { display: flex; flex-direction: column; justify-content: space-between; }
-        .social-links { display: flex; gap: 14px; margin-top: 14px; margin-bottom: 24px; }
-        .social-btn { background: rgba(255,255,255,0.1); color: #FFF; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s; }
-        .social-btn:hover { background: var(--accent-gold); }
-
         /* BARRA FLOTANTE DE PEDIDO */
-        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(17, 24, 39, 0.98); border-top: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; z-index: 1000; backdrop-filter: blur(8px); }
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(11, 15, 25, 0.98); border-top: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; z-index: 1000; backdrop-filter: blur(10px); }
         .cart-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #FFF; }
         .btn-whatsapp { background: #25D366; color: #FFF; border: none; font-weight: 700; padding: 12px 24px; border-radius: 50px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; }
 
-        footer { text-align: center; padding: 20px; background: #090D16; color: #6B7280; font-size: 0.8rem; }
+        footer { text-align: center; padding: 20px; background: #070A10; color: #6B7280; font-size: 0.8rem; }
 
         @media (max-width: 768px) {
-            .hero-container, .features-grid, .contact-container { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .sec-hero h1 { font-size: 2rem; }
+            .product-card { flex: 0 0 85%; }
+            .features-grid, .contact-container { grid-template-columns: 1fr; }
+            .sec-hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="nav-container">
             <a href="#" class="brand">AURA <span>ATELIER</span></a>
-            <nav class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#catalogo">Catálogo</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
         </div>
     </header>
 
-    <!-- SECCIÓN 1: HERO (FONDO OSCURO #111827) -->
-    <section class="sec-hero" id="inicio">
-        <div class="hero-container">
-            <div>
-                <span class="hero-tag">✨ Colección Otoño - Invierno</span>
-                <h1>Diseño exclusivo & elegancia que resalta tu estilo</h1>
-                <p>Joyería artesanal y piezas de vestir seleccionadas para acompañarte en tus momentos más especiales. Envíos a todo el país.</p>
-                <a href="#catalogo" class="btn-primary">Ver Catálogo Interactivo</a>
-            </div>
-            <div class="hero-img">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80" alt="Joyería de Autor">
-            </div>
+    <!-- SECCIÓN 1: HERO CON VIDEO EN BUCLE -->
+    <section class="sec-hero">
+        <video class="video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-holding-a-gold-necklace-41527-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <span class="hero-tag">✨ Nueva Colección de Autor</span>
+            <h1>Elegancia en movimiento & diseño exclusivo</h1>
+            <p>Piezas únicas de joyería artesanal y accesorios finos diseñados para elevar tu presencia en cualquier ocasión.</p>
+            <a href="#catalogo" class="btn-primary">Explorar Catálogo Interactivo</a>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: NOSOTROS / SOBRE LA MARCA (FONDO BLANCO #FFFFFF) -->
+    <!-- SECCIÓN 2: SOBRE LA MARCA (BLANCO) -->
     <section class="sec-about" id="nosotros">
         <div class="about-container">
             <div class="section-subtitle">Nuestra Filosofía</div>
-            <h2 class="section-title">Pasión por los Detalles</h2>
-            <p class="about-text">En Aura Atelier creemos que cada accesorio cuenta una historia. Trabajamos con materiales de alta durabilidad, baño de oro de 18k y textiles seleccionados para garantizar una experiencia de moda de alto nivel.</p>
+            <h2 class="section-title">Calidad en Cada Detalle</h2>
+            <p class="about-text">Nos enfocamos en crear accesorios con acabados de alta durabilidad, baño de oro de 18K y materiales hipoalergénicos para un estilo sofisticado.</p>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>💎 Calidad Garantizada</h3>
-                    <p>Piezas resistentes al agua y de materiales hipoalergénicos diseñadas para uso diario.</p>
+                    <h3>💎 Piezas Exclusivas</h3>
+                    <p>Diseños de edición limitada procesados a mano con máxima precisión.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📦 Envíos Seguros</h3>
-                    <p>Empaque de regalo personalizado con seguimiento en tiempo real de tu pedido.</p>
+                    <h3>📦 Envíos Garantizados</h3>
+                    <p>Empaque de lujo y entrega rápida a cualquier parte del país.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📲 Atención Personalizada</h3>
-                    <p>Asesoría directa vía WhatsApp para elegir el regalo o accesorio perfecto para ti.</p>
+                    <h3>📲 Citas & Asesoría</h3>
+                    <p>Atención personalizada por WhatsApp para elegir el regalo perfecto.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 3: CATÁLOGO DE PRODUCTOS (FONDO GRIS CLARO #F3F4F6) -->
+    <!-- SECCIÓN 3: CATÁLOGO CON CARRUSEL INTERACTIVO (GRIS CLARO) -->
     <section class="sec-catalog" id="catalogo">
         <div class="catalog-container">
             <div style="text-align: center;">
-                <div class="section-subtitle">Lo más vendido</div>
-                <h2 class="section-title">Catálogo Destacado</h2>
+                <div class="section-subtitle">Desliza para explorar</div>
+                <h2 class="section-title">Catálogo de Productos</h2>
             </div>
 
-            <div class="products-grid">
-                <!-- Producto 1 -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Collar">
-                    <div class="product-info">
-                        <h3>Collar Baño de Oro 18K</h3>
-                        <div class="product-price">$480 MXN</div>
-                        <button class="btn-add" onclick="addToOrder('Collar Baño de Oro 18K', 480)">Agregar al Pedido</button>
+            <!-- SLIDER / CARRUSEL -->
+            <div class="slider-wrapper">
+                <div class="slider-track" id="sliderTrack">
+                    
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Collar">
+                        <div class="product-info">
+                            <h3>Collar Baño de Oro 18K</h3>
+                            <div class="product-price">$480 MXN</div>
+                            <button class="btn-add" onclick="addToOrder('Collar Baño de Oro 18K', 480)">Agregar al Pedido</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Producto 2 -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Anillo">
-                    <div class="product-info">
-                        <h3>Anillo Solitario Circonia</h3>
-                        <div class="product-price">$350 MXN</div>
-                        <button class="btn-add" onclick="addToOrder('Anillo Solitario Circonia', 350)">Agregar al Pedido</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Anillo">
+                        <div class="product-info">
+                            <h3>Anillo Solitario Circonia</h3>
+                            <div class="product-price">$350 MXN</div>
+                            <button class="btn-add" onclick="addToOrder('Anillo Solitario Circonia', 350)">Agregar al Pedido</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Producto 3 -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1611591475193-455a29828236?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Aretes">
-                    <div class="product-info">
-                        <h3>Aretes Elegance Perlados</h3>
-                        <div class="product-price">$290 MXN</div>
-                        <button class="btn-add" onclick="addToOrder('Aretes Elegance Perlados', 290)">Agregar al Pedido</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1611591475193-455a29828236?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Aretes">
+                        <div class="product-info">
+                            <h3>Aretes Elegance Perlados</h3>
+                            <div class="product-price">$290 MXN</div>
+                            <button class="btn-add" onclick="addToOrder('Aretes Elegance Perlados', 290)">Agregar al Pedido</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Producto 4 -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Bolso">
-                    <div class="product-info">
-                        <h3>Bolso Minimalista de Mano</h3>
-                        <div class="product-price">$890 MXN</div>
-                        <button class="btn-add" onclick="addToOrder('Bolso Minimalista de Mano', 890)">Agregar al Pedido</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Bolso">
+                        <div class="product-info">
+                            <h3>Bolso Minimalista de Mano</h3>
+                            <div class="product-price">$890 MXN</div>
+                            <button class="btn-add" onclick="addToOrder('Bolso Minimalista de Mano', 890)">Agregar al Pedido</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4: CONTACTO, REDES SOCIALES Y MAPA (FONDO OSCURO SLATE #0F172A) -->
+    <!-- SECCIÓN 4: CONTACTO, REDES SOCIALES & MAPA (DARK SLATE) -->
     <section class="sec-contact" id="contacto">
         <div class="contact-container">
-            
-            <!-- FORMULARIO DIRECTO -->
             <div class="contact-form">
-                <h3>Contacto Directo / Dudas</h3>
+                <h3 style="margin-bottom: 16px;">Contacto Directo</h3>
                 <div class="form-group">
                     <label>Nombre Completo</label>
                     <input type="text" id="contactName" placeholder="Tu nombre">
@@ -220,43 +206,37 @@
                 </div>
                 <div class="form-group">
                     <label>Mensaje o Consulta</label>
-                    <textarea id="contactMessage" rows="3" placeholder="¿Tienes dudas sobre tallas, envíos o disponibilidad?"></textarea>
+                    <textarea id="contactMessage" rows="3" placeholder="Escribe tu mensaje aquí..."></textarea>
                 </div>
                 <button class="btn-submit" onclick="submitForm()">Enviar Mensaje Directo</button>
             </div>
 
-            <!-- REDES SOCIALES & UBICACIÓN MAPS -->
-            <div class="social-box">
+            <div style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Visítanos o Síguenos</h3>
-                    <p style="color: #9CA3AF; font-size: 0.88rem;">Conoce nuestras colecciones diarias en redes sociales o visita nuestro showroom físico.</p>
-
-                    <div class="social-links">
-                        <a href="https://instagram.com" target="_blank" class="social-btn">📸 Instagram</a>
-                        <a href="https://facebook.com" target="_blank" class="social-btn">📘 Facebook</a>
-                        <a href="https://tiktok.com" target="_blank" class="social-btn">🎵 TikTok</a>
+                    <h3 style="margin-bottom: 12px;">Síguenos en Redes</h3>
+                    <p style="color: #9CA3AF; font-size: 0.9rem; margin-bottom: 16px;">Mantente al día con nuestros lanzamientos semanales.</p>
+                    <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+                        <a href="#" style="color:#FFF; background:rgba(255,255,255,0.1); padding:8px 16px; border-radius:8px; text-decoration:none; font-size:0.85rem;">📸 Instagram</a>
+                        <a href="#" style="color:#FFF; background:rgba(255,255,255,0.1); padding:8px 16px; border-radius:8px; text-decoration:none; font-size:0.85rem;">📘 Facebook</a>
                     </div>
                 </div>
-
                 <div>
-                    <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: #D1D5DB;">Showroom / Tienda Física:</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="150" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+                    <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: #9CA3AF;">Ubicación Showroom:</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="150" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Aura Atelier — Sitio Desarrollado por DAMstudio (Plan Negocio Pro $2,500 MXN)</p>
+        <p>© 2026 Aura Atelier — Desarrollado por DAMstudio (Plan Negocio Pro $2,500 MXN)</p>
     </footer>
 
-    <!-- BARRA FLOTANTE DE PEDIDO -->
+    <!-- BARRA FLOTANTE -->
     <div class="cart-bar">
         <div class="cart-inner">
             <div>
-                <span style="font-size:0.85rem; color:#9CA3AF;">Tu Selección:</span>
+                <span style="font-size:0.8rem; color:#9CA3AF;">Tu Pedido:</span>
                 <div style="font-weight:700; font-size:0.95rem;" id="cartSummary">Sin productos seleccionados</div>
             </div>
             <button class="btn-whatsapp" onclick="sendOrderWhatsApp()">
@@ -265,19 +245,11 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE INTERACCIÓN Y CADUCIDAD -->
+    <!-- SCRIPT INTERACTIVO Y EXPIRACIÓN -->
     <script>
-        // Lógica de expiración de la demo
         const fechaLimite = new Date('2026-10-15T23:59:59'); 
-        const hoy = new Date();
-
-        if (hoy > fechaLimite) {
-            document.body.innerHTML = `
-                <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; font-family:sans-serif; background:#0F172A; color:#fff; padding:20px;">
-                    <h1 style="font-size:2rem; margin-bottom:10px; color:#D97706;">Vista Previa Finalizada</h1>
-                    <p style="color:#9CA3AF; max-width:400px;">La demo del Plan Negocio Pro ($2,500 MXN) ha concluido. Contacte a DAMstudio para adquirir su sitio permanente.</p>
-                </div>
-            `;
+        if (new Date() > fechaLimite) {
+            document.body.innerHTML = `<div style="height:100vh; display:flex; justify-content:center; align-items:center; background:#0B0F19; color:#FFF;"><h1>Vista Previa Finalizada</h1></div>`;
         }
 
         let currentOrder = [];
@@ -286,47 +258,22 @@
         function addToOrder(productName, price) {
             currentOrder.push({ name: productName, price: price });
             totalAmount += price;
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const summary = document.getElementById('cartSummary');
-            if (currentOrder.length === 0) {
-                summary.innerText = "Sin productos seleccionados";
-            } else {
-                summary.innerText = `${currentOrder.length} producto(s) - Total: $${totalAmount} MXN`;
-            }
+            document.getElementById('cartSummary').innerText = `${currentOrder.length} producto(s) - Total: $${totalAmount} MXN`;
         }
 
         function sendOrderWhatsApp() {
             if (currentOrder.length === 0) {
-                alert('Por favor selecciona al menos un producto del catálogo para enviar tu pedido.');
+                alert('Selecciona al menos un producto.');
                 return;
             }
-
-            let msg = `Hola Aura Atelier, me gustaría realizar el siguiente pedido desde la página web:\n\n`;
-            currentOrder.forEach((item, index) => {
-                msg += `${index + 1}. ${item.name} - $${item.price} MXN\n`;
-            });
-            msg += `\n💰 *Total Estimado:* $${totalAmount} MXN\n\n¿Tienen disponibilidad para envío?`;
-
-            alert('Ejemplo de mensaje listo para enviarse al WhatsApp de la tienda:\n\n' + msg);
+            let msg = `Hola Aura Atelier, quiero pedir:\n\n`;
+            currentOrder.forEach((item, index) => msg += `${index + 1}. ${item.name} - $${item.price} MXN\n`);
+            msg += `\nTotal: $${totalAmount} MXN`;
+            alert('Ejemplo de pedido hacia WhatsApp:\n\n' + msg);
         }
 
         function submitForm() {
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const message = document.getElementById('contactMessage').value.trim();
-
-            if (!name || !email || !message) {
-                alert('Por favor completa todos los campos del formulario de contacto.');
-                return;
-            }
-
-            alert(`¡Gracias ${name}! Tu mensaje ha sido procesado correctamente (Simulación de envío de formulario).`);
-            document.getElementById('contactName').value = '';
-            document.getElementById('contactEmail').value = '';
-            document.getElementById('contactMessage').value = '';
+            alert('Mensaje enviado correctamente (Simulación).');
         }
     </script>
 </body>
