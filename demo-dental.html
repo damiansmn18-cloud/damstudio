@@ -3,328 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DentalStudio Pro | Clínica Odontológica de Alta Especialidad</title>
+    <title>Aura Atelier | Boutique & Joyería de Autor</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --bg-subtle: #f1f5f9;
-            --primary: #0284c7;
-            --primary-dark: #0369a1;
-            --accent: #0d9488;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
-            --gradient-accent: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+            --bg-sec1: #111827;       /* Dark Navy / Charcoal */
+            --bg-sec2: #FFFFFF;       /* Pure White */
+            --bg-sec3: #F3F4F6;       /* Soft Light Gray */
+            --bg-sec4: #0F172A;       /* Slate Dark */
+            
+            --accent-gold: #D97706;   /* Muted Gold */
+            --accent-pink: #EC4899;   /* Subtle Rose */
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --border-light: #E5E7EB;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+        body { color: var(--text-dark); padding-bottom: 80px; }
 
-        .top-notice { background: var(--gradient-accent); color: #ffffff; padding: 9px 24px; font-size: 0.85rem; text-align: center; font-weight: 700; }
+        /* HEADER sticky */
+        header { position: sticky; top: 0; background: rgba(17, 24, 39, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 1000; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; }
+        .brand { font-size: 1.3rem; font-weight: 800; color: #FFFFFF; text-decoration: none; letter-spacing: 1px; }
+        .brand span { color: var(--accent-gold); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #D1D5DB; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent-gold); }
 
-        /* Navbar */
-        header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
-        .logo-icon { background: var(--gradient-accent); color: #fff; width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; }
-        .logo span { color: var(--primary); }
+        /* SECCIÓN 1: HERO & PROPUESTA DE VALOR (Fondo Oscuro Elegante) */
+        .sec-hero { background-color: var(--bg-sec1); color: #FFFFFF; padding: 60px 20px; }
+        .hero-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+        .hero-tag { display: inline-block; background: rgba(217, 119, 6, 0.2); color: var(--accent-gold); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-bottom: 16px; border: 1px solid rgba(217, 119, 6, 0.4); }
+        .sec-hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 18px; }
+        .sec-hero p { color: #9CA3AF; font-size: 1.05rem; line-height: 1.6; margin-bottom: 26px; }
+        .btn-primary { display: inline-block; background: var(--accent-gold); color: #FFFFFF; font-weight: 700; padding: 12px 28px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+        .btn-primary:hover { background: #B45309; }
+        .hero-img img { width: 100%; border-radius: 16px; object-fit: cover; height: 340px; box-shadow: 0 20px 30px rgba(0,0,0,0.3); }
 
-        .nav-links { display: flex; gap: 28px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.92rem; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--primary); }
+        /* SECCIÓN 2: SOBRE LA MARCA (Fondo Blanco) */
+        .sec-about { background-color: var(--bg-sec2); color: var(--text-dark); padding: 70px 20px; }
+        .about-container { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .section-subtitle { color: var(--accent-gold); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
+        .about-text { max-width: 750px; margin: 0 auto 40px; color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .feature-card { background: #FFFFFF; border: 1px solid var(--border-light); padding: 26px; border-radius: 14px; text-align: left; }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
 
-        .btn-nav { background: var(--gradient-accent); color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3); transition: all 0.2s; }
-        .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45); }
+        /* SECCIÓN 3: CATÁLOGO DE PRODUCTOS (Fondo Gris Claro) */
+        .sec-catalog { background-color: var(--bg-sec3); color: var(--text-dark); padding: 70px 20px; }
+        .catalog-container { max-width: 1100px; margin: 0 auto; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; margin-top: 30px; }
+        .product-card { background: #FFFFFF; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-light); transition: transform 0.2s, box-shadow 0.2s; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+        .product-img { width: 100%; height: 200px; object-fit: cover; }
+        .product-info { padding: 18px; }
+        .product-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .product-price { color: var(--accent-gold); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; }
+        .btn-add { width: 100%; background: #F3F4F6; border: 1px solid var(--border-light); font-weight: 700; padding: 10px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .btn-add:hover { background: var(--bg-sec1); color: #FFFFFF; }
 
-        /* Hero */
-        .hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; }
-        .tag-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(2, 132, 199, 0.08); border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 16px; border-radius: 20px; color: var(--primary); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 24px; }
-        .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero h1 span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 36px; }
-
-        .hero-actions { display: flex; gap: 16px; }
-        .btn-primary { background: var(--gradient-accent); color: #fff; padding: 16px 32px; border-radius: 12px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3); transition: all 0.3s; }
-        .btn-primary:hover { transform: translateY(-3px); }
-        .btn-outline { border: 2px solid var(--border); color: var(--text-main); padding: 16px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; background: #fff; }
-
-        .hero-img-box { position: relative; }
-        .hero-img-box img { width: 100%; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
-        .floating-badge { position: absolute; bottom: -20px; left: -20px; background: #ffffff; border: 1px solid var(--border); padding: 18px 22px; border-radius: 16px; box-shadow: var(--shadow-lg); }
-
-        /* Métricas */
-        .about-bar { background: #ffffff; border-y: 1px solid var(--border); padding: 40px 24px; margin-bottom: 80px; }
-        .about-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .stat-num { font-size: 2.2rem; font-weight: 800; color: var(--primary); }
-        .stat-desc { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
-
-        /* SECCIÓN QUIÉNES SOMOS / EQUIPO */
-        .about-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-text h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
-        .about-text p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 24px; }
-        .feature-list { list-style: none; display: grid; gap: 14px; }
-        .feature-item { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--text-main); }
-        .feature-icon { background: rgba(13, 148, 136, 0.1); color: var(--accent); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
-
-        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .team-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-align: center; box-shadow: var(--shadow-sm); }
-        .team-card img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; border: 3px solid var(--primary); }
-        .team-card h4 { font-size: 1.05rem; font-weight: 800; }
-        .team-card p { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
-
-        /* SECCIÓN CATÁLOGO */
-        .catalog { max-width: 1200px; margin: 0 auto; padding: 0 24px 100px; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.5px; }
-        .section-header p { color: var(--text-muted); font-size: 1.05rem; margin-top: 8px; }
-
-        .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .catalog-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.3s; }
-        .catalog-card:hover { transform: translateY(-6px); }
-        .catalog-img { width: 100%; height: 200px; object-fit: cover; }
-        .catalog-content { padding: 28px; }
-        .catalog-tag { font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; display: block; }
-        .catalog-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
-        .catalog-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
-        .catalog-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px; }
-        .catalog-price { font-weight: 800; color: var(--primary); font-size: 1.1rem; }
-
-        /* SECCIÓN PREGUNTAS FRECUENTES */
-        .faq-section { background: var(--bg-subtle); border-y: 1px solid var(--border); padding: 90px 24px; margin-bottom: 90px; }
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
-        .faq-item h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
-        .faq-item p { color: var(--text-muted); font-size: 0.92rem; }
-
-        /* CONTACTO */
-        .contact-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 100px; }
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .contact-method { display: flex; align-items: center; gap: 18px; background: #fff; border: 1px solid var(--border); padding: 18px 20px; border-radius: 14px; margin-bottom: 16px; box-shadow: var(--shadow-sm); }
-
-        .form-card { background: #fff; border: 1px solid var(--border); padding: 40px; border-radius: 24px; box-shadow: var(--shadow-lg); }
-        .input-group { margin-bottom: 18px; }
-        .input-group label { display: block; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
-        .input-group input, .input-group select { width: 100%; padding: 14px 16px; background: var(--bg-body); border: 1px solid var(--border); border-radius: 10px; font-size: 0.95rem; outline: none; }
+        /* SECCIÓN 4: CONTACTO, REDES SOCIALES & MAPA (Fondo Oscuro Slate) */
+        .sec-contact { background-color: var(--bg-sec4); color: #FFFFFF; padding: 70px 20px; }
+        .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         
-        .btn-submit { width: 100%; background: var(--gradient-accent); color: #fff; border: none; padding: 16px; border-radius: 10px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3); }
+        .contact-form { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); padding: 28px; border-radius: 16px; }
+        .contact-form h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.82rem; color: #D1D5DB; margin-bottom: 6px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #FFF; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-gold); }
+        .btn-submit { width: 100%; background: var(--accent-gold); color: #FFF; border: none; font-weight: 700; padding: 12px; border-radius: 8px; cursor: pointer; }
 
-        footer { border-top: 1px solid var(--border); background: #ffffff; padding: 60px 24px 30px; }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 40px; }
-        .social-links { display: flex; gap: 12px; }
-        .social-btn { width: 44px; height: 44px; background: var(--bg-body); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--text-main); text-decoration: none; font-weight: 800; }
-        
-        .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+        .social-box { display: flex; flex-direction: column; justify-content: space-between; }
+        .social-links { display: flex; gap: 14px; margin-top: 14px; margin-bottom: 24px; }
+        .social-btn { background: rgba(255,255,255,0.1); color: #FFF; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s; }
+        .social-btn:hover { background: var(--accent-gold); }
 
-        @media (max-width: 968px) {
-            .hero, .about-section, .contact-container { grid-template-columns: 1fr; }
-            .catalog-grid, .about-grid, .team-grid { grid-template-columns: 1fr; }
+        /* BARRA FLOTANTE DE PEDIDO */
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(17, 24, 39, 0.98); border-top: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; z-index: 1000; backdrop-filter: blur(8px); }
+        .cart-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #FFF; }
+        .btn-whatsapp { background: #25D366; color: #FFF; border: none; font-weight: 700; padding: 12px 24px; border-radius: 50px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+
+        footer { text-align: center; padding: 20px; background: #090D16; color: #6B7280; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .hero-container, .features-grid, .contact-container { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .sec-hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-notice">⚡ Diagnósticos digitales e instalaciones certificadas — Agenda tu cita esta semana</div>
-
+    <!-- HEADER -->
     <header>
-        <nav>
-            <div class="logo"><div class="logo-icon">+</div>Dental<span>Studio</span></div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Quiénes Somos</a></li>
-                <li><a href="#catalogo">Especialidades</a></li>
-                <li><a href="#faq">Preguntas</a></li>
-                <li><a href="#contacto">Citas</a></li>
-            </ul>
-            <a href="#contacto" class="btn-nav">Agendar Cita</a>
-        </nav>
+        <div class="nav-container">
+            <a href="#" class="brand">AURA <span>ATELIER</span></a>
+            <nav class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero" id="inicio">
-        <div>
-            <div class="tag-badge">● Odontología Digital de Alta Especialidad</div>
-            <h1>Diseño de sonrisa <span>sin dolor</span> y con tecnología 3D</h1>
-            <p>Atención odontológica especializada con diagnósticos digitales inmediatos y tratamientos estéticos garantizados.</p>
-            <div class="hero-actions">
-                <a href="#contacto" class="btn-primary">Agendar Valoración →</a>
-                <a href="#catalogo" class="btn-outline">Ver Catálogo</a>
+    <!-- SECCIÓN 1: HERO (FONDO OSCURO #111827) -->
+    <section class="sec-hero" id="inicio">
+        <div class="hero-container">
+            <div>
+                <span class="hero-tag">✨ Colección Otoño - Invierno</span>
+                <h1>Diseño exclusivo & elegancia que resalta tu estilo</h1>
+                <p>Joyería artesanal y piezas de vestir seleccionadas para acompañarte en tus momentos más especiales. Envíos a todo el país.</p>
+                <a href="#catalogo" class="btn-primary">Ver Catálogo Interactivo</a>
             </div>
-        </div>
-        <div class="hero-img-box">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80" alt="Instalaciones DentalStudio">
-            <div class="floating-badge">
-                <h4 style="color:var(--primary); font-weight:800;">4.9 ★★★★★</h4>
-                <p style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">+500 Pacientes Atendidos</p>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80" alt="Joyería de Autor">
             </div>
         </div>
     </section>
 
-    <section class="about-bar">
-        <div class="about-grid">
-            <div><div class="stat-num">100%</div><div class="stat-desc">Esterilización Quirúrgica</div></div>
-            <div><div class="stat-num">&lt; 15 min</div><div class="stat-desc">Tiempo de Espera</div></div>
-            <div><div class="stat-num">3D HD</div><div class="stat-desc">Escaneo Intraoral</div></div>
-            <div><div class="stat-num">0%</div><div class="stat-desc">Meses sin Intereses</div></div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: QUIÉNES SOMOS Y EQUIPO MÉDICO -->
-    <section class="about-section" id="nosotros">
-        <div class="about-text">
-            <h2>Más de 12 años transformando sonrisas con precisión clínica</h2>
-            <p>En DentalStudio combinamos especialistas certificados por el Consejo Mexicano de Odontología con la tecnología digital más avanzada de la región.</p>
-            <ul class="feature-list">
-                <li class="feature-item"><span class="feature-icon">✓</span> Instalaciones médicas con certificación de higiene estricta.</li>
-                <li class="feature-item"><span class="feature-icon">✓</span> Diagnóstico mediante Scanner 3D sin moldes incómodos.</li>
-                <li class="feature-item"><span class="feature-icon">✓</span> Planes de financiamiento directos para tratamientos estéticos.</li>
-            </ul>
-        </div>
-        <div class="team-grid">
-            <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80" alt="Dra. Sofia Ramos">
-                <h4>Dra. Sofía Ramos</h4>
-                <p>Especialista en Ortodoncia Invisible</p>
-            </div>
-            <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80" alt="Dr. Alejandro Silva">
-                <h4>Dr. Alejandro Silva</h4>
-                <p>Cirujano & Estética Dental</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN CATÁLOGO -->
-    <section class="catalog" id="catalogo">
-        <div class="section-header">
-            <h2>Catálogo de Especialidades</h2>
-            <p>Tratamientos diseñados con precisión digital y materiales de nivel internacional.</p>
-        </div>
-        <div class="catalog-grid">
-            <div class="catalog-card">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" class="catalog-img" alt="Diseño de Sonrisa">
-                <div class="catalog-content">
-                    <span class="catalog-tag">Estética Avanzada</span>
-                    <h3 class="catalog-title">Diseño de Sonrisa 3D</h3>
-                    <p class="catalog-desc">Planificación computarizada mediante carillas ultrafinas de porcelana.</p>
-                    <div class="catalog-footer">
-                        <span class="catalog-price">Desde $3,500 MXN</span>
-                        <a href="#contacto" style="color:var(--primary); font-weight:700; text-decoration:none;">Consultar →</a>
-                    </div>
+    <!-- SECCIÓN 2: NOSOTROS / SOBRE LA MARCA (FONDO BLANCO #FFFFFF) -->
+    <section class="sec-about" id="nosotros">
+        <div class="about-container">
+            <div class="section-subtitle">Nuestra Filosofía</div>
+            <h2 class="section-title">Pasión por los Detalles</h2>
+            <p class="about-text">En Aura Atelier creemos que cada accesorio cuenta una historia. Trabajamos con materiales de alta durabilidad, baño de oro de 18k y textiles seleccionados para garantizar una experiencia de moda de alto nivel.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>💎 Calidad Garantizada</h3>
+                    <p>Piezas resistentes al agua y de materiales hipoalergénicos diseñadas para uso diario.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Envíos Seguros</h3>
+                    <p>Empaque de regalo personalizado con seguimiento en tiempo real de tu pedido.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📲 Atención Personalizada</h3>
+                    <p>Asesoría directa vía WhatsApp para elegir el regalo o accesorio perfecto para ti.</p>
                 </div>
             </div>
-            <div class="catalog-card">
-                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" class="catalog-img" alt="Ortodoncia Invisible">
-                <div class="catalog-content">
-                    <span class="catalog-tag">Ortodoncia</span>
-                    <h3 class="catalog-title">Alineadores Invisibles</h3>
-                    <p class="catalog-desc">Férulas transparentes y removibles. Sin brackets metálicos.</p>
-                    <div class="catalog-footer">
-                        <span class="catalog-price">Valoración Gratis</span>
-                        <a href="#contacto" style="color:var(--primary); font-weight:700; text-decoration:none;">Consultar →</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: CATÁLOGO DE PRODUCTOS (FONDO GRIS CLARO #F3F4F6) -->
+    <section class="sec-catalog" id="catalogo">
+        <div class="catalog-container">
+            <div style="text-align: center;">
+                <div class="section-subtitle">Lo más vendido</div>
+                <h2 class="section-title">Catálogo Destacado</h2>
+            </div>
+
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Collar">
+                    <div class="product-info">
+                        <h3>Collar Baño de Oro 18K</h3>
+                        <div class="product-price">$480 MXN</div>
+                        <button class="btn-add" onclick="addToOrder('Collar Baño de Oro 18K', 480)">Agregar al Pedido</button>
                     </div>
                 </div>
-            </div>
-            <div class="catalog-card">
-                <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80" class="catalog-img" alt="Blanqueamiento Dental">
-                <div class="catalog-content">
-                    <span class="catalog-tag">Tratamiento Express</span>
-                    <h3 class="catalog-title">Blanqueamiento Láser</h3>
-                    <p class="catalog-desc">Aclaramiento de hasta 4 tonos en una sesión de 45 minutos sin sensibilidad.</p>
-                    <div class="catalog-footer">
-                        <span class="catalog-price">$1,800 MXN</span>
-                        <a href="#contacto" style="color:var(--primary); font-weight:700; text-decoration:none;">Consultar →</a>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Anillo">
+                    <div class="product-info">
+                        <h3>Anillo Solitario Circonia</h3>
+                        <div class="product-price">$350 MXN</div>
+                        <button class="btn-add" onclick="addToOrder('Anillo Solitario Circonia', 350)">Agregar al Pedido</button>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1611591475193-455a29828236?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Aretes">
+                    <div class="product-info">
+                        <h3>Aretes Elegance Perlados</h3>
+                        <div class="product-price">$290 MXN</div>
+                        <button class="btn-add" onclick="addToOrder('Aretes Elegance Perlados', 290)">Agregar al Pedido</button>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Bolso">
+                    <div class="product-info">
+                        <h3>Bolso Minimalista de Mano</h3>
+                        <div class="product-price">$890 MXN</div>
+                        <button class="btn-add" onclick="addToOrder('Bolso Minimalista de Mano', 890)">Agregar al Pedido</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN PREGUNTAS FRECUENTES -->
-    <section class="faq-section" id="faq">
-        <div class="section-header">
-            <h2>Preguntas Frecuentes</h2>
-            <p>Resuelve tus dudas antes de tu primera consulta médica.</p>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <h4>¿Qué incluye la primera cita de valoración?</h4>
-                <p>Incluye diagnóstico clínico completo, escaneo intraoral en 3D y presupuesto detallado sin compromiso.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Aceptan tarjetas o meses sin intereses?</h4>
-                <p>Sí, aceptamos tarjetas de débito, crédito y contamos con opciones a 3, 6 y 12 meses sin intereses con tarjetas participantes.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Los tratamientos provocan dolor o sensibilidad?</h4>
-                <p>Utilizamos anestesia computarizada de baja molesta y técnicas modernas que reducen la inflamación e incomodidad al mínimo.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO Y CITAS -->
-    <section class="contact-section" id="contacto">
+    <!-- SECCIÓN 4: CONTACTO, REDES SOCIALES Y MAPA (FONDO OSCURO SLATE #0F172A) -->
+    <section class="sec-contact" id="contacto">
         <div class="contact-container">
-            <div>
-                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:16px;">Agenda tu cita de valoración</h2>
-                <p style="color:var(--text-muted); margin-bottom:32px;">Completa tus datos y te contactaremos por WhatsApp para coordinar tu horario.</p>
-                <div class="contact-method">
-                    <span style="font-size:1.5rem;">📍</span>
-                    <div><h5 style="font-size:0.75rem; color:var(--text-muted); font-weight:800; text-transform:uppercase;">Ubicación</h5><p style="font-weight:700;">Av. Principal Corporativa #402, Consultorio 3</p></div>
+            
+            <!-- FORMULARIO DIRECTO -->
+            <div class="contact-form">
+                <h3>Contacto Directo / Dudas</h3>
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="contactName" placeholder="Tu nombre">
                 </div>
-                <div class="contact-method">
-                    <span style="font-size:1.5rem;">💬</span>
-                    <div><h5 style="font-size:0.75rem; color:var(--text-muted); font-weight:800; text-transform:uppercase;">WhatsApp Directo</h5><p style="font-weight:700;">+52 221 815 8630</p></div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="contactEmail" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Mensaje o Consulta</label>
+                    <textarea id="contactMessage" rows="3" placeholder="¿Tienes dudas sobre tallas, envíos o disponibilidad?"></textarea>
+                </div>
+                <button class="btn-submit" onclick="submitForm()">Enviar Mensaje Directo</button>
+            </div>
+
+            <!-- REDES SOCIALES & UBICACIÓN MAPS -->
+            <div class="social-box">
+                <div>
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Visítanos o Síguenos</h3>
+                    <p style="color: #9CA3AF; font-size: 0.88rem;">Conoce nuestras colecciones diarias en redes sociales o visita nuestro showroom físico.</p>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" class="social-btn">📸 Instagram</a>
+                        <a href="https://facebook.com" target="_blank" class="social-btn">📘 Facebook</a>
+                        <a href="https://tiktok.com" target="_blank" class="social-btn">🎵 TikTok</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: #D1D5DB;">Showroom / Tienda Física:</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="150" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <div class="form-card">
-                <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:8px;">Solicitud de Cita Directa</h3>
-                <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Ingresa tus datos para prioridad de agenda:</p>
-                <form onsubmit="alert('Demostración: Mensaje enviado a WhatsApp.'); return false;">
-                    <div class="input-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" placeholder="Ej. Roberto Martínez" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Teléfono</label>
-                        <input type="tel" placeholder="221 000 0000" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Tratamiento de Interés</label>
-                        <select required>
-                            <option value="">Selecciona una opción</option>
-                            <option>Diseño de Sonrisa 3D</option>
-                            <option>Alineadores Invisibles</option>
-                            <option>Blanqueamiento Láser</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar Solicitud</button>
-                </form>
-            </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-container">
-            <div>
-                <div class="logo"><div class="logo-icon">+</div>Dental<span>Studio</span></div>
-                <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 8px;">Odontología Digital de Alta Vanguardia</p>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-btn">FB</a>
-                <a href="#" class="social-btn">IG</a>
-                <a href="#" class="social-btn">WA</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 DentalStudio — Demo Oficial maquetada para Paquete Negocio Pro ($2,500 MXN) por DAMstudio</p>
-        </div>
+        <p>© 2026 Aura Atelier — Sitio Desarrollado por DAMstudio (Plan Negocio Pro $2,500 MXN)</p>
     </footer>
 
+    <!-- BARRA FLOTANTE DE PEDIDO -->
+    <div class="cart-bar">
+        <div class="cart-inner">
+            <div>
+                <span style="font-size:0.85rem; color:#9CA3AF;">Tu Selección:</span>
+                <div style="font-weight:700; font-size:0.95rem;" id="cartSummary">Sin productos seleccionados</div>
+            </div>
+            <button class="btn-whatsapp" onclick="sendOrderWhatsApp()">
+                💬 Enviar Pedido a WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTERACCIÓN Y CADUCIDAD -->
+    <script>
+        // Lógica de expiración de la demo
+        const fechaLimite = new Date('2026-10-15T23:59:59'); 
+        const hoy = new Date();
+
+        if (hoy > fechaLimite) {
+            document.body.innerHTML = `
+                <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; font-family:sans-serif; background:#0F172A; color:#fff; padding:20px;">
+                    <h1 style="font-size:2rem; margin-bottom:10px; color:#D97706;">Vista Previa Finalizada</h1>
+                    <p style="color:#9CA3AF; max-width:400px;">La demo del Plan Negocio Pro ($2,500 MXN) ha concluido. Contacte a DAMstudio para adquirir su sitio permanente.</p>
+                </div>
+            `;
+        }
+
+        let currentOrder = [];
+        let totalAmount = 0;
+
+        function addToOrder(productName, price) {
+            currentOrder.push({ name: productName, price: price });
+            totalAmount += price;
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const summary = document.getElementById('cartSummary');
+            if (currentOrder.length === 0) {
+                summary.innerText = "Sin productos seleccionados";
+            } else {
+                summary.innerText = `${currentOrder.length} producto(s) - Total: $${totalAmount} MXN`;
+            }
+        }
+
+        function sendOrderWhatsApp() {
+            if (currentOrder.length === 0) {
+                alert('Por favor selecciona al menos un producto del catálogo para enviar tu pedido.');
+                return;
+            }
+
+            let msg = `Hola Aura Atelier, me gustaría realizar el siguiente pedido desde la página web:\n\n`;
+            currentOrder.forEach((item, index) => {
+                msg += `${index + 1}. ${item.name} - $${item.price} MXN\n`;
+            });
+            msg += `\n💰 *Total Estimado:* $${totalAmount} MXN\n\n¿Tienen disponibilidad para envío?`;
+
+            alert('Ejemplo de mensaje listo para enviarse al WhatsApp de la tienda:\n\n' + msg);
+        }
+
+        function submitForm() {
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Por favor completa todos los campos del formulario de contacto.');
+                return;
+            }
+
+            alert(`¡Gracias ${name}! Tu mensaje ha sido procesado correctamente (Simulación de envío de formulario).`);
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactMessage').value = '';
+        }
+    </script>
 </body>
 </html>
