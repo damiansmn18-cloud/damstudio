@@ -3,117 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRON FORGE | Centro de Alto Rendimiento</title>
+    <title>IRON FORGE | High Performance Gym</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
 
         :root {
-            --bg-sec1: #0A0D14;
-            --bg-sec2: #FFFFFF;
-            --bg-sec3: #F1F5F9;
-            --bg-sec4: #0F172A;
+            --bg-dark: #05070A;
+            --bg-card: #0D1117;
+            --bg-light: #161B22;
 
-            --accent-red: #E11D48;
-            --accent-orange: #F97316;
-            --text-dark: #0F172A;
-            --text-muted: #64748B;
-            --border-light: #E2E8F0;
+            /* Colores Neón Llamativos */
+            --neon-yellow: #CCFF00;
+            --neon-cyan: #00E5FF;
+            --neon-pink: #FF0055;
+            
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border-color: rgba(204, 255, 0, 0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { color: var(--text-dark); padding-bottom: 80px; background: #0A0D14; }
+        body { color: var(--text-main); padding-bottom: 90px; background: var(--bg-dark); }
 
-        header { position: sticky; top: 0; background: rgba(10, 13, 20, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 1000; }
+        header { position: sticky; top: 0; background: rgba(5, 7, 10, 0.95); backdrop-filter: blur(12px); border-bottom: 2px solid var(--neon-yellow); z-index: 1000; }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; }
-        .brand { font-size: 1.4rem; font-weight: 900; color: #FFFFFF; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
-        .brand span { color: var(--accent-red); }
-        .nav-links { display: flex; gap: 24px; }
-        .nav-links a { color: #94A3B8; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
-        .nav-links a:hover { color: #FFFFFF; }
+        .brand { font-size: 1.5rem; font-weight: 900; color: #FFFFFF; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
+        .brand span { color: var(--neon-yellow); text-shadow: 0 0 10px rgba(204, 255, 0, 0.6); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--neon-cyan); }
 
-        /* SECCIÓN 1: HERO */
-        .sec-hero { position: relative; min-height: 75vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, rgba(10,13,20,0.75) 0%, rgba(10,13,20,0.98) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #FFFFFF; text-align: center; padding: 60px 20px; }
+        /* HERO */
+        .sec-hero { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, rgba(5,7,10,0.95) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #FFFFFF; text-align: center; padding: 60px 20px; }
         .hero-content { max-width: 800px; margin: 0 auto; }
-        .hero-tag { display: inline-block; background: rgba(225, 29, 72, 0.2); color: #FB7185; padding: 6px 18px; border-radius: 30px; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; border: 1px solid rgba(225, 29, 72, 0.4); }
-        .sec-hero h1 { font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
+        .hero-tag { display: inline-block; background: var(--neon-yellow); color: #000; padding: 6px 18px; border-radius: 30px; font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; box-shadow: 0 0 15px rgba(204, 255, 0, 0.5); }
+        .sec-hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.05; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
+        .sec-hero h1 span { color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0, 229, 255, 0.6); }
         .sec-hero p { color: #CBD5E1; font-size: 1.1rem; line-height: 1.6; margin-bottom: 32px; max-width: 650px; margin-left: auto; margin-right: auto; }
-        .btn-primary { background: linear-gradient(135deg, var(--accent-red), #BE123C); color: #FFFFFF; font-weight: 800; padding: 16px 36px; border-radius: 10px; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(225, 29, 72, 0.6); }
+        .btn-primary { background: var(--neon-yellow); color: #000; font-weight: 900; padding: 16px 36px; border-radius: 10px; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; box-shadow: 0 0 20px rgba(204, 255, 0, 0.4); }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(204, 255, 0, 0.8); }
 
-        /* SECCIÓN VIDEO DEMO EN LA PÁGINA */
-        .sec-video { background-color: #0A0D14; padding: 80px 20px; color: #FFFFFF; text-align: center; }
+        /* VIDEO */
+        .sec-video { background-color: var(--bg-dark); padding: 70px 20px; text-align: center; }
         .video-container { max-width: 900px; margin: 0 auto; }
-        .video-wrapper { position: relative; width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 50px rgba(225, 29, 72, 0.15); background: #000; }
+        .section-subtitle { color: var(--neon-cyan); font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; text-shadow: 0 0 8px rgba(0, 229, 255, 0.4); }
+        .section-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; letter-spacing: -0.5px; color: #FFF; }
+        .video-wrapper { position: relative; width: 100%; border-radius: 20px; overflow: hidden; border: 2px solid var(--neon-cyan); box-shadow: 0 0 30px rgba(0, 229, 255, 0.2); background: #000; }
         .video-wrapper video { width: 100%; height: auto; display: block; border-radius: 20px; }
 
-        /* SECCIÓN 2: HERRAMIENTAS INTERACTIVAS */
-        .sec-interactive { background-color: var(--bg-sec2); padding: 80px 20px; }
-        .interactive-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
-        .tool-card { background: #FFFFFF; border: 1px solid var(--border-light); padding: 32px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
-        .tool-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-        .tool-subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
-        
-        .form-select-group { margin-bottom: 16px; }
-        .form-select-group label { display: block; font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 6px; text-transform: uppercase; }
-        .form-select-group select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: #F8FAFC; outline: none; font-weight: 600; color: var(--text-dark); }
-        
-        .routine-result { margin-top: 20px; padding: 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid var(--accent-red); font-size: 0.9rem; display: none; }
-        .routine-result h4 { font-weight: 800; margin-bottom: 6px; color: var(--text-dark); }
-        
-        .nutrition-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #F1F5F9; }
-        .nutrition-icon { background: rgba(225, 29, 72, 0.1); color: var(--accent-red); font-size: 1.2rem; padding: 8px; border-radius: 8px; font-weight: 800; }
-        .nutrition-text h4 { font-size: 0.95rem; font-weight: 800; }
-        .nutrition-text p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+        /* CALCULADORA TDEE */
+        .sec-calc { background: var(--bg-light); padding: 70px 20px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .calc-container { max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--neon-yellow); border-radius: 20px; padding: 35px; box-shadow: 0 0 25px rgba(204, 255, 0, 0.15); }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+        .calc-group { display: flex; flex-direction: column; text-align: left; }
+        .calc-group label { font-size: 0.8rem; font-weight: 800; color: var(--neon-cyan); text-transform: uppercase; margin-bottom: 6px; }
+        .calc-group input, .calc-group select { padding: 12px; border-radius: 8px; border: 1px solid #30363D; background: #010409; color: #FFF; outline: none; font-weight: 600; }
+        .calc-group input:focus, .calc-group select:focus { border-color: var(--neon-yellow); }
+        .btn-calc { grid-column: span 2; background: var(--neon-cyan); color: #000; border: none; font-weight: 900; padding: 14px; border-radius: 10px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 10px; box-shadow: 0 0 15px rgba(0, 229, 255, 0.4); }
+        .calc-result { grid-column: span 2; display: none; background: #010409; border: 1px solid var(--neon-cyan); border-radius: 12px; padding: 20px; text-align: center; margin-top: 15px; }
+        .macro-badges { display: flex; justify-content: space-around; margin-top: 15px; gap: 10px; }
+        .macro-badge { background: var(--bg-card); padding: 10px; border-radius: 8px; border: 1px solid #30363D; flex: 1; }
+        .macro-badge span { display: block; font-size: 0.75rem; color: var(--text-muted); }
+        .macro-badge strong { font-size: 1.1rem; color: var(--neon-yellow); }
 
-        /* SECCIÓN 3: MEMBRESÍAS */
-        .sec-catalog { background-color: var(--bg-sec3); padding: 80px 20px; }
-        .catalog-container { max-width: 1100px; margin: 0 auto; }
-        .section-subtitle { color: var(--accent-red); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; text-align: center; }
-        .section-title { font-size: 2.3rem; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -0.5px; text-align: center; }
+        /* SECCIÓN RUTINAS Y COMIDAS */
+        .sec-tools { background-color: var(--bg-dark); padding: 70px 20px; }
+        .tools-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .tool-card { background: var(--bg-card); border: 1px solid #30363D; padding: 30px; border-radius: 20px; }
+        .tool-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; color: var(--neon-yellow); display: flex; align-items: center; gap: 8px; }
         
-        .slider-wrapper { position: relative; margin-top: 30px; }
-        .slider-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 15px; }
-        .slider-track::-webkit-scrollbar { display: none; }
-        
-        .plan-card { min-width: 290px; flex: 0 0 calc(33.333% - 16px); background: #FFFFFF; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-light); scroll-snap-align: start; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; }
-        .plan-header { background: #0F172A; color: #FFF; padding: 24px; position: relative; }
-        .plan-header h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; }
-        .plan-price { font-size: 1.8rem; font-weight: 900; color: #FFF; }
-        .plan-price span { font-size: 0.85rem; font-weight: 500; color: #94A3B8; }
-        .plan-body { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .plan-features { list-style: none; margin-bottom: 24px; }
-        .plan-features li { font-size: 0.88rem; color: #475569; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .plan-features li::before { content: "✓"; color: var(--accent-red); font-weight: 900; }
-        
-        .btn-select { width: 100%; background: #0F172A; color: #FFFFFF; border: none; font-weight: 800; padding: 12px; border-radius: 10px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; font-size: 0.82rem; }
-        .btn-select:hover { background: var(--accent-red); }
+        .routine-box { background: #010409; border: 1px solid #30363D; border-radius: 12px; padding: 18px; margin-top: 15px; display: none; }
+        .routine-day { margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #161B22; }
+        .routine-day h5 { color: var(--neon-cyan); font-weight: 800; font-size: 0.95rem; margin-bottom: 4px; }
+        .routine-day p { color: #CBD5E1; font-size: 0.85rem; line-height: 1.4; }
 
-        /* SECCIÓN 4: CONTACTO, REDES Y MAPA */
-        .sec-contact { background-color: var(--bg-sec4); color: #FFFFFF; padding: 80px 20px; }
-        .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .contact-form { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); padding: 36px; border-radius: 20px; }
-        .contact-form h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-size: 0.82rem; color: #94A3B8; margin-bottom: 8px; font-weight: 600; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: #FFF; outline: none; font-size: 0.9rem; }
-        .btn-submit { width: 100%; background: var(--accent-red); color: #FFF; border: none; font-weight: 800; padding: 14px; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
+        .food-item { background: #010409; border: 1px solid #30363D; border-radius: 12px; padding: 16px; margin-bottom: 15px; }
+        .food-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .food-title { font-weight: 800; color: #FFF; font-size: 0.95rem; }
+        .food-kcal { background: rgba(204, 255, 0, 0.15); color: var(--neon-yellow); padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; border: 1px solid var(--neon-yellow); }
+        .food-macros { display: flex; gap: 12px; font-size: 0.78rem; color: var(--text-muted); }
+        .food-macros strong { color: var(--neon-cyan); }
 
-        .social-box { display: flex; flex-direction: column; justify-content: space-between; }
-        .social-links { display: flex; gap: 12px; margin-top: 14px; margin-bottom: 28px; }
-        .social-btn { background: rgba(255,255,255,0.08); color: #FFF; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.05); }
+        /* PLANES */
+        .sec-plans { background: var(--bg-light); padding: 70px 20px; }
+        .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 30px auto 0; }
+        .plan-card { background: var(--bg-card); border: 1px solid #30363D; border-radius: 18px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+        .plan-card.popular { border: 2px solid var(--neon-yellow); box-shadow: 0 0 20px rgba(204, 255, 0, 0.2); }
+        .plan-badge { position: absolute; top: -12px; right: 20px; background: var(--neon-yellow); color: #000; font-weight: 900; font-size: 0.7rem; padding: 4px 10px; border-radius: 10px; text-transform: uppercase; }
+        .plan-price { font-size: 2rem; font-weight: 900; color: #FFF; margin: 10px 0; }
+        .plan-features { list-style: none; margin-bottom: 20px; }
+        .plan-features li { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .plan-features li::before { content: "✓ "; color: var(--neon-cyan); font-weight: 900; }
+        .btn-select { width: 100%; background: #161B22; color: #FFF; border: 1px solid #30363D; font-weight: 800; padding: 12px; border-radius: 10px; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; transition: all 0.2s; }
+        .btn-select:hover { background: var(--neon-yellow); color: #000; border-color: var(--neon-yellow); box-shadow: 0 0 15px rgba(204, 255, 0, 0.4); }
 
-        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10, 13, 20, 0.96); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 20px; z-index: 1000; backdrop-filter: blur(12px); }
-        .cart-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #FFF; }
-        .btn-whatsapp { background: #25D366; color: #FFF; border: none; font-weight: 800; padding: 12px 28px; border-radius: 50px; font-size: 0.88rem; cursor: pointer; }
+        /* CONTACTO */
+        .sec-contact { padding: 70px 20px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .form-box { background: var(--bg-card); border: 1px solid #30363D; padding: 30px; border-radius: 18px; }
+        .form-box input, .form-box textarea { width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #30363D; background: #010409; color: #FFF; outline: none; }
+        .btn-submit { width: 100%; background: var(--neon-cyan); color: #000; border: none; font-weight: 900; padding: 14px; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
 
-        footer { text-align: center; padding: 24px; background: #06090E; color: #64748B; font-size: 0.82rem; }
+        /* BARRA FLOTANTE */
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(13, 17, 23, 0.95); border-top: 2px solid var(--neon-yellow); padding: 16px 20px; z-index: 1000; backdrop-filter: blur(12px); }
+        .cart-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .btn-whatsapp { background: #25D366; color: #FFF; border: none; font-weight: 900; padding: 12px 28px; border-radius: 50px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); }
+
+        footer { text-align: center; padding: 20px; background: #010409; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid #161B22; }
 
         @media (max-width: 900px) {
-            .interactive-container, .contact-container { grid-template-columns: 1fr; }
-            .plan-card { flex: 0 0 85%; }
+            .tools-container, .sec-contact, .calc-grid, .plans-grid { grid-template-columns: 1fr; }
+            .calc-group, .btn-calc, .calc-result { grid-column: span 1; }
             .nav-links { display: none; }
-            .sec-hero h1 { font-size: 2.2rem; }
+            .sec-hero h1 { font-size: 2.3rem; }
+            .plan-card.popular { border-width: 1px; }
         }
     </style>
 </head>
@@ -124,258 +126,359 @@
             <a href="#" class="brand">IRON <span>FORGE</span></a>
             <nav class="nav-links">
                 <a href="#inicio">Inicio</a>
-                <a href="#video">Conócenos</a>
-                <a href="#herramientas">Planificador</a>
+                <a href="#video">Video</a>
+                <a href="#calculadora">Calculadora</a>
+                <a href="#herramientas">Rutinas & Dieta</a>
                 <a href="#membresias">Membresías</a>
-                <a href="#contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <!-- SECCIÓN 1: HERO -->
+    <!-- HERO -->
     <section class="sec-hero" id="inicio">
         <div class="hero-content">
-            <span class="hero-tag">🔥 Centro de Alto Rendimiento</span>
-            <h1>Construye tu mejor versión hoy</h1>
-            <p>Maquinaria biomecánica de vanguardia, nutrición aplicada y programas diseñados para hipertrofia y fuerza real.</p>
-            <a href="#video" class="btn-primary">Ver Instalaciones</a>
+            <span class="hero-tag">⚡ Centro de Alto Rendimiento</span>
+            <h1>Lleva Tu Cuerpo Al <span>Siguiente Nivel</span></h1>
+            <p>Maquinaria biomecánica, planes de entrenamiento automatizados y nutrición exacta con macronutrientes.</p>
+            <a href="#calculadora" class="btn-primary">Calcular Mis Calorías</a>
         </div>
     </section>
 
-    <!-- SECCIÓN DE VIDEO DENTRO DE LA PÁGINA -->
+    <!-- VIDEO INTEGRADO (FUNCIONANDO) -->
     <section class="sec-video" id="video">
         <div class="video-container">
-            <div class="section-subtitle">Experiencia en Entrenamiento</div>
-            <h2 class="section-title" style="color: #FFF; margin-bottom: 25px;">Siente la Energía de Iron Forge</h2>
-            
+            <div class="section-subtitle">Instalaciones & Entrenamiento</div>
+            <h2 class="section-title">Vive La Experiencia Iron Forge</h2>
             <div class="video-wrapper">
-                <video controls poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80" preload="metadata">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-holding-barbell-weights-in-a-gym-42838-large.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
+                <video controls autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80">
+                    <source src="https://cdn.coverr.co/videos/coverr-a-man-training-in-a-gym-5460/1080p.mp4" type="video/mp4">
+                    Tu navegador no soporta el formato de video.
                 </video>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: MÓDULO INTERACTIVO DE RUTINA Y NUTRICIÓN -->
-    <section class="sec-interactive" id="herramientas">
-        <div class="interactive-container">
+    <!-- CALCULADORA DE CALORÍAS Y MACROS (TDEE) -->
+    <section class="sec-calc" id="calculadora">
+        <div class="calc-container">
+            <div style="text-align: center;">
+                <div class="section-subtitle">Calculadora Científica</div>
+                <h2 class="section-title" style="margin-bottom: 10px;">¿Cuánto debes consumir al día?</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Calcula tu TDEE (Gasto Energético Total) y requerimiento de macronutrientes.</p>
+            </div>
+
+            <div class="calc-grid">
+                <div class="calc-group">
+                    <label>Peso (KG)</label>
+                    <input type="number" id="calcWeight" placeholder="Ej. 75" value="75">
+                </div>
+                <div class="calc-group">
+                    <label>Estatura (CM)</label>
+                    <input type="number" id="calcHeight" placeholder="Ej. 175" value="175">
+                </div>
+                <div class="calc-group">
+                    <label>Edad</label>
+                    <input type="number" id="calcAge" placeholder="Ej. 24" value="24">
+                </div>
+                <div class="calc-group">
+                    <label>Objetivo</label>
+                    <select id="calcGoal">
+                        <option value="gain">Aumento de Masa Muscular (+300 kcal)</option>
+                        <option value="maintain">Mantenimiento / Recomposición</option>
+                        <option value="lose">Definición / Perder Grasa (-400 kcal)</option>
+                    </select>
+                </div>
+                <button class="btn-calc" onclick="calculateMacros()">⚡ Calcular Mi Dieta Exacta</button>
+
+                <div class="calc-result" id="calcResult">
+                    <h3 style="color: var(--neon-yellow); font-size: 1.4rem;">Meta Diaria: <span id="resKcal">0</span> kcal</h3>
+                    <div class="macro-badges">
+                        <div class="macro-badge">
+                            <span>Proteínas</span>
+                            <strong id="resProt">0g</strong>
+                        </div>
+                        <div class="macro-badge">
+                            <span>Carbohidratos</span>
+                            <strong id="resCarbs">0g</strong>
+                        </div>
+                        <div class="macro-badge">
+                            <span>Grasas</span>
+                            <strong id="resFats">0g</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RUTINAS COMPLETAS Y RECETAS CON MACROS -->
+    <section class="sec-tools" id="herramientas">
+        <div class="tools-container">
             
-            <!-- CREADOR DE RUTINAS -->
+            <!-- CREADOR DE RUTINAS COMPLETAS -->
             <div class="tool-card">
-                <div class="tool-title">⚡ Creador de Rutinas Express</div>
-                <p class="tool-subtitle">Selecciona tus parámetros y genera un esquema de entrenamiento básico instantáneo.</p>
+                <div class="tool-title">🏋️ Rutinas Completas Detalladas</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Genera un programa de entrenamiento detallado día por día.</p>
 
-                <div class="form-select-group">
-                    <label>Objetivo Principal</label>
-                    <select id="userGoal">
-                        <option value="hipertrofia">Aumento de Masa Muscular (Hipertrofia)</option>
-                        <option value="fuerza">Fuerza Máxima (Powerlifting)</option>
-                        <option value="definicion">Quema de Grasa / Definición</option>
+                <div class="calc-group" style="margin-bottom: 12px;">
+                    <label>Frecuencia de Entrenamiento</label>
+                    <select id="routineDays">
+                        <option value="3">3 Días - Rutina FullBody (Cuerpo Completo)</option>
+                        <option value="4">4 Días - Split Torso / Pierna</option>
+                        <option value="5">5 Días - Push / Pull / Legs (Empuje, Tirón, Pierna)</option>
                     </select>
                 </div>
 
-                <div class="form-select-group">
-                    <label>Días Disponibles por Semana</label>
-                    <select id="userDays">
-                        <option value="3">3 Días (Full Body / Rutina A-B)</option>
-                        <option value="4">4 Días (Torso / Pierna Split)</option>
-                        <option value="5">5 Días (Push / Pull / Legs)</option>
-                    </select>
-                </div>
+                <button class="btn-select" style="background: var(--neon-yellow); color: #000; font-weight: 900;" onclick="generateFullRoutine()">Generar Rutina Completa</button>
 
-                <button class="btn-select" style="background: var(--accent-red);" onclick="generateRoutine()">Generar Mi Esquema</button>
-
-                <div class="routine-result" id="routineResult">
-                    <h4 id="routineTitle">Esquema Sugerido:</h4>
-                    <p id="routineDesc" style="color: #64748B; font-size: 0.85rem; line-height: 1.5;"></p>
-                </div>
+                <div class="routine-box" id="routineBox"></div>
             </div>
 
-            <!-- MÓDULO DE NUTRICIÓN Y MASA MUSCULAR -->
+            <!-- RECETAS CON MACROS EXACTOS -->
             <div class="tool-card">
-                <div class="tool-title">🥩 Nutrición para Masa Muscular</div>
-                <p class="tool-subtitle">Claves de alimentación esenciales para optimizar la síntesis proteica.</p>
+                <div class="tool-title">🥩 Platos para Masa Muscular</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Comidas preparadas con gramajes y desglose nutrimental exacto.</p>
 
-                <div class="nutrition-item">
-                    <div class="nutrition-icon">🍳</div>
-                    <div class="nutrition-text">
-                        <h4>Proteínas de Alto Valor Biológico</h4>
-                        <p>Huevos, pechuga de pollo y carne magra. Apunta a 1.8g - 2.2g de proteína por kilo de peso corporal.</p>
+                <div class="food-item">
+                    <div class="food-header">
+                        <span class="food-title">Bowl de Pollo, Arroz y Aguacate</span>
+                        <span class="food-kcal">620 kcal</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 8px;">200g pechuga de pollo asada + 180g arroz blanco cocido + 50g aguacate.</p>
+                    <div class="food-macros">
+                        <div>Proteína: <strong>48g</strong></div>
+                        <div>Carbs: <strong>62g</strong></div>
+                        <div>Grasas: <strong>14g</strong></div>
                     </div>
                 </div>
 
-                <div class="nutrition-item">
-                    <div class="nutrition-icon">🍚</div>
-                    <div class="nutrition-text">
-                        <h4>Carbohidratos de Carga Glucémica Media</h4>
-                        <p>Arroz blanco/integral, avena y camote. Fundamentales para reponer glucógeno y dar energía en series pesadas.</p>
+                <div class="food-item">
+                    <div class="food-header">
+                        <span class="food-title">Avena Proteica Nocturna</span>
+                        <span class="food-kcal">490 kcal</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 8px;">60g avena + 1 scoop proteína Whey + 15g crema de cacahuate + 100ml leche.</p>
+                    <div class="food-macros">
+                        <div>Proteína: <strong>38g</strong></div>
+                        <div>Carbs: <strong>54g</strong></div>
+                        <div>Grasas: <strong>12g</strong></div>
                     </div>
                 </div>
 
-                <div class="nutrition-item">
-                    <div class="nutrition-icon">🥑</div>
-                    <div class="nutrition-text">
-                        <h4>Grasas Saludables para Soporte Hormonal</h4>
-                        <p>Aguacate, frutos secos y aceite de oliva. Esenciales para mantener niveles óptimos de testosterona.</p>
+                <div class="food-item">
+                    <div class="food-header">
+                        <span class="food-title">Carne Magra con Camote al Horno</span>
+                        <span class="food-kcal">580 kcal</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 8px;">180g carne de res 90/10 + 200g camote + ensalada verde con aceite de oliva.</p>
+                    <div class="food-macros">
+                        <div>Proteína: <strong>44g</strong></div>
+                        <div>Carbs: <strong>48g</strong></div>
+                        <div>Grasas: <strong>16g</strong></div>
                     </div>
                 </div>
+
             </div>
 
         </div>
     </section>
 
-    <!-- SECCIÓN 3: MEMBRESÍAS -->
-    <section class="sec-catalog" id="membresias">
-        <div class="catalog-container">
-            <div class="section-subtitle">Elige tu modalidad</div>
+    <!-- MEMBRESÍAS -->
+    <section class="sec-plans" id="membresias">
+        <div style="text-align: center;">
+            <div class="section-subtitle">Únete al club</div>
             <h2 class="section-title">Planes & Membresías</h2>
+        </div>
 
-            <div class="slider-wrapper">
-                <div class="slider-track">
-                    
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h3>Pase Diario</h3>
-                            <div class="plan-price">$120 <span>MXN / día</span></div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li>Acceso total por 1 día</li>
-                                <li>Uso de regaderas y lockers</li>
-                                <li>Área de peso libre y cardio</li>
-                            </ul>
-                            <button class="btn-select" onclick="selectPlan('Pase Diario - $120 MXN')">Seleccionar Pase</button>
-                        </div>
-                    </div>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Pase Diario</h3>
+                <div class="plan-price">$120 <span style="font-size:0.9rem; color:var(--text-muted);">MXN</span></div>
+                <ul class="plan-features">
+                    <li>Acceso libre 1 día</li>
+                    <li>Uso de lockers y regaderas</li>
+                    <li>Acceso a todas las zonas</li>
+                </ul>
+                <button class="btn-select" onclick="selectPlan('Pase Diario - $120 MXN')">Seleccionar</button>
+            </div>
 
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h3>Mensualidad PRO</h3>
-                            <div class="plan-price">$750 <span>MXN / mes</span></div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li>Acceso ilimitado 7 días a la semana</li>
-                                <li>Evaluación física inicial gratis</li>
-                                <li>Rutina personalizada de inicio</li>
-                            </ul>
-                            <button class="btn-select" onclick="selectPlan('Mensualidad PRO - $750 MXN')">Seleccionar Plan</button>
-                        </div>
-                    </div>
+            <div class="plan-card popular">
+                <span class="plan-badge">Más Elegido</span>
+                <h3>Mensualidad PRO</h3>
+                <div class="plan-price">$750 <span style="font-size:0.9rem; color:var(--text-muted);">MXN / mes</span></div>
+                <ul class="plan-features">
+                    <li>Acceso ilimitado 7 días</li>
+                    <li>Evaluación física mensual</li>
+                    <li>App de seguimiento incluida</li>
+                    <li>Acceso a clases grupales</li>
+                </ul>
+                <button class="btn-select" style="background: var(--neon-yellow); color: #000; font-weight: 900;" onclick="selectPlan('Mensualidad PRO - $750 MXN')">Seleccionar</button>
+            </div>
 
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h3>Plan Trimestral</h3>
-                            <div class="plan-price">$1,950 <span>MXN / 3 meses</span></div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li>Ahorro mensual significativo</li>
-                                <li>Inscripción 100% gratis</li>
-                                <li>Plan nutricional incluido</li>
-                            </ul>
-                            <button class="btn-select" onclick="selectPlan('Plan Trimestral - $1,950 MXN')">Seleccionar Plan</button>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="plan-card">
+                <h3>Plan Trimestral</h3>
+                <div class="plan-price">$1,950 <span style="font-size:0.9rem; color:var(--text-muted);">MXN</span></div>
+                <ul class="plan-features">
+                    <li>Ahorro significativo</li>
+                    <li>Inscripción 100% gratis</li>
+                    <li>Plan nutricional inicial</li>
+                </ul>
+                <button class="btn-select" onclick="selectPlan('Plan Trimestral - $1,950 MXN')">Seleccionar</button>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4: CONTACTO, REDES Y MAPA -->
-    <section class="sec-contact" id="contacto">
-        <div class="contact-container">
-            <div class="contact-form">
-                <h3>Solicita tu Clase Muestra</h3>
-                <div class="form-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" id="contactName" placeholder="Ej. Juan Pérez">
-                </div>
-                <div class="form-group">
-                    <label>Correo Electrónico</label>
-                    <input type="email" id="contactEmail" placeholder="correo@ejemplo.com">
-                </div>
-                <div class="form-group">
-                    <label>Mensaje u Objetivo</label>
-                    <textarea id="contactMessage" rows="3" placeholder="Ej. Quiero iniciar el lunes y aumentar masa..."></textarea>
-                </div>
-                <button class="btn-submit" onclick="submitForm()">Agendar Clase Muestra</button>
-            </div>
+    <!-- CONTACTO Y MAPA -->
+    <section class="sec-contact">
+        <div class="form-box">
+            <h3 style="color: var(--neon-yellow); margin-bottom: 15px; text-transform: uppercase;">Agenda Tu Clase Muestra</h3>
+            <input type="text" id="contactName" placeholder="Nombre completo">
+            <input type="email" id="contactEmail" placeholder="Correo electrónico">
+            <textarea id="contactMessage" rows="3" placeholder="¿Cuál es tu meta principal?"></textarea>
+            <button class="btn-submit" onclick="submitForm()">Solicitar Acceso Gratis</button>
+        </div>
 
-            <div class="social-box">
-                <div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase;">Visítanos en la Sede</h3>
-                    <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 20px;">Conoce el equipo en persona antes de iniciar.</p>
-
-                    <div class="social-links">
-                        <a href="#" class="social-btn">📸 Instagram</a>
-                        <a href="#" class="social-btn">📘 Facebook</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 style="font-size: 0.88rem; margin-bottom: 10px; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Ubicación:</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="160" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+        <div>
+            <h3 style="color: var(--neon-cyan); margin-bottom: 10px; text-transform: uppercase;">Ubicación de la Sede</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Instalaciones abiertas de Lunes a Domingo de 6:00 AM a 11:00 PM.</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="200" style="border:1px solid #30363D; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>© Iron Forge Gymnasium — Demo de Negocio Pro</p>
+        <p>© Iron Forge Gymnasium — Plataforma Demo Pro</p>
     </footer>
 
+    <!-- BARRA FLOTANTE -->
     <div class="cart-bar">
         <div class="cart-inner">
             <div>
-                <span style="font-size:0.78rem; color:#94A3B8; text-transform: uppercase; font-weight:700;">Plan Seleccionado:</span>
-                <div style="font-weight:800; font-size:0.95rem; color:#FFF;" id="selectedPlanDisplay">Ningún plan elegido</div>
+                <span style="font-size:0.75rem; color:var(--text-muted); text-transform: uppercase; font-weight:800;">Membresía Seleccionada:</span>
+                <div style="font-weight:900; font-size:1rem; color:var(--neon-yellow);" id="selectedPlanDisplay">Ninguna seleccionada</div>
             </div>
-            <button class="btn-whatsapp" onclick="sendWhatsApp()">💬 Agendar por WhatsApp</button>
+            <button class="btn-whatsapp" onclick="sendWhatsApp()">💬 Inscribirme Por WhatsApp</button>
         </div>
     </div>
 
     <script>
         let selectedPlan = "";
 
-        function generateRoutine() {
-            const goal = document.getElementById('userGoal').value;
-            const days = document.getElementById('userDays').value;
-            const resultBox = document.getElementById('routineResult');
-            const title = document.getElementById('routineTitle');
-            const desc = document.getElementById('routineDesc');
+        // CALCULADORA TDEE & MACROS
+        function calculateMacros() {
+            const weight = parseFloat(document.getElementById('calcWeight').value);
+            const height = parseFloat(document.getElementById('calcHeight').value);
+            const age = parseFloat(document.getElementById('calcAge').value);
+            const goal = document.getElementById('calcGoal').value;
 
-            let scheme = "";
-            if (goal === "hipertrofia") {
-                scheme = `Rutina recomendada de ${days} días enfocada en rango de 8-12 repeticiones, priorizando ejercicios multiarticulares (Sentadilla, Press de Banca, Peso Muerto) seguidos de trabajo analítico.`;
-            } else if (goal === "fuerza") {
-                scheme = `Enfoque en series de 3-5 repeticiones con descansos de 3 minutos. Distribución de volumen enfocada en progresión de cargas semanales.`;
-            } else {
-                scheme = `Circuito híbrido de musculación + intervalos de alta intensidad (HIIT). Mantiene volumen muscular mientras incrementa el gasto calórico diario.`;
+            if (!weight || !height || !age) {
+                alert('Por favor completa todos los campos de la calculadora.');
+                return;
             }
 
-            title.innerText = `Esquema de ${days} Días (${goal.toUpperCase()})`;
-            desc.innerText = scheme;
-            resultBox.style.display = 'block';
+            // TMB Formula Harris-Benedict simplificada
+            let tmb = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            let tdee = tmb * 1.45; // Factor actividad moderada/alta
+
+            if (goal === 'gain') tdee += 350;
+            if (goal === 'lose') tdee -= 400;
+
+            const kcal = Math.round(tdee);
+            const protein = Math.round(weight * 2.2); // 2.2g por kg
+            const fats = Math.round(weight * 0.9);    // 0.9g por kg
+            const carbs = Math.round((kcal - (protein * 4) - (fats * 9)) / 4);
+
+            document.getElementById('resKcal').innerText = kcal;
+            document.getElementById('resProt').innerText = protein + 'g';
+            document.getElementById('resCarbs').innerText = carbs + 'g';
+            document.getElementById('resFats').innerText = fats + 'g';
+
+            document.getElementById('calcResult').style.display = 'block';
         }
 
-        function selectPlan(planName) {
-            selectedPlan = planName;
-            document.getElementById('selectedPlanDisplay').innerText = planName;
+        // GENERADOR DE RUTINAS COMPLETAS
+        function generateFullRoutine() {
+            const days = document.getElementById('routineDays').value;
+            const box = document.getElementById('routineBox');
+            let content = "";
+
+            if (days === "3") {
+                content = `
+                    <div class="routine-day">
+                        <h5>Día 1: FullBody A (Enfoque Fuerza)</h5>
+                        <p>• Sentadilla con barra: 4 series x 6-8 reps<br>• Press de banca plano: 4 series x 6-8 reps<br>• Remo con barra: 3 series x 8-10 reps<br>• Press militar: 3 series x 8-10 reps</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 2: FullBody B (Enfoque Hipertrofia)</h5>
+                        <p>• Peso muerto rumano: 4 series x 8-10 reps<br>• Press inclinado mancuernas: 4 series x 10-12 reps<br>• Jalón al pecho: 4 series x 10-12 reps<br>• Elevaciones laterales: 4 series x 12-15 reps</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 3: FullBody C (Volumen & Bombeo)</h5>
+                        <p>• Prensa de piernas: 4 series x 12 reps<br>• Fondos en paralelas: 3 series x 10 reps<br>• Remo en polea baja: 3 series x 12 reps<br>• Curl de bíceps + Extensión tríceps: 3 superseries x 12 reps</p>
+                    </div>
+                `;
+            } else if (days === "4") {
+                content = `
+                    <div class="routine-day">
+                        <h5>Día 1: Torso Pesado</h5>
+                        <p>• Press Banca: 4x6 | Remo Barra: 4x6 | Press Militar: 3x8 | Jalón Pecho: 3x10</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 2: Pierna Pesada</h5>
+                        <p>• Sentadilla: 4x6 | Peso Muerto Rumano: 4x8 | Prensa: 3x10 | Zancadas: 3x12</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 3: Torso Hipertrofia</h5>
+                        <p>• Press Inclinado Mancuernas: 4x10 | Remo Gironda: 4x10 | Cruces Polea: 3x12 | Arm Day: 3x12</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 4: Pierna & Core</h5>
+                        <p>• Hip Thrust: 4x10 | Prensa Hack: 3x12 | Curl Femoral: 4x12 | Extensión Cuádriceps: 3x15</p>
+                    </div>
+                `;
+            } else {
+                content = `
+                    <div class="routine-day">
+                        <h5>Día 1: Push (Empuje - Pecho, Hombro, Tríceps)</h5>
+                        <p>• Press Banca Plano: 4x8 | Press Inclinado Mancuernas: 3x10 | Press Militar: 3x8 | Elevaciones Laterales: 4x15 | Extensión Tríceps Polea: 4x12</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 2: Pull (Tirón - Espalda, Bíceps, Posterior)</h5>
+                        <p>• Peso Muerto Convencional: 3x5 | Remo con Barra T: 4x8 | Jalón al Pecho Agarre Neutro: 3x10 | Facepulls: 4x15 | Curl Biceps Barra Z: 4x10</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 3: Legs (Pierna Enfoque Cuádriceps)</h5>
+                        <p>• Sentadilla Libre: 4x8 | Prensa de Piernas: 4x10 | Extensión Cuádriceps: 3x12 | Gemelos en Máquina: 4x15</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 4: Upper Body (Torso Mixto)</h5>
+                        <p>• Fondos Lastrados: 4x8 | Remo Unilateral Mancuerna: 4x10 | Press Hombro Mancuernas: 3x10 | Curl Martillo: 3x12</p>
+                    </div>
+                    <div class="routine-day">
+                        <h5>Día 5: Lower Body (Pierna Enfoque Cadena Posterior)</h5>
+                        <p>• Peso Muerto Rumano: 4x8 | Hip Thrust: 4x10 | Curl Femoral Tumbado: 4x12 | Prensa Pies Altos: 3x12</p>
+                    </div>
+                `;
+            }
+
+            box.innerHTML = content;
+            box.style.display = 'block';
+        }
+
+        function selectPlan(plan) {
+            selectedPlan = plan;
+            document.getElementById('selectedPlanDisplay').innerText = plan;
         }
 
         function sendWhatsApp() {
             if (!selectedPlan) {
-                alert('Selecciona un plan primero.');
+                alert('Por favor selecciona una membresía primero.');
                 return;
             }
-            alert('Enviando solicitud para: ' + selectedPlan);
+            alert(`Solicitando inscripción a: ${selectedPlan}`);
         }
 
         function submitForm() {
-            alert('Solicitud enviada correctamente.');
+            alert('¡Solicitud enviada con éxito!');
         }
     </script>
 </body>
