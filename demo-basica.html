@@ -1,250 +1,931 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica de Fisioterapia & Rehabilitación | PhysioKinetix</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="BLACKLINE BARBERS — Barbería premium en Puebla.">
+<title>BLACKLINE — Barbería Premium</title>
 
-        :root {
-            --primary: #0284C7;
-            --primary-dark: #0369A1;
-            --accent: #0D9488;
-            --bg-light: #F8FAFC;
-            --card-bg: #FFFFFF;
-            --text-dark: #0F172A;
-            --text-muted: #64748B;
-            --border: #E2E8F0;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 90px; }
+:root{
+--bg:#070707;
+--paper:#10100f;
+--paper2:#151412;
+--gold:#d6ad61;
+--gold2:#f1d59a;
+--white:#f8f5ed;
+--muted:#8f8b84;
+--line:rgba(255,255,255,.09)
+}
 
-        /* TOP BANNER ANUNCIO */
-        .top-bar { background: var(--accent); color: #fff; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-        /* HEADER */
-        header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; }
-        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; }
-        .brand { font-size: 1.25rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+body{
+background:var(--bg);
+color:var(--white);
+font-family:'DM Sans',sans-serif
+}
 
-        /* SECCIÓN 1: HERO & BANNERS DESTACADOS */
-        .hero { max-width: 1000px; margin: 0 auto; padding: 40px 20px 20px; }
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #E0F2FE; color: var(--primary-dark); padding: 6px 14px; border-radius: 30px; font-size: 0.82rem; font-weight: 700; margin-bottom: 14px; }
-        .hero h1 { font-size: 2.3rem; font-weight: 800; line-height: 1.25; color: var(--text-dark); margin-bottom: 14px; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { color: var(--text-muted); font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px; }
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,92%);margin:auto}
 
-        .hero-img img { width: 100%; border-radius: 16px; object-fit: cover; height: 260px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+/* NAVBAR */
 
-        /* BANNERS DE BENEFICIOS */
-        .features-banner { max-width: 1000px; margin: 20px auto 40px; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .feature-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px; display: flex; align-items: center; gap: 14px; }
-        .feature-icon { font-size: 1.6rem; background: #F0FDFA; padding: 10px; border-radius: 12px; }
-        .feature-info h4 { font-size: 0.9rem; font-weight: 700; }
-        .feature-info p { font-size: 0.8rem; color: var(--text-muted); }
+nav{
+position:fixed;
+z-index:100;
+top:0;
+width:100%;
+padding:22px 0;
+transition:.35s
+}
 
-        /* SECCIÓN 2: TRATAMIENTOS & AGENDAMIENTO + MAPA */
-        .main-section { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        .section-title { font-size: 1.5rem; font-weight: 800; border-left: 4px solid var(--primary); padding-left: 12px; margin-bottom: 20px; }
+nav.on{
+background:rgba(7,7,7,.88);
+backdrop-filter:blur(18px);
+padding:14px 0;
+border-bottom:1px solid var(--line)
+}
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
-        .service-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: all 0.2s ease; cursor: pointer; }
-        .service-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(2, 132, 199, 0.06); }
-        .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-        .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; }
-        .btn-select { background: #F1F5F9; border: 1px solid var(--border); color: var(--text-dark); font-weight: 700; padding: 8px 14px; border-radius: 8px; font-size: 0.82rem; width: 100%; cursor: pointer; transition: all 0.2s; }
-        .btn-select:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between
+}
 
-        /* BLOQUE AGENDAR Y MAPA */
-        .booking-location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
-        .box-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 24px; }
-        
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 4px; }
-        .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; outline: none; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+.logo{
+font-weight:800;
+letter-spacing:.19em;
+font-size:16px
+}
 
-        /* FOOTER Y BARRA FLOTANTE */
-        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); border-top: 1px solid var(--border); padding: 14px 20px; z-index: 1000; backdrop-filter: blur(8px); }
-        .cart-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo b{color:var(--gold)}
 
-        .btn-whatsapp { background: #25D366; color: #fff; border: none; font-weight: 700; padding: 12px 24px; border-radius: 50px; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25); }
-        .btn-whatsapp:hover { opacity: 0.95; }
+.links{
+display:flex;
+gap:32px;
+font-size:12px;
+font-weight:600;
+color:#c7c2b8
+}
 
-        footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: var(--text-muted); }
+.links a{transition:.2s}
+.links a:hover{color:var(--gold)}
 
-        @media (max-width: 768px) {
-            .hero-grid, .features-banner, .booking-location-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 1.8rem; }
-        }
-    </style>
+.nav-cta{
+padding:11px 18px;
+border:1px solid var(--gold);
+font-size:10px;
+font-weight:800;
+letter-spacing:.13em
+}
+
+.nav-cta:hover{
+background:var(--gold);
+color:#080808
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+overflow:hidden
+}
+
+.hero-bg{
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(90deg,rgba(5,5,5,.97) 0%,rgba(5,5,5,.78) 40%,rgba(5,5,5,.2) 100%),
+linear-gradient(0deg,#070707 2%,transparent 34%),
+url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=2000&q=88');
+background-size:cover;
+background-position:center
+}
+
+.hero-bg:after{
+content:"";
+position:absolute;
+width:650px;
+height:650px;
+right:-250px;
+top:10%;
+border-radius:50%;
+background:rgba(214,173,97,.09);
+filter:blur(110px)
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding-top:60px
+}
+
+.tag{
+color:var(--gold);
+font-size:10px;
+letter-spacing:.35em;
+font-weight:800;
+margin-bottom:25px
+}
+
+h1{
+font:800 clamp(60px,9.5vw,116px)/.86 'Playfair Display',serif;
+letter-spacing:-.055em;
+max-width:800px
+}
+
+h1 span{
+color:var(--gold);
+font-style:italic
+}
+
+.lead{
+max-width:535px;
+color:#bbb6ad;
+font-size:15px;
+line-height:1.85;
+margin:30px 0
+}
+
+.buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap
+}
+
+.btn{
+padding:16px 23px;
+font-size:10px;
+font-weight:800;
+letter-spacing:.13em;
+transition:.25s
+}
+
+.gold{
+background:var(--gold);
+color:#080808
+}
+
+.gold:hover{
+background:var(--gold2);
+transform:translateY(-3px);
+box-shadow:0 14px 35px rgba(214,173,97,.18)
+}
+
+.outline{
+border:1px solid rgba(255,255,255,.27)
+}
+
+.outline:hover{
+border-color:var(--gold);
+color:var(--gold)
+}
+
+.stats{
+display:flex;
+gap:45px;
+margin-top:60px
+}
+
+.stats div{
+border-left:1px solid var(--gold);
+padding-left:13px
+}
+
+.stats strong{
+display:block;
+font-size:13px
+}
+
+.stats small{
+color:#85817a;
+font-size:10px
+}
+
+/* SECCIONES */
+
+section{padding:115px 0}
+
+.dark{background:#0a0a09}
+
+.head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:40px;
+margin-bottom:48px
+}
+
+.kicker{
+color:var(--gold);
+font-size:10px;
+letter-spacing:.3em;
+font-weight:800;
+margin-bottom:13px
+}
+
+.head h2{
+font:700 clamp(40px,5.5vw,66px)/.95 'Playfair Display',serif
+}
+
+.head p{
+max-width:390px;
+color:#8f8b84;
+line-height:1.8;
+font-size:13px
+}
+
+.line{
+height:2px;
+width:45px;
+background:var(--gold);
+margin-top:17px
+}
+
+/* EXPERIENCIA */
+
+.showcase{
+display:grid;
+grid-template-columns:1.15fr .85fr;
+gap:14px;
+margin-top:14px
+}
+
+.visual{
+min-height:390px;
+position:relative;
+overflow:hidden;
+background:url('https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=1200&q=85') center/cover
+}
+
+.visual:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,rgba(0,0,0,.82),transparent 55%)
+}
+
+.visual-text{
+position:absolute;
+z-index:2;
+left:28px;
+bottom:25px
+}
+
+.visual-text small{
+color:var(--gold);
+letter-spacing:.25em;
+font-size:9px;
+font-weight:800
+}
+
+.visual-text h3{
+font:700 37px/1 'Playfair Display',serif;
+margin-top:7px
+}
+
+.info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px
+}
+
+.info-box{
+background:var(--paper2);
+border:1px solid var(--line);
+padding:27px
+}
+
+.info-box span{
+font-size:9px;
+color:var(--gold);
+letter-spacing:.2em;
+font-weight:800
+}
+
+.info-box h4{
+font-size:15px;
+margin:13px 0 8px
+}
+
+.info-box p{
+font-size:11px;
+color:#8b877f;
+line-height:1.65
+}
+
+.wide{
+grid-column:span 2
+}
+
+/* SERVICIOS */
+
+.services{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px
+}
+
+.service{
+position:relative;
+min-height:255px;
+padding:25px;
+background:linear-gradient(145deg,#171613,#0d0d0c);
+border:1px solid var(--line);
+overflow:hidden;
+transition:.35s
+}
+
+.service:after{
+content:"";
+position:absolute;
+right:-45px;
+top:-45px;
+width:130px;
+height:130px;
+border-radius:50%;
+border:1px solid rgba(214,173,97,.15);
+box-shadow:
+0 0 0 25px rgba(214,173,97,.025),
+0 0 0 50px rgba(214,173,97,.02)
+}
+
+.service:hover{
+transform:translateY(-8px);
+border-color:rgba(214,173,97,.42)
+}
+
+.service .num{
+font-size:10px;
+color:var(--gold);
+letter-spacing:.16em;
+font-weight:800
+}
+
+.service h3{
+font:700 27px/1 'Playfair Display',serif;
+margin-top:43px
+}
+
+.service p{
+font-size:12px;
+color:#88847d;
+line-height:1.65;
+margin-top:13px
+}
+
+.price{
+position:absolute;
+bottom:24px;
+left:25px;
+color:var(--gold2);
+font-size:16px;
+font-weight:800
+}
+
+/* RESERVA */
+
+.booking{
+margin-top:14px;
+padding:27px;
+background:var(--gold);
+color:#090909;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px
+}
+
+.booking h3{
+font:700 28px 'Playfair Display',serif
+}
+
+.booking p{
+font-size:11px;
+margin-top:4px;
+opacity:.72
+}
+
+.booking a{
+border:1px solid #090909;
+padding:13px 18px;
+font-size:10px;
+font-weight:900;
+letter-spacing:.1em;
+white-space:nowrap
+}
+
+.booking a:hover{
+background:#090909;
+color:var(--gold)
+}
+
+/* FOOTER */
+
+footer{
+padding:27px 0;
+border-top:1px solid var(--line);
+color:#68645e;
+font-size:10px;
+letter-spacing:.09em
+}
+
+.foot{
+display:flex;
+justify-content:space-between
+}
+
+/* ANIMACIONES */
+
+.reveal{
+opacity:0;
+transform:translateY(25px);
+transition:.7s
+}
+
+.reveal.show{
+opacity:1;
+transform:none
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+.services{
+grid-template-columns:1fr 1fr
+}
+
+.showcase{
+grid-template-columns:1fr
+}
+
+.visual{
+min-height:330px
+}
+
+.info{
+grid-template-columns:1fr
+}
+
+.wide{
+grid-column:auto
+}
+
+}
+
+@media(max-width:650px){
+
+.links{
+display:none
+}
+
+.hero{
+min-height:850px
+}
+
+.hero-bg{
+background-image:
+linear-gradient(90deg,rgba(5,5,5,.94),rgba(5,5,5,.5)),
+linear-gradient(0deg,#070707 3%,transparent 40%),
+url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1000&q=85');
+background-position:center
+}
+
+.stats{
+gap:20px;
+flex-wrap:wrap;
+margin-top:45px
+}
+
+.stats div{
+min-width:105px
+}
+
+.head{
+display:block
+}
+
+.head p{
+margin-top:22px
+}
+
+.services{
+grid-template-columns:1fr
+}
+
+.service{
+min-height:210px
+}
+
+.service h3{
+margin-top:30px
+}
+
+.booking{
+display:block
+}
+
+.booking a{
+display:inline-block;
+margin-top:17px
+}
+
+.foot{
+display:block
+}
+
+.foot div+div{
+margin-top:9px
+}
+
+}
+</style>
 </head>
+
 <body>
 
-    <div class="top-bar">⚡ Valoración Inicial con 20% de Descuento para Nuevos Pacientes</div>
+<nav id="nav">
+<div class="wrap nav">
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="brand">🦴 PhysioKinetix | Fisioterapia</a>
-            <span style="font-size: 0.85rem; font-weight: 600; color: var(--primary-dark);">📍 Consulta Previa Cita</span>
-        </div>
-    </header>
+<a class="logo" href="#">
+BLACK<b>LINE</b>
+</a>
 
-    <!-- SECCIÓN 1: PRESENTACIÓN & BANNERS -->
-    <section class="hero">
-        <div class="hero-grid">
-            <div>
-                <div class="hero-badge">🩺 Rehabilitación Física Especializada</div>
-                <h1>Recupera tu movilidad y vive <span>sin dolor</span></h1>
-                <p>Tratamientos personalizados de fisioterapia deportiva, ortopédica y neurológica. Volver a moverte con libertad es posible.</p>
-            </div>
-            <div class="hero-img">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Fisioterapia y Rehabilitación">
-            </div>
-        </div>
-    </section>
+<div class="links">
+<a href="#inicio">INICIO</a>
+<a href="#experiencia">EXPERIENCIA</a>
+<a href="#servicios">SERVICIOS</a>
+<a href="#contacto">CONTACTO</a>
+</div>
 
-    <div class="features-banner">
-        <div class="feature-card">
-            <div class="feature-icon">💆‍♂️</div>
-            <div class="feature-info">
-                <h4>Atención 1 a 1</h4>
-                <p>Sesiones 100% personalizadas</p>
-            </div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <div class="feature-info">
-                <h4>Alivio Rápido</h4>
-                <p>Técnicas avanzadas sin dolor</p>
-            </div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📅</div>
-            <div class="feature-info">
-                <h4>Citas por WhatsApp</h4>
-                <p>Reserva fácil y sin esperas</p>
-            </div>
-        </div>
-    </div>
+<a class="nav-cta"
+href="https://wa.me/5212218158630?text=Hola%20BLACKLINE%2C%20quiero%20agendar%20una%20cita.">
+RESERVAR
+</a>
 
-    <!-- SECCIÓN 2: TRATAMIENTOS, FORMULARIO Y MAPA -->
-    <main class="main-section">
-        <h2 class="section-title">Nuestros Tratamientos</h2>
-        <div class="services-grid">
-            <div class="service-card" onclick="selectService('Fisioterapia Deportiva')">
-                <h3>Fisioterapia Deportiva</h3>
-                <p>Rehabilitación de esguinces, desgarros, tendinitis y preparación física para alto rendimiento.</p>
-                <button class="btn-select">Solicitar Cita</button>
-            </div>
+</div>
+</nav>
 
-            <div class="service-card" onclick="selectService('Rehabilitación de Espalda y Cuello')">
-                <h3>Espalda y Lumbalgias</h3>
-                <p>Tratamiento especializado para hernia discal, ciática, dolor lumbar y corrección postural.</p>
-                <button class="btn-select">Solicitar Cita</button>
-            </div>
 
-            <div class="service-card" onclick="selectService('Terapia Manual y Masaje Terapéutico')">
-                <h3>Terapia Manual</h3>
-                <p>Liberación miofascial y masajes descontracturantes para eliminar tensión muscular y estrés.</p>
-                <button class="btn-select">Solicitar Cita</button>
-            </div>
-        </div>
+<main>
 
-        <h2 class="section-title">Agendar Consulta y Ubicación</h2>
-        <div class="booking-location-grid">
-            
-            <!-- FORMULARIO -->
-            <div class="box-card">
-                <h3 style="margin-bottom: 12px; font-size: 1.1rem;">Agendar por WhatsApp</h3>
-                <div class="form-group">
-                    <label>Nombre del Paciente</label>
-                    <input type="text" id="patientName" placeholder="Ej. Carlos Mendoza">
-                </div>
-                <div class="form-group">
-                    <label>Tratamiento de Interés</label>
-                    <select id="selectedService">
-                        <option value="">-- Selecciona una opción --</option>
-                        <option value="Fisioterapia Deportiva">Fisioterapia Deportiva</option>
-                        <option value="Rehabilitación de Espalda y Cuello">Rehabilitación de Espalda / Lumbalgia</option>
-                        <option value="Terapia Manual y Masaje Terapéutico">Terapia Manual y Masaje Terapéutico</option>
-                        <option value="Valoración Inicial General">Valoración Inicial General</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Horario Preferido</label>
-                    <select id="bookingTime">
-                        <option value="Mañana (9:00 AM - 1:00 PM)">Mañana (9:00 AM - 1:00 PM)</option>
-                        <option value="Tarde (3:00 PM - 7:00 PM)">Tarde (3:00 PM - 7:00 PM)</option>
-                    </select>
-                </div>
-            </div>
+<!-- HERO -->
 
-            <!-- GOOGLE MAPS EMBEDDED -->
-            <div class="box-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 style="margin-bottom: 6px; font-size: 1.1rem;">Ubicación de la Clínica</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Atención con estacionamiento disponible.</p>
-                </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.7!2d-100.31!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzE5LjIiTiAxMDDCsDE4JzM2LjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="100%" height="160" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+<section class="hero" id="inicio">
 
-        </div>
-    </main>
+<div class="hero-bg"></div>
 
-    <footer>
-        <p>© 2026 PhysioKinetix — Sitio Web Desarrollado por DAMstudio</p>
-    </footer>
+<div class="wrap hero-content">
 
-    <!-- BARRA INFERIOR FLOTANTE -->
-    <div class="cart-bar">
-        <div class="cart-inner">
-            <span style="font-size:0.88rem; font-weight:600; color:var(--text-dark);" id="statusText">Plan Esencial ($1,200 MXN) — Demostración</span>
-            <button class="btn-whatsapp" onclick="sendAppointment()">
-                📲 Agendar por WhatsApp
-            </button>
-        </div>
-    </div>
+<div class="tag">
+BARBERÍA PREMIUM · PUEBLA, MÉXICO
+</div>
 
-    <!-- SCRIPT LOGICA Y EXPIRACION -->
-    <script>
-        const fechaLimite = new Date('2026-09-25T23:59:59'); 
-        const hoy = new Date();
+<h1>
+El detalle<br>
+hace <span>el estilo.</span>
+</h1>
 
-        if (hoy > fechaLimite) {
-            document.body.innerHTML = `
-                <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; font-family:sans-serif; background:#fff; color:#333; padding:20px;">
-                    <h1 style="font-size:2rem; margin-bottom:10px;">Vista Previa Finalizada</h1>
-                    <p style="color:#666; max-width:400px;">La demo del Plan Esencial ha concluido. Contacte a DAMstudio para adquirir o activar su sitio permanente.</p>
-                </div>
-            `;
-        }
+<p class="lead">
+Una experiencia de barbería diseñada para quienes no se conforman con un corte cualquiera.
+Precisión, actitud y un acabado impecable.
+</p>
 
-        function selectService(serviceName) {
-            document.getElementById('selectedService').value = serviceName;
-            document.getElementById('statusText').innerText = `Seleccionado: ${serviceName}`;
-        }
+<div class="buttons">
 
-        function sendAppointment() {
-            const name = document.getElementById('patientName').value.trim();
-            const service = document.getElementById('selectedService').value;
-            const time = document.getElementById('bookingTime').value;
+<a class="btn gold"
+href="https://wa.me/5212218158630?text=Hola%20BLACKLINE%2C%20quiero%20reservar%20una%20cita.">
+AGENDAR POR WHATSAPP →
+</a>
 
-            if (!name || !service) {
-                alert('Por favor ingresa el nombre del paciente y selecciona un tratamiento.');
-                return;
-            }
+<a class="btn outline" href="#servicios">
+EXPLORAR SERVICIOS
+</a>
 
-            let msg = `Hola PhysioKinetix, me gustaría agendar una cita:\n\n`;
-            msg += `👤 *Paciente:* ${name}\n`;
-            msg += `🩺 *Tratamiento:* ${service}\n`;
-            msg += `⏰ *Horario sugerido:* ${time}\n`;
+</div>
 
-            alert('Ejemplo del mensaje que llegará al WhatsApp del consultorio:\n\n' + msg);
-        }
-    </script>
+<div class="stats">
+
+<div>
+<strong>10:00 — 20:00</strong>
+<small>LUN — SÁB</small>
+</div>
+
+<div>
+<strong>+1,000</strong>
+<small>CORTES REALIZADOS</small>
+</div>
+
+<div>
+<strong>5.0 ★</strong>
+<small>EXPERIENCIA</small>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- EXPERIENCIA -->
+
+<section id="experiencia">
+
+<div class="wrap">
+
+<div class="head reveal">
+
+<div>
+
+<div class="kicker">
+THE BLACKLINE EXPERIENCE
+</div>
+
+<h2>
+No cortamos cabello.<br>
+Diseñamos presencia.
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Desde el primer contacto hasta el último detalle del acabado,
+todo está pensado para que salgas sintiéndote diferente.
+</p>
+
+</div>
+
+
+<div class="showcase">
+
+<div class="visual reveal">
+
+<div class="visual-text">
+
+<small>
+PRECISIÓN · ESTILO · ACTITUD
+</small>
+
+<h3>
+Tu mejor versión.
+</h3>
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-box reveal">
+
+<span>01</span>
+
+<h4>
+Diagnóstico de estilo
+</h4>
+
+<p>
+Analizamos rostro, cabello y estilo para recomendarte
+un corte que realmente te favorezca.
+</p>
+
+</div>
+
+
+<div class="info-box reveal">
+
+<span>02</span>
+
+<h4>
+Precisión artesanal
+</h4>
+
+<p>
+Tijera, máquina y navaja con atención al detalle
+en cada línea.
+</p>
+
+</div>
+
+
+<div class="info-box wide reveal">
+
+<span>03</span>
+
+<h4>
+Acabado BLACKLINE
+</h4>
+
+<p>
+Producto, textura y styling final para que el corte
+se vea bien desde que sales hasta que termina el día.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICIOS -->
+
+<section class="dark" id="servicios">
+
+<div class="wrap">
+
+<div class="head reveal">
+
+<div>
+
+<div class="kicker">
+SERVICIOS
+</div>
+
+<h2>
+Elige tu<br>
+experiencia.
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Servicios pensados para diferentes estilos y presupuestos.
+Reserva directamente por WhatsApp.
+</p>
+
+</div>
+
+
+<div class="services">
+
+
+<article class="service reveal">
+
+<span class="num">
+01 / CORTE
+</span>
+
+<h3>
+Corte Clásico
+</h3>
+
+<p>
+Asesoría + máquina + tijera + acabado profesional.
+</p>
+
+<strong class="price">
+$180 MXN
+</strong>
+
+</article>
+
+
+<article class="service reveal">
+
+<span class="num">
+02 / SIGNATURE
+</span>
+
+<h3>
+Corte + Barba
+</h3>
+
+<p>
+El combo completo para salir impecable.
+</p>
+
+<strong class="price">
+$250 MXN
+</strong>
+
+</article>
+
+
+<article class="service reveal">
+
+<span class="num">
+03 / BARBA
+</span>
+
+<h3>
+Barba Premium
+</h3>
+
+<p>
+Perfilado, navaja y acabado de precisión.
+</p>
+
+<strong class="price">
+$120 MXN
+</strong>
+
+</article>
+
+
+<article class="service reveal">
+
+<span class="num">
+04 / BLACKLINE
+</span>
+
+<h3>
+Experiencia
+</h3>
+
+<p>
+Corte + barba + toalla caliente + acabado.
+</p>
+
+<strong class="price">
+$300 MXN
+</strong>
+
+</article>
+
+
+</div>
+
+
+<div class="booking reveal" id="contacto">
+
+<div>
+
+<h3>
+Tu próxima imagen empieza aquí.
+</h3>
+
+<p>
+Reserva tu espacio. Nosotros ponemos la precisión.
+</p>
+
+</div>
+
+<a href="https://wa.me/5212218158630?text=Hola%20BLACKLINE%2C%20quiero%20agendar%20mi%20cita.">
+RESERVAR MI CITA →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="wrap foot">
+
+<div>
+© 2026 BLACKLINE BARBERS
+</div>
+
+<div>
+PUEBLA · MÉXICO · TU ESTILO, NUESTRA FIRMA.
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const nav=document.getElementById('nav');
+
+addEventListener('scroll',()=>{
+nav.classList.toggle('on',scrollY>40)
+});
+
+const io=new IntersectionObserver(
+es=>es.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add('show')
+}),
+{threshold:.12}
+);
+
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+
+</script>
+
 </body>
 </html>
