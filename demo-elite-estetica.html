@@ -1,374 +1,1633 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAM STUDIO | Flagship Digital Architecture</title>
-    
-    <!-- FUENTES ELEGANTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg-main: #050505;
-            --bg-card: rgba(18, 18, 22, 0.7);
-            --accent-gold: #D4AF37;
-            --accent-gold-light: #F3E5AB;
-            --text-primary: #F5F5F7;
-            --text-secondary: #8E8E93;
-            --border-luxury: rgba(212, 175, 55, 0.2);
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.02);
-        }
+<title>VORTEX MOTORS | Autos Premium</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        
-        body { 
-            background-color: var(--bg-main); 
-            color: var(--text-primary); 
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
-        }
+<style>
 
-        /* HEADER ELEGANTE */
-        header { 
-            position: fixed; 
-            top: 0; 
-            width: 100%;
-            background: rgba(5, 5, 5, 0.8); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid var(--border-subtle); 
-            z-index: 1000; 
-        }
-        .nav-container { 
-            max-width: 1300px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 22px 32px; 
-        }
-        .brand { 
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem; 
-            font-weight: 700; 
-            color: #FFF; 
-            text-decoration: none; 
-            letter-spacing: 3px; 
-        }
-        .brand span { color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { 
-            color: var(--text-secondary); 
-            text-decoration: none; 
-            font-size: 0.8rem; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            transition: all 0.3s ease; 
-        }
-        .nav-links a:hover { color: var(--accent-gold); }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-        /* HERO SECTION ASIMÉTRICO */
-        .sec-hero { 
-            min-height: 100vh;
-            padding: 160px 32px 100px; 
-            max-width: 1300px; 
-            margin: 0 auto; 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr; 
-            gap: 60px; 
-            align-items: center; 
-        }
-        .hero-tag { 
-            display: inline-flex; 
-            align-items: center;
-            gap: 10px;
-            background: var(--glass-bg); 
-            color: var(--accent-gold); 
-            padding: 8px 20px; 
-            border-radius: 100px; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 2.5px; 
-            border: 1px solid var(--border-luxury); 
-            margin-bottom: 24px; 
-        }
-        .hero-tag::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-gold);
-        }
-        .sec-hero h1 { 
-            font-family: 'Cinzel', serif;
-            font-size: 4.2rem; 
-            font-weight: 500; 
-            line-height: 1.1; 
-            margin-bottom: 28px; 
-            letter-spacing: -1px; 
-        }
-        .sec-hero h1 span { 
-            background: linear-gradient(135deg, #FFF 0%, var(--accent-gold) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            font-weight: 700;
-        }
-        .sec-hero p { 
-            color: var(--text-secondary); 
-            font-size: 1.15rem; 
-            line-height: 1.8; 
-            margin-bottom: 40px; 
-            font-weight: 300;
-            max-width: 600px;
-        }
+:root{
+    --bg:#050706;
+    --card:#0c100d;
+    --card2:#101610;
+    --green:#8cff19;
+    --green2:#c2ff72;
+    --text:#f5f7f3;
+    --muted:#8b938a;
+    --border:rgba(255,255,255,.09);
+}
 
-        .hero-card-preview {
-            background: var(--bg-card);
-            border: 1px solid var(--border-luxury);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            position: relative;
-        }
-        .hero-card-preview::after {
-            content: '';
-            position: absolute;
-            top: -1px; left: -1px; right: -1px; bottom: -1px;
-            background: linear-gradient(135deg, var(--border-luxury), transparent);
-            border-radius: 24px;
-            z-index: -1;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* GRID DE PROYECTOS / DEMOS */
-        .sec-portfolio { max-width: 1300px; margin: 0 auto; padding: 120px 32px; }
-        .section-header { text-align: left; margin-bottom: 60px; }
-        .section-subtitle { 
-            color: var(--accent-gold); 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            margin-bottom: 12px;
-        }
-        .section-title { 
-            font-family: 'Cinzel', serif;
-            font-size: 2.8rem; 
-            font-weight: 500; 
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-        .portfolio-card { 
-            background: var(--bg-card); 
-            border-radius: 20px; 
-            overflow: hidden; 
-            border: 1px solid var(--border-subtle); 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-        .portfolio-card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--border-luxury);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.08);
-        }
-        .portfolio-img { 
-            height: 320px; 
-            overflow: hidden; 
-            position: relative; 
-        }
-        .portfolio-img img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.6s ease;
-            filter: brightness(0.85);
-        }
-        .portfolio-card:hover .portfolio-img img {
-            transform: scale(1.05);
-            filter: brightness(1);
-        }
-        .portfolio-body { padding: 32px; }
-        .portfolio-tag { 
-            font-size: 0.7rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            color: var(--accent-gold); 
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        .portfolio-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; }
-        .portfolio-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; }
-        
-        .btn-gold {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--accent-gold), #A68019);
-            color: #000;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-gold:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px);
-        }
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+}
 
-        /* METRICAS DE VALOR */
-        .sec-stats { 
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-            background: var(--glass-bg);
-            padding: 80px 32px;
-        }
-        .stats-grid { 
-            max-width: 1300px; 
-            margin: 0 auto; 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 30px; 
-            text-align: center;
-        }
-        .stat-number { 
-            font-family: 'Cinzel', serif;
-            font-size: 3rem; 
-            font-weight: 700; 
-            color: var(--accent-gold); 
-            margin-bottom: 8px;
-        }
-        .stat-label { 
-            color: var(--text-secondary); 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-        }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-        footer { 
-            text-align: center; 
-            padding: 50px 32px; 
-            color: var(--text-secondary); 
-            font-size: 0.8rem; 
-            letter-spacing: 1px;
-            border-top: 1px solid var(--border-subtle); 
-        }
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
 
-        @media (max-width: 900px) {
-            .sec-hero, .portfolio-grid, .stats-grid { grid-template-columns: 1fr; }
-            .sec-hero h1 { font-size: 2.8rem; }
-            .nav-links { display: none; }
-        }
-    </style>
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:24px 0;
+    transition:.35s;
+}
+
+nav.scrolled{
+    background:rgba(5,7,6,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+    padding:15px 0;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:'Space Grotesk';
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:.08em;
+}
+
+.logo span{
+    color:var(--green);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+
+.nav-links a{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    color:#b8beb8;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
+
+.nav-button{
+    border:1px solid var(--green);
+    padding:12px 18px;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.08em;
+    transition:.3s;
+}
+
+.nav-button:hover{
+    background:var(--green);
+    color:#050706;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(90deg,
+        rgba(4,6,5,.98) 0%,
+        rgba(4,6,5,.86) 38%,
+        rgba(4,6,5,.25) 75%
+    ),
+    linear-gradient(0deg,
+        #050706 0%,
+        transparent 35%
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-image::after{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    right:-250px;
+    top:5%;
+    background:rgba(140,255,25,.13);
+    filter:blur(130px);
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding-top:80px;
+}
+
+.hero-small{
+    color:var(--green);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.32em;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-family:'Space Grotesk';
+    font-size:clamp(55px,8vw,105px);
+    line-height:.86;
+    letter-spacing:-.065em;
+    max-width:850px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero-description{
+    max-width:520px;
+    margin:28px 0;
+    color:#aeb5ad;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.button{
+    padding:15px 22px;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.1em;
+    transition:.3s;
+}
+
+.button-green{
+    background:var(--green);
+    color:#050706;
+}
+
+.button-green:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 45px rgba(140,255,25,.18);
+}
+
+.button-outline{
+    border:1px solid rgba(255,255,255,.25);
+}
+
+.button-outline:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+.hero-stats{
+    display:flex;
+    gap:45px;
+    margin-top:58px;
+}
+
+.stat{
+    border-left:2px solid var(--green);
+    padding-left:13px;
+}
+
+.stat strong{
+    display:block;
+    font-size:18px;
+}
+
+.stat small{
+    display:block;
+    margin-top:5px;
+    color:#737c73;
+    font-size:8px;
+    letter-spacing:.12em;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:110px 0;
+}
+
+.dark-section{
+    background:#070907;
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:45px;
+}
+
+.label{
+    color:var(--green);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.3em;
+    margin-bottom:13px;
+}
+
+.section-header h2{
+    font-family:'Space Grotesk';
+    font-size:clamp(42px,5vw,67px);
+    line-height:.9;
+    letter-spacing:-.055em;
+}
+
+.section-header h2 span{
+    color:var(--green);
+}
+
+.section-header p{
+    max-width:410px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+}
+
+.line{
+    width:55px;
+    height:2px;
+    margin-top:17px;
+    background:linear-gradient(90deg,var(--green),transparent);
+}
+
+/* ================= CARS ================= */
+
+.car-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.car{
+    background:linear-gradient(145deg,#111611,#090b09);
+    border:1px solid var(--border);
+    overflow:hidden;
+    transition:.4s;
+}
+
+.car:hover{
+    transform:translateY(-9px);
+    border-color:rgba(140,255,25,.4);
+}
+
+.car-image{
+    height:230px;
+    position:relative;
+    background-size:cover;
+    background-position:center;
+}
+
+.car-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(0deg,#0c100d,transparent 55%);
+}
+
+.car-tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:2;
+    background:var(--green);
+    color:#050706;
+    padding:6px 9px;
+    font-size:8px;
+    font-weight:900;
+}
+
+.car-info{
+    padding:20px;
+}
+
+.car-info small{
+    color:#697269;
+    font-size:8px;
+    letter-spacing:.15em;
+}
+
+.car-info h3{
+    font-family:'Space Grotesk';
+    font-size:24px;
+    margin:7px 0;
+}
+
+.car-info p{
+    color:#7d867e;
+    font-size:10px;
+    line-height:1.6;
+}
+
+.car-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:22px;
+}
+
+.car-price{
+    font-size:17px;
+    font-weight:800;
+}
+
+.car-price small{
+    font-size:8px;
+}
+
+.car-button{
+    border:1px solid var(--green);
+    padding:9px 12px;
+    font-size:8px;
+    font-weight:900;
+}
+
+.car-button:hover{
+    background:var(--green);
+    color:#050706;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:15px;
+}
+
+.experience-image{
+    min-height:540px;
+
+    background:
+    linear-gradient(0deg,rgba(0,0,0,.85),transparent 60%),
+    url("https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1300&q=85")
+    center/cover;
+
+    position:relative;
+    border:1px solid var(--border);
+}
+
+.experience-text{
+    position:absolute;
+    left:30px;
+    bottom:30px;
+}
+
+.experience-text small{
+    color:var(--green);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.2em;
+}
+
+.experience-text h3{
+    font-family:'Space Grotesk';
+    font-size:38px;
+    margin-top:8px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.feature{
+    background:var(--card2);
+    border:1px solid var(--border);
+    padding:28px;
+    transition:.3s;
+}
+
+.feature:hover{
+    border-color:rgba(140,255,25,.4);
+    transform:translateY(-4px);
+}
+
+.feature-number{
+    color:var(--green);
+    font-size:10px;
+    font-weight:900;
+}
+
+.feature h3{
+    margin:30px 0 10px;
+    font-size:16px;
+}
+
+.feature p{
+    color:#778077;
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* ================= FINANCE ================= */
+
+.finance{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.finance-box{
+    padding:45px;
+    background:
+    linear-gradient(135deg,rgba(140,255,25,.12),transparent 50%),
+    #0c110d;
+    border:1px solid var(--border);
+}
+
+.finance-box h3{
+    font-family:'Space Grotesk';
+    font-size:35px;
+    line-height:1;
+}
+
+.finance-box h3 span{
+    color:var(--green);
+}
+
+.finance-box p{
+    color:#828b82;
+    font-size:11px;
+    line-height:1.8;
+    margin:20px 0 25px;
+}
+
+.finance-list{
+    display:grid;
+    gap:12px;
+}
+
+.finance-list div{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    color:#b7beb7;
+    font-size:10px;
+}
+
+.finance-list b{
+    color:var(--green);
+}
+
+.finance-image{
+    min-height:380px;
+    background:
+    linear-gradient(90deg,rgba(5,7,6,.3),rgba(5,7,6,.05)),
+    url("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1300&q=85")
+    center/cover;
+}
+
+/* ================= TESTIMONIALS ================= */
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.review{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:28px;
+}
+
+.stars{
+    color:var(--green);
+    letter-spacing:3px;
+    font-size:11px;
+}
+
+.review p{
+    color:#a0a89f;
+    font-size:11px;
+    line-height:1.8;
+    margin:20px 0;
+}
+
+.reviewer{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--green),#1b2916);
+}
+
+.reviewer strong{
+    font-size:10px;
+}
+
+.reviewer small{
+    display:block;
+    color:#677067;
+    font-size:8px;
+    margin-top:3px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.contact-info{
+    padding:42px;
+    background:
+    linear-gradient(135deg,rgba(140,255,25,.1),transparent),
+    #0a0e0b;
+    border:1px solid var(--border);
+}
+
+.contact-info h2{
+    font-family:'Space Grotesk';
+    font-size:45px;
+    line-height:.95;
+}
+
+.contact-info h2 span{
+    color:var(--green);
+}
+
+.contact-info p{
+    color:#7d867e;
+    font-size:11px;
+    line-height:1.8;
+    margin:20px 0 30px;
+}
+
+.contact-item{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid var(--border);
+    font-size:10px;
+}
+
+.contact-item span{
+    color:#657066;
+}
+
+.contact-form{
+    background:#0c100d;
+    border:1px solid var(--border);
+    padding:30px;
+}
+
+.contact-form h3{
+    font-family:'Space Grotesk';
+    font-size:27px;
+}
+
+form{
+    display:grid;
+    gap:9px;
+    margin-top:20px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    background:#050706;
+    border:1px solid var(--border);
+    color:#fff;
+    padding:14px;
+    font-family:Inter;
+    font-size:11px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--green);
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.submit{
+    border:none;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:28px 0;
+    color:#626a62;
+    font-size:8px;
+    letter-spacing:.12em;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .car-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .experience,
+    .finance,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .experience-image{
+        min-height:420px;
+    }
+
+    .testimonials{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero{
+        min-height:850px;
+    }
+
+    .hero-image{
+        background:
+        linear-gradient(90deg,rgba(4,6,5,.92),rgba(4,6,5,.35)),
+        linear-gradient(0deg,#050706,transparent 50%),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+    }
+
+    .hero h1{
+        font-size:62px;
+    }
+
+    .hero-stats{
+        gap:20px;
+        flex-wrap:wrap;
+    }
+
+    .section-header{
+        display:block;
+    }
+
+    .section-header p{
+        margin-top:20px;
+    }
+
+    .car-grid{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .finance-box{
+        padding:30px;
+    }
+
+    .contact-info{
+        padding:30px;
+    }
+
+    .footer{
+        display:block;
+    }
+
+    .footer div+div{
+        margin-top:8px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="brand">DAM <span>STUDIO</span></a>
-            <nav class="nav-links">
-                <a href="#demos">Showcase</a>
-                <a href="#estudio">El Estudio</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-        </div>
-    </header>
+<!-- ================= NAV ================= -->
 
-    <!-- HERO SECTION -->
-    <section class="sec-hero">
-        <div>
-            <div class="hero-tag">Digital Craftsmanship & Web Architecture</div>
-            <h1>Creamos Activos Digitales de <span>Alto Impacto</span></h1>
-            <p>Desarrollo web exclusivo para marcas que exigen distinción, rendimiento técnico superior y una presencia visual imponente.</p>
-            <a href="#demos" class="btn-gold">Explorar Showcase</a>
-        </div>
+<nav id="navbar">
 
-        <div class="hero-card-preview">
-            <div style="font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--accent-gold); margin-bottom: 15px;">Estándar de Calidad DAM</div>
-            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px;">
-                Cada línea de código está optimizada para carga ultra-rápida, seguridad SSL, posicionamiento en buscadores y experiencia de usuario fluida.
-            </p>
-            <div style="border-top: 1px solid var(--border-subtle); padding-top: 15px; display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--accent-gold-light);">
-                <span>✓ Rendimiento +95 Core Web Vitals</span>
-                <span>✓ Diseño Adaptativo 4K</span>
-            </div>
-        </div>
-    </section>
+<div class="container nav">
 
-    <!-- METRICAS DE VALOR -->
-    <section class="sec-stats">
-        <div class="stats-grid">
-            <div>
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Código Personalizado</div>
-            </div>
-            <div>
-                <div class="stat-number">&lt;0.8s</div>
-                <div class="stat-label">Tiempo de Carga</div>
-            </div>
-            <div>
-                <div class="stat-number">SEO</div>
-                <div class="stat-label">Arquitectura Indexable</div>
-            </div>
-            <div>
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Disponibilidad Cloud</div>
-            </div>
-        </div>
-    </section>
+<a href="#" class="logo">
+VORTEX<span> //</span> MOTORS
+</a>
 
-    <!-- SHOWCASE DE DEMOS -->
-    <section class="sec-portfolio" id="demos">
-        <div class="section-header">
-            <div class="section-subtitle">Casos de Estudio & Demos</div>
-            <h2 class="section-title">Portafolio de Soluciones</h2>
-        </div>
+<div class="nav-links">
+<a href="#autos">AUTOS</a>
+<a href="#experiencia">EXPERIENCIA</a>
+<a href="#financiamiento">FINANCIAMIENTO</a>
+<a href="#contacto">CONTACTO</a>
+</div>
 
-        <div class="portfolio-grid">
-            
-            <div class="portfolio-card">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80" alt="Bienes Raíces de Lujo">
-                </div>
-                <div class="portfolio-body">
-                    <div class="portfolio-tag">Real Estate / Inmobiliaria</div>
-                    <div class="portfolio-title">Residencial Prime Development</div>
-                    <p class="portfolio-desc">Plataforma interactiva con filtros de propiedades en tiempo real, cotizador de hipotecas y tours virtuales en alta definición.</p>
-                    <a href="#" class="btn-gold">Ver Demo Interactivo</a>
-                </div>
-            </div>
+<a href="#contacto" class="nav-button">
+COTIZAR AUTO
+</a>
 
-            <div class="portfolio-card">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80" alt="Clínica Médica Premium">
-                </div>
-                <div class="portfolio-body">
-                    <div class="portfolio-tag">Healthcare / Estética Medica</div>
-                    <div class="portfolio-title">AURA Dental & Medical Studio</div>
-                    <p class="portfolio-desc">Plataforma médica de lujo con sistema de agendamiento directo a WhatsApp, catálogo interactivo y cotización al instante.</p>
-                    <a href="#" class="btn-gold">Ver Demo Interactivo</a>
-                </div>
-            </div>
+</div>
 
-        </div>
-    </section>
+</nav>
 
-    <footer>
-        <p>© 2026 DAM STUDIO — Arquitectura Digital & Desarrollo de Alto Rendimiento</p>
-    </footer>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-image"></div>
+
+<div class="container hero-content">
+
+<div class="hero-small">
+AUTOS PREMIUM · SEMINUEVOS · PERFORMANCE
+</div>
+
+<h1>
+EL AUTO<br>
+QUE <span>IMAGINAS.</span>
+</h1>
+
+<p class="hero-description">
+Descubre una selección exclusiva de vehículos premium,
+deportivos y de alto rendimiento. Tu próximo auto
+empieza aquí.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#autos" class="button button-green">
+VER INVENTARIO →
+</a>
+
+<a href="#contacto" class="button button-outline">
+QUIERO COTIZAR
+</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div class="stat">
+<strong>+120</strong>
+<small>AUTOS VENDIDOS</small>
+</div>
+
+<div class="stat">
+<strong>5.0 ★</strong>
+<small>CLIENTES FELICES</small>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<small>VEHÍCULOS REVISADOS</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= INVENTARIO ================= -->
+
+<section id="autos">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+INVENTARIO DESTACADO
+</div>
+
+<h2>
+Encuentra tu<br>
+<span>próximo auto.</span>
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Vehículos seleccionados por rendimiento, diseño
+y condición. Calidad que se nota desde el primer vistazo.
+</p>
+
+</div>
+
+
+<div class="car-grid">
+
+
+<!-- AUTO 1 -->
+
+<article class="car reveal">
+
+<div class="car-image"
+style="background-image:url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=85')">
+
+<span class="car-tag">
+DESTACADO
+</span>
+
+</div>
+
+<div class="car-info">
+
+<small>2024 · AUTOMÁTICO · 12,000 KM</small>
+
+<h3>BMW M4</h3>
+
+<p>
+3.0L Twin Turbo · 503 HP · Interior M Sport
+</p>
+
+<div class="car-bottom">
+
+<strong class="car-price">
+$1,490,000 <small>MXN</small>
+</strong>
+
+<a class="car-button"
+href="https://wa.me/5212218158630?text=Hola%20Vortex%20Motors%2C%20me%20interesa%20el%20BMW%20M4.">
+INFO →
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- AUTO 2 -->
+
+<article class="car reveal">
+
+<div class="car-image"
+style="background-image:url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=85')">
+
+<span class="car-tag">
+PERFORMANCE
+</span>
+
+</div>
+
+<div class="car-info">
+
+<small>2023 · AUTOMÁTICO · 18,500 KM</small>
+
+<h3>PORSCHE 911</h3>
+
+<p>
+Carrera S · 443 HP · Paquete Sport Chrono
+</p>
+
+<div class="car-bottom">
+
+<strong class="car-price">
+$2,190,000 <small>MXN</small>
+</strong>
+
+<a class="car-button"
+href="https://wa.me/5212218158630?text=Hola%20Vortex%20Motors%2C%20me%20interesa%20el%20Porsche%20911.">
+INFO →
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- AUTO 3 -->
+
+<article class="car reveal">
+
+<div class="car-image"
+style="background-image:url('https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=85')">
+
+<span class="car-tag">
+PREMIUM
+</span>
+
+</div>
+
+<div class="car-info">
+
+<small>2024 · AUTOMÁTICO · 9,800 KM</small>
+
+<h3>AUDI RS5</h3>
+
+<p>
+2.9L V6 Biturbo · 444 HP · Quattro
+</p>
+
+<div class="car-bottom">
+
+<strong class="car-price">
+$1,350,000 <small>MXN</small>
+</strong>
+
+<a class="car-button"
+href="https://wa.me/5212218158630?text=Hola%20Vortex%20Motors%2C%20me%20interesa%20el%20Audi%20RS5.">
+INFO →
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EXPERIENCIA ================= -->
+
+<section class="dark-section" id="experiencia">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+LA EXPERIENCIA VORTEX
+</div>
+
+<h2>
+No vendemos<br>
+<span>solo autos.</span>
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Hacemos que comprar un vehículo premium sea
+una experiencia diferente desde el primer contacto.
+</p>
+
+</div>
+
+
+<div class="experience">
+
+<div class="experience-image reveal">
+
+<div class="experience-text">
+
+<small>
+VORTEX MOTORS
+</small>
+
+<h3>
+Drive different.
+</h3>
+
+</div>
+
+</div>
+
+
+<div class="features">
+
+<div class="feature reveal">
+
+<div class="feature-number">
+01
+</div>
+
+<h3>
+Vehículos certificados
+</h3>
+
+<p>
+Cada unidad pasa por una revisión
+antes de llegar a nuestro inventario.
+</p>
+
+</div>
+
+
+<div class="feature reveal">
+
+<div class="feature-number">
+02
+</div>
+
+<h3>
+Compra segura
+</h3>
+
+<p>
+Procesos transparentes y acompañamiento
+durante toda tu compra.
+</p>
+
+</div>
+
+
+<div class="feature reveal">
+
+<div class="feature-number">
+03
+</div>
+
+<h3>
+Garantía
+</h3>
+
+<p>
+Opciones de garantía para que disfrutes
+tu vehículo con tranquilidad.
+</p>
+
+</div>
+
+
+<div class="feature reveal">
+
+<div class="feature-number">
+04
+</div>
+
+<h3>
+Atención personalizada
+</h3>
+
+<p>
+Un asesor te acompaña para encontrar
+el vehículo ideal para ti.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FINANCIAMIENTO ================= -->
+
+<section id="financiamiento">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+FINANCIAMIENTO
+</div>
+
+<h2>
+Hazlo realidad.<br>
+<span>Hoy.</span>
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Opciones de financiamiento para que puedas
+llevarte el auto que realmente quieres.
+</p>
+
+</div>
+
+
+<div class="finance">
+
+<div class="finance-box reveal">
+
+<h3>
+Tu próximo auto<br>
+<span>está más cerca.</span>
+</h3>
+
+<p>
+Cuéntanos qué vehículo buscas y te ayudamos
+a encontrar una opción que se adapte a tu presupuesto.
+</p>
+
+<div class="finance-list">
+
+<div>
+<b>✓</b>
+Planes personalizados
+</div>
+
+<div>
+<b>✓</b>
+Enganche desde diferentes opciones
+</div>
+
+<div>
+<b>✓</b>
+Proceso rápido
+</div>
+
+<div>
+<b>✓</b>
+Asesoría personalizada
+</div>
+
+</div>
+
+<br>
+
+<a href="#contacto" class="button button-green">
+QUIERO UNA COTIZACIÓN →
+</a>
+
+</div>
+
+
+<div class="finance-image reveal"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TESTIMONIOS ================= -->
+
+<section class="dark-section">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+CLIENTES VORTEX
+</div>
+
+<h2>
+Ellos ya<br>
+<span>hicieron el cambio.</span>
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Una experiencia premium no termina
+cuando entregamos las llaves.
+</p>
+
+</div>
+
+
+<div class="testimonials">
+
+<div class="review reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Desde el primer mensaje la atención fue excelente.
+Encontraron exactamente el auto que estaba buscando
+y todo el proceso fue muy sencillo.”
+</p>
+
+<div class="reviewer">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Daniel R.</strong>
+<small>Cliente Vortex</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="review reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“El auto llegó impecable. La atención y la forma
+en que manejaron todo el proceso hicieron que
+volvería a comprar con ellos sin pensarlo.”
+</p>
+
+<div class="reviewer">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Mariana G.</strong>
+<small>Cliente Vortex</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="review reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Buscaba un deportivo específico y me ayudaron
+a encontrarlo. Muy buena experiencia y excelente
+trato.”
+</p>
+
+<div class="reviewer">
+
+<div class="avatar"></div>
+
+<div>
+<strong>Alex M.</strong>
+<small>Cliente Vortex</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACTO ================= -->
+
+<section id="contacto">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+CONTACTO
+</div>
+
+<h2>
+¿Listo para<br>
+<span>cambiar de auto?</span>
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<p>
+Déjanos tus datos y dinos qué estás buscando.
+Nuestro equipo se pondrá en contacto contigo.
+</p>
+
+</div>
+
+
+<div class="contact">
+
+
+<div class="contact-info reveal">
+
+<h2>
+Tu próximo<br>
+<span>auto comienza aquí.</span>
+</h2>
+
+<p>
+Cuéntanos qué vehículo tienes en mente,
+tu presupuesto o simplemente qué tipo de
+auto estás buscando.
+</p>
+
+<div class="contact-item">
+<span>WHATSAPP</span>
+<strong>221 815 8630</strong>
+</div>
+
+<div class="contact-item">
+<span>HORARIO</span>
+<strong>Lun — Sáb · 10:00 — 20:00</strong>
+</div>
+
+<div class="contact-item">
+<span>UBICACIÓN</span>
+<strong>Puebla, México</strong>
+</div>
+
+</div>
+
+
+<div class="contact-form reveal">
+
+<h3>
+Solicita información
+</h3>
+
+<form id="contactForm">
+
+<input
+type="text"
+id="nombre"
+placeholder="Nombre completo"
+required
+>
+
+<input
+type="tel"
+id="telefono"
+placeholder="Teléfono / WhatsApp"
+required
+>
+
+<select id="tipo">
+
+<option value="">
+¿Qué estás buscando?
+</option>
+
+<option>Auto deportivo</option>
+<option>Auto premium</option>
+<option>SUV premium</option>
+<option>Seminuevo</option>
+<option>Quiero vender mi auto</option>
+<option>Otro</option>
+
+</select>
+
+<textarea
+id="mensaje"
+placeholder="Cuéntanos qué auto estás buscando..."
+></textarea>
+
+<button
+type="submit"
+class="button button-green submit"
+>
+ENVIAR POR WHATSAPP →
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container footer">
+
+<div>
+© 2026 VORTEX MOTORS
+</div>
+
+<div>
+PREMIUM AUTOMOTIVE · PUEBLA, MÉXICO
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* NAVBAR */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 40){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+
+/* ANIMACIONES AL HACER SCROLL */
+
+const observer = new IntersectionObserver(
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+
+/* FORMULARIO → WHATSAPP */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const nombre =
+    document.getElementById("nombre").value;
+
+    const telefono =
+    document.getElementById("telefono").value;
+
+    const tipo =
+    document.getElementById("tipo").value;
+
+    const mensaje =
+    document.getElementById("mensaje").value;
+
+
+    const texto =
+`Hola Vortex Motors 👋
+
+Mi nombre es: ${nombre}
+
+Mi teléfono: ${telefono}
+
+Estoy buscando: ${tipo}
+
+Mensaje:
+${mensaje}`;
+
+
+    const url =
+    "https://wa.me/5212218158630?text="
+    + encodeURIComponent(texto);
+
+
+    window.open(url,"_blank");
+
+});
+
+
+/* EFECTO SUAVE EN BOTONES */
+
+document.querySelectorAll("a[href^='#']").forEach(link => {
+
+    link.addEventListener("click",function(e){
+
+        const target =
+        document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
